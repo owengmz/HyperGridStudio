@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hyper Grid Studio | Professional Web Solutions</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Cursor personalizado (elemento que sigue al puntero) -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- Superposicion de ruido para efecto de textura -->
+  <div class="noise-overlay"></div>
+
+  <!-- Encabezado (barra superior fija con navegacion) -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a class="logo" href="#">
+        <img src="/img/HG_Bouquet-removebg-preview.png" alt="HyperGrid.Studio Logo" class="logo-icon" />
+      </a>
+      <nav class="nav" id="nav">
+        <a class="nav-link" href="#services">Servicios</a>
+        <a class="nav-link" href="#portfolio">Portafolio</a>
+        <a class="nav-link" href="#pricing">Precios</a>
+        <a class="nav-link" href="#contact">Contacto</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-primary" href="#contact" id="ctaBtn">Contrátame</a>
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu movil desplegable -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a class="mobile-nav-link" href="#services">Servicios</a>
+      <a class="mobile-nav-link" href="#portfolio">Portafolio</a>
+      <a class="mobile-nav-link" href="#pricing">Precios</a>
+      <a class="mobile-nav-link" href="#contact">Contacto</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Seccion principal (Hero) con llamado a la accion -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+
+      <div class="container hero-inner">
+        <div class="hero-content reveal-up">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Disponible para nuevos proyectos
+          </div>
+          <h1 class="hero-title">
+            Construye tu<br />
+            <span class="hero-title-accent" id="heroAccent">Futuro Digital</span>
+          </h1>
+          <p class="hero-desc">
+            Soluciones web modernas y de alto rendimiento adaptadas a tus objetivos comerciales. Especializado en React,
+            Next.js y arquitecturas escalables que convierten usuarios en clientes.
+          </p>
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-lg magnetic" href="#portfolio">Ver Portafolio</button>
+            <a href="#contact"><button class="btn btn-ghost btn-lg">Agendar Llamada</button></a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num" data-target="48">0</span><span class="stat-suffix">+</span>
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num" data-target="99">0</span><span class="stat-suffix">%</span>
+              <span class="stat-label">Satisfacción</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num" data-target="5">0</span><span class="stat-suffix">★</span>
+              <span class="stat-label">Calificación</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-right">
+          <div class="hero-card-wrapper">
+            <div class="hero-card">
+              <div class="hero-card-glow"></div>
+              <img src="/img/michael-baccin-XopauR-Nagk-unsplash.jpg" class="hero-img" />
+              <div class="hero-card-overlay"></div>
+            </div>
+            <!-- Chips flotantes (orbitales de tecnologia) -->
+            <div class="floating-chip chip-3">
+              <span class="material-symbols-outlined">star</span> 5.0 Rating
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de desplazamiento hacia abajo -->
+      <div class="scroll-indicator">
+        <div class="scroll-wheel"></div>
+      </div>
+    </section>
+
+    <!-- Seccion 'Con la confianza de' – logos de clientes -->
+    <section class="trusted">
+      <div class="container">
+        <p class="trusted-label">CON LA CONFIANZA DE LÍDERES DE LA INDUSTRIA</p>
+        <div class="marquee-wrapper">
+          <div class="marquee">
+            <div class="marquee-item"><span class="material-symbols-outlined">data_object</span> TechFlow</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Lumina UI</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">data_object</span> TechFlow</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Lumina UI</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seccion de servicios ofrecidos -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Lo que hago</span>
+          <h2 class="section-title">Servicios <span class="text-accent">Premium</span></h2>
+          <p class="section-desc">Cada proyecto es construido con las últimas tecnologías y mejores prácticas para
+            garantizar resultados excepcionales.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-up" style="--delay:0.1s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">web</span></div>
+            <h3>Diseño Web</h3>
+            <p>Interfaces modernas, atractivas y centradas en la experiencia del usuario.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.2s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">shopping_bag</span></div>
+            <h3>E-Commerce</h3>
+            <p>Tiendas online optimizadas para conversiones y con gestión simplificada.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.3s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">phone_iphone</span></div>
+            <h3>Diseño Responsive</h3>
+            <p>Experiencias perfectas en cualquier dispositivo, pantalla o resolución.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.4s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">speed</span></div>
+            <h3>Optimización</h3>
+            <p>Máximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Lo que hago</span>
+          <h2 class="section-title">Servicios <span class="text-accent">Premium</span></h2>
+          <p class="section-desc">Cada proyecto es construido con las últimas tecnologías y mejores prácticas para
+            garantizar resultados excepcionales.</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal-up" style="--delay:0.1s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">web</span></div>
+            <h3>Diseño Web</h3>
+            <p>Interfaces modernas, atractivas y centradas en la experiencia del usuario.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.2s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">shopping_bag</span></div>
+            <h3>E-Commerce</h3>
+            <p>Tiendas online optimizadas para conversiones y con gestión simplificada.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.3s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">phone_iphone</span></div>
+            <h3>Diseño Responsive</h3>
+            <p>Experiencias perfectas en cualquier dispositivo, pantalla o resolución.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.4s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">speed</span></div>
+            <h3>Optimización</h3>
+            <p>Máximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Inversión</span>
+          <h2 class="section-title">Precios <span class="text-accent">Transparentes</span></h2>
+          <p class="section-desc">Desde una página simple hasta proyectos 100% personalizados. Sin sorpresas, sin letras
+            chicas.</p>
+        </div>
+        <div class="pricing-grid">
+
+
+          <!-- Plan 2: Tienda Online — destacado -->
+          <div class="pricing-card reveal-up" style="--delay:0.1s">
+            <div class="pricing-header">
+              <span class="pricing-icon"><span class="material-symbols-outlined">rocket_launch</span></span>
+              <h3>Tienda Online</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">$400.000</span>
+              <span class="price-period">Ars · Precio según complejidad</span>
+            </div>
+            <p class="pricing-desc">Perfecto para negocios de ropa, accesorios o cualquier producto físico que quiera
+              vender online.</p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined">check_circle</span> Hasta 20 productos</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Pasarela de pagos integrada</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Panel de administración</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Gestión de inventario</li>
+              <li><span class="material-symbols-outlined">check_circle</span> 1 mes de soporte incluido</li>
+            </ul>
+            <a class="btn btn-primary w-full" href="#contact">Quiero mi Tienda</a>
+          </div>
+          <!-- Plan 1: Landing Page -->
+
+          <div class="pricing-card pricing-featured reveal-up" style="--delay:0.2s">
+            <div class="pricing-badge">Más Popular</div>
+            <div class="pricing-glow"></div>
+            <div class="pricing-header">
+              <span class="pricing-icon"><span class="material-symbols-outlined">storefront</span></span>
+              <h3>Landing Page</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">$100.000</span>
+              <span class="price-period">Ars · oferta única</span>
+            </div>
+            <p class="pricing-desc">Ideal para emprendedores, profesionales y cualquier persona que necesite presencia
+              online rápida.</p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined">check_circle</span> Diseño de página única</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Adaptable a móviles (responsive)</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Botón de WhatsApp y redes sociales</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Formulario de contacto</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Entrega en menos de 7 días</li>
+            </ul>
+            <a class="btn btn-outline w-full" href="#contact">Quiero mi Landing</a>
+          </div>
+
+
+          <!-- Plan 3: Proyecto Personalizado -->
+          <div class="pricing-card reveal-up" style="--delay:0.3s">
+            <div class="pricing-header">
+              <span class="pricing-icon"><span class="material-symbols-outlined">auto_awesome</span></span>
+              <h3>Proyecto Personalizado</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">A consultar</span>
+              <span class="price-period">según complejidad</span>
+            </div>
+            <p class="pricing-desc">Para ideas únicas: llaveros QR con perfil de mascota, directorios, reservas,
+              portafolios especiales y más.</p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined">check_circle</span> Funcionalidad 100% a medida</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Base de datos si se necesita</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Panel de administración</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Optimización de velocidad</li>
+              <li><span class="material-symbols-outlined">check_circle</span> 3 meses de soporte</li>
+            </ul>
+            <a class="btn btn-outline w-full" href="#contact">Contarme mi idea</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Seccion de contacto con formulario y redes sociales -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card reveal-up">
+          <div class="contact-glow-1"></div>
+          <div class="contact-glow-2"></div>
+          <div class="contact-grid">
+            <div class="contact-info">
+              <span class="section-tag">Contacto</span>
+              <h2 class="section-title">Empecemos tu <span class="text-accent">proyecto</span></h2>
+              <p class="section-desc">¿Listo para transformar tu visión en realidad? Conéctate conmigo a través de tu
+                plataforma favorita.</p>
+              <div class="social-links">
+                <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank">
+                  <span class="material-symbols-outlined">camera</span>
+                  <span>Instagram</span>
+                </a>
+                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank">
+                  <span class="material-symbols-outlined">video_library</span>
+                  <span>TikTok</span>
+                </a>
+                <a class="social-btn social-btn-primary"
+                  href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaría%20cotizar%20un%20proyecto%20web"
+                  target="_blank">
+                  <span class="material-symbols-outlined">chat</span>
+                  <span>Chat por WhatsApp</span>
+                </a>
+              </div>
+            </div>
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqeykldg" method="POST"
+              novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nombre Completo</label>
+                  <input type="text" id="name" name="name" placeholder="Juan Pérez" autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo Electrónico</label>
+                  <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" autocomplete="email" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Detalles del Proyecto</label>
+                <textarea id="message" name="message" rows="4" placeholder="Cuéntame sobre tu proyecto..."></textarea>
+              </div>
+              <button class="btn btn-primary w-full btn-lg" type="submit" id="submitBtn">
+                <span class="btn-text">Enviar Mensaje</span>
+                <span class="btn-icon"><span class="material-symbols-outlined">send</span></span>
+              </button>
+              <div class="form-success" id="formSuccess">
+                <span class="material-symbols-outlined">check_circle</span>
+                ¡Mensaje enviado! Te responderé pronto.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de pagina con enlaces y derechos de autor -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="logo" href="#">
+        <img src="/img/HG_Bouquet-removebg-preview.png" alt="HyperGrid.Studio Logo" class="logo-icon" />
+      </a>
+      <nav class="footer-nav">
+        <a href="#">Sobre mí</a>
+        <a href="#services">Servicios</a>
+        <a href="#portfolio">Portafolio</a>
+        <a href="#">Política de Privacidad</a>
+      </nav>
+      <p class="footer-copy">© 2026 Hyper Grid Studio. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
