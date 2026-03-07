@@ -55,7 +55,6 @@ img {
 }
 
 button {
-  cursor: none;
   border: none;
   background: none;
   font-family: inherit;
@@ -160,6 +159,13 @@ body:has(a:hover) .cursor-trail {
   transition: opacity var(--transition);
 
 
+}
+
+.logo-icon {
+  height: 56px;
+  width: auto;
+  object-fit: contain;
+  transition: transform var(--transition-spring);
 }
 
 .logo:hover {
@@ -552,18 +558,6 @@ body:has(a:hover) .cursor-trail {
   color: var(--primary);
   position: relative;
   display: inline-block;
-}
-
-
-
-@keyframes lineGrow {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
 }
 
 .hero-desc {
@@ -1086,7 +1080,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   CONTACT SECTION
+   SECCIÓN DE CONTACTO
 =========================== */
 .contact {
   padding: 120px 0;
@@ -1428,7 +1422,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   SCROLL REVEAL ANIMATIONS
+   ANIMACIONES DE REVELADO
 =========================== */
 .reveal-up {
   opacity: 0;
@@ -1529,6 +1523,17 @@ body:has(a:hover) .cursor-trail {
 
   .hamburger {
     display: flex;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-surface);
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+
+  .hamburger span {
+    background: #ffffff;
+    height: 2px;
+    width: 100%;
   }
 
   .services-grid {
@@ -1546,11 +1551,6 @@ body:has(a:hover) .cursor-trail {
 
   .form-row {
     grid-template-columns: 1fr;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-    text-align: center;
   }
 
   .footer-nav {
@@ -1579,7 +1579,7 @@ body:has(a:hover) .cursor-trail {
 
   /* Fix header altura y acciones */
   .header-inner {
-    height: 80px;
+    height: auto;
   }
 
   .header-actions {
@@ -1603,10 +1603,6 @@ body:has(a:hover) .cursor-trail {
     padding: 3px 10px;
   }
 
-  /* Fix overflow horizontal */
-  .contact-card {
-    overflow: hidden;
-  }
 }
 
 @media (max-width: 480px) {
