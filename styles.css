@@ -161,12 +161,7 @@ body:has(a:hover) .cursor-trail {
 
 }
 
-.logo-icon {
-  height: 56px;
-  width: auto;
-  object-fit: contain;
-  transition: transform var(--transition-spring);
-}
+
 
 .logo:hover {
   opacity: 0.8;
