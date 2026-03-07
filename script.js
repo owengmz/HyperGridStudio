@@ -332,3 +332,27 @@ document.addEventListener('DOMContentLoaded', () => {
   document.head.appendChild(activeStyle);
 
 });
+/* ─────────────────────────────────────────
+     MODAL POLÍTICA DE PRIVACIDAD
+  ───────────────────────────────────────── */
+const privacyLink = document.getElementById('privacyLink');
+const privacyModal = document.getElementById('privacyModal');
+const modalClose = document.getElementById('modalClose');
+
+privacyLink.addEventListener('click', e => {
+  e.preventDefault();
+  privacyModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+});
+
+modalClose.addEventListener('click', () => {
+  privacyModal.classList.remove('open');
+  document.body.style.overflow = '';
+});
+
+privacyModal.addEventListener('click', e => {
+  if (e.target === privacyModal) {
+    privacyModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
