@@ -1,10 +1,5 @@
 /* ===========================
    VARIABLES CSS Y RESET
-<<<<<<< HEAD
-   Las variables criticas estan en el <style> inline del HTML.
-   Aqui solo el CSS no critico (below the fold y estilos secundarios).
-=======
->>>>>>> parent of 1b6254f (optimizacion)
 =========================== */
 :root {
   --primary: #10b981;
@@ -73,8 +68,6 @@ button {
 
 /* ===========================
    CURSOR PERSONALIZADO
-   Sin cambios de logica, pero el JS ahora solo lo activa en desktop.
-   En movil el CSS critico ya lo oculta con display:none desde el inicio.
 =========================== */
 .cursor {
   position: fixed;
@@ -129,9 +122,6 @@ body:has(a:hover) .cursor-trail {
 
 /* ===========================
    ENCABEZADO
-   MODIFICADO: se elimino height:150px (era demasiado alto y causaba
-   que en movil el header ocupara demasiado espacio visual).
-   Ahora la altura se define en el CSS critico como 72px desktop / 64px movil.
 =========================== */
 .header {
   position: sticky;
@@ -149,13 +139,6 @@ body:has(a:hover) .cursor-trail {
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
 }
 
-<<<<<<< HEAD
-/*
-  MODIFICADO: height y min-height ahora estan en el CSS critico inline del HTML.
-  No se repiten aqui para evitar que styles.css sobreescriba el valor critico
-  antes de que el layout este establecido.
-*/
-=======
 .header-inner {
   display: flex;
   align-items: center;
@@ -180,7 +163,6 @@ body:has(a:hover) .cursor-trail {
 
 
 
->>>>>>> parent of 1b6254f (optimizacion)
 .logo:hover {
   opacity: 0.8;
 }
@@ -190,9 +172,6 @@ body:has(a:hover) .cursor-trail {
   transform: rotate(15deg) scale(1.1);
 }
 
-<<<<<<< HEAD
-/* Hamburgesa */
-=======
 .nav {
   flex: 1;
   display: flex;
@@ -240,7 +219,6 @@ body:has(a:hover) .cursor-trail {
 
 /* Hamburguesa */
 
->>>>>>> parent of 1b6254f (optimizacion)
 .hamburger {
   display: none;
   flex-direction: column;
@@ -316,6 +294,20 @@ body:has(a:hover) .cursor-trail {
 /* ===========================
    BOTONES
 =========================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
 .btn::before {
   content: '';
   position: absolute;
@@ -328,6 +320,20 @@ body:has(a:hover) .cursor-trail {
 
 .btn:hover::before {
   transform: scaleX(1);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 24px var(--primary-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px var(--primary-glow);
+  background: var(--primary-dark);
 }
 
 .btn-primary:active {
@@ -418,6 +424,15 @@ body:has(a:hover) .cursor-trail {
 /* ===========================
    SECCION HERO
 =========================== */
+.hero {
+  position: relative;
+  padding: 80px 0 120px;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
 .hero-bg-grid {
   position: absolute;
   inset: 0;
@@ -462,6 +477,15 @@ body:has(a:hover) .cursor-trail {
   to {
     transform: translate(30px, 20px) scale(1.1);
   }
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -515,6 +539,20 @@ body:has(a:hover) .cursor-trail {
     transform: scale(1.8);
     opacity: 0;
   }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero-title-accent {
+  color: var(--primary);
+  position: relative;
+  display: inline-block;
 }
 
 .hero-desc {
@@ -574,11 +612,6 @@ body:has(a:hover) .cursor-trail {
   position: relative;
 }
 
-/*
-  MODIFICADO: se agrego will-change:transform para que el navegador cree
-  una capa de composicion separada para esta animacion, evitando que
-  el reflow del resto de la pagina afecte la animacion.
-*/
 .hero-card-wrapper {
   position: relative;
   animation: heroFloat 6s ease-in-out infinite;
@@ -597,10 +630,14 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
-/*
-  MODIFICADO: hero-card y hero-img ahora estan en el CSS critico inline.
-  Los estilos que siguen complementan los criticos sin reemplazarlos.
-*/
+.hero-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 10 / 14;
+}
+
 .hero-card-glow {
   position: absolute;
   inset: -2px;
@@ -611,10 +648,17 @@ body:has(a:hover) .cursor-trail {
   filter: blur(8px);
 }
 
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: opacity 0.5s, transform 0.8s;
+}
+
 .hero-card:hover .hero-img {
   opacity: 1;
   transform: scale(1.04);
-  transition: opacity 0.5s, transform 0.8s;
 }
 
 .hero-card-overlay {
@@ -664,12 +708,8 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
-<<<<<<< HEAD
-/* Indicador de scroll */
-=======
 /* Indicador de desplazamiento */
 
->>>>>>> parent of 1b6254f (optimizacion)
 .scroll-indicator {
   position: absolute;
   bottom: 36px;
@@ -717,11 +757,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   MARQUEE (CONFIANZA DE)
-   MODIFICADO: se agrego content-visibility:auto para secciones below the fold.
-   POR QUE: le dice al navegador que puede omitir el renderizado de esta seccion
-   cuando esta fuera del viewport, reduciendo el trabajo de layout y paint inicial.
-   contain-intrinsic-size es el tamano estimado para que el scroll sea correcto.
+   CON LA CONFIANZA DE (MARQUEE)
 =========================== */
 .trusted {
   padding: 40px 0;
@@ -729,11 +765,6 @@ body:has(a:hover) .cursor-trail {
   border-bottom: 1px solid var(--border);
   background: var(--bg-card);
   overflow: hidden;
-<<<<<<< HEAD
-  content-visibility: auto;
-  contain-intrinsic-size: 0 120px;
-=======
->>>>>>> parent of 1b6254f (optimizacion)
 }
 
 .trusted-label {
@@ -752,19 +783,11 @@ body:has(a:hover) .cursor-trail {
   -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
 }
 
-/*
-  MODIFICADO: will-change:transform en el marquee para que su animacion
-  corra en el compositor del navegador (GPU) y no bloquee el hilo principal.
-*/
 .marquee {
   display: flex;
   gap: 56px;
   width: max-content;
   animation: marquee 20s linear infinite;
-<<<<<<< HEAD
-  will-change: transform;
-=======
->>>>>>> parent of 1b6254f (optimizacion)
 }
 
 .marquee-item {
@@ -798,9 +821,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   SECCION SERVICIOS
-   MODIFICADO: content-visibility:auto para diferir el renderizado
-   de secciones que no estan visibles al cargar la pagina.
+   SECCION DE SERVICIOS
 =========================== */
 .services {
   padding: 120px 0;
@@ -909,8 +930,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   SECCION PRECIOS
-   MODIFICADO: content-visibility:auto igual que servicios.
+   SECCION DE PRECIOS
 =========================== */
 .pricing {
   padding: 120px 0;
@@ -1055,12 +1075,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-<<<<<<< HEAD
-   SECCION CONTACTO
-   MODIFICADO: content-visibility:auto igual que las otras secciones.
-=======
    SECCIÓN DE CONTACTO
->>>>>>> parent of 1b6254f (optimizacion)
 =========================== */
 .contact {
   padding: 120px 0;
@@ -1164,12 +1179,8 @@ body:has(a:hover) .cursor-trail {
   box-shadow: 0 10px 32px var(--primary-glow);
 }
 
-<<<<<<< HEAD
-/* Formulario */
-=======
 /* Formulario de contacto */
 
->>>>>>> parent of 1b6254f (optimizacion)
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -1303,32 +1314,24 @@ body:has(a:hover) .cursor-trail {
 /* ===========================
    MODAL PRIVACIDAD
 =========================== */
-/*
-  MODIFICADO: se cambio display:flex + opacity:0 por display:none.
-  POR QUE: con opacity:0 el elemento existe en el DOM y el navegador
-  lo renderiza en el primer frame antes de aplicar la opacidad,
-  causando el flash visible por milisegundas al cargar la pagina.
-  Con display:none el elemento no existe en el layout y no puede flashear.
-  La animacion de entrada se mantiene porque .open aplica display:flex
-  y opacity:1 al mismo tiempo, el navegador hace el fade correctamente.
-*/
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(6px);
   z-index: 999;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .modal-overlay.open {
-  display: flex;
   opacity: 1;
+  pointer-events: all;
 }
 
 .modal-card {
@@ -1431,12 +1434,6 @@ body:has(a:hover) .cursor-trail {
   will-change: opacity, transform;
 }
 
-/*
-  MODIFICADO: will-change se resetea a auto una vez que el elemento es visible.
-  POR QUE: will-change consume memoria de GPU. Mantenerlo activo en todos los
-  elementos de forma permanente degrada el rendimiento. Una vez que la animacion
-  termino no hay razon para seguir reservando esa capa en la GPU.
-*/
 .reveal-up.visible,
 .reveal-right.visible {
   opacity: 1;
@@ -1444,6 +1441,9 @@ body:has(a:hover) .cursor-trail {
   will-change: auto;
 }
 
+/* ===========================
+   UTILITY ANIMATIONS
+=========================== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1457,7 +1457,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   RESPONSIVE — TABLET (max-width: 1024px)
+   RESPONSIVE
 =========================== */
 @media (max-width: 1024px) {
   .hero-inner {
@@ -1511,13 +1511,6 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
-/* ===========================
-   RESPONSIVE — MOVIL (max-width: 768px)
-   MODIFICADO: se unificaron y corrigieron los estilos movil.
-   Los valores de header-inner, logo y logo-icon estan tanto aqui
-   como en el CSS critico inline para garantizar que apliquen desde
-   el primer paint sin esperar a que styles.css se descargue.
-=========================== */
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -1540,6 +1533,11 @@ body:has(a:hover) .cursor-trail {
 
   .services-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 60px 0 80px;
+    min-height: auto;
   }
 
   .contact-card {
@@ -1569,24 +1567,14 @@ body:has(a:hover) .cursor-trail {
     align-items: center;
   }
 
-<<<<<<< HEAD
-  /* Logo del footer centrado en movil */
-  .footer .logo {
-=======
   /* Fix logo grande en header */
   .logo {
->>>>>>> parent of 1b6254f (optimizacion)
     justify-content: center;
   }
 
   /* Fix header altura y acciones */
   .header-inner {
-<<<<<<< HEAD
-    height: 64px;
-    min-height: 64px;
-=======
     height: auto;
->>>>>>> parent of 1b6254f (optimizacion)
   }
 
   .header-actions {
@@ -1612,9 +1600,6 @@ body:has(a:hover) .cursor-trail {
 
 }
 
-/* ===========================
-   RESPONSIVE — MOVIL PEQUENO (max-width: 480px)
-=========================== */
 @media (max-width: 480px) {
   .hero-actions {
     flex-direction: column;
