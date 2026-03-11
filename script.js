@@ -789,10 +789,6 @@ document.addEventListener('DOMContentLoaded', () => {
    igual porque los scripts con defer se ejecutan despues de que el DOM
    esta completamente parseado.
 ----------------------------------------- */
-const privacyLink = document.getElementById('privacyLink');
-const privacyModal = document.getElementById('privacyModal');
-const modalClose = document.getElementById('modalClose');
-
 if (privacyLink && privacyModal && modalClose) {
   privacyLink.addEventListener('click', e => {
     e.preventDefault();
