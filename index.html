@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hyper Grid Studio | Professional Web Solutions</title>
+<<<<<<< HEAD
 
   <!--
     LINEAS MODIFICADAS: se eliminaron los 2 <link> de Google Fonts que estaban aqui
@@ -355,10 +356,20 @@
     }
   </style>
 
+=======
+  <link rel="stylesheet" href="styles.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet" />
+>>>>>>> parent of 1b6254f (optimizacion)
 </head>
 
 <body>
 
+<<<<<<< HEAD
   <!--
     LINEAS SIN CAMBIO: cursor y cursor-trail se mantienen en el HTML pero el JS
     los activa SOLO en dispositivos con puntero fino (desktop), no en moviles.
@@ -366,12 +377,20 @@
   -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+=======
+  <!-- Cursor personalizado (elemento que sigue al puntero) -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+>>>>>>> parent of 1b6254f (optimizacion)
 
-  <div class="noise-overlay" aria-hidden="true"></div>
+  <!-- Superposicion de ruido para efecto de textura -->
+  <div class="noise-overlay"></div>
 
+  <!-- Encabezado (barra superior fija con navegacion) -->
   <header class="header" id="header">
     <div class="container header-inner">
       <a class="logo" href="#">
+<<<<<<< HEAD
         <!--
           LINEAS MODIFICADAS: width="140" height="40" y fetchpriority="high" en el logo.
 
@@ -392,6 +411,12 @@
       </a>
 
       <nav class="nav" id="nav" aria-label="Navegacion principal">
+=======
+        <img src="/img/Generated_Image_March_11__2026_-_12_19PM-removebg-preview.png" alt="HyperGrid.Studio Logo"
+          class="logo-icon" />
+      </a>
+      <nav class="nav" id="nav">
+>>>>>>> parent of 1b6254f (optimizacion)
         <a class="nav-link" href="#services">Servicios</a>
         <a class="nav-link" href="#portfolio">Portafolio</a>
         <a class="nav-link" href="#pricing">Precios</a>
@@ -400,18 +425,23 @@
 
       <div class="header-actions">
         <a class="btn btn-primary" href="#contact" id="ctaBtn">Contrátame</a>
+<<<<<<< HEAD
         <!--
           LINEA MODIFICADA: se agrego aria-expanded="false" al boton hamburguesa.
           POR QUE: mejora la accesibilidad indicando a lectores de pantalla si el
           menu esta abierto o cerrado. El JS actualiza este valor al hacer clic.
         -->
         <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+=======
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+>>>>>>> parent of 1b6254f (optimizacion)
           <span></span><span></span><span></span>
         </button>
       </div>
     </div>
   </header>
 
+<<<<<<< HEAD
   <!--
     LINEA MODIFICADA: se agrego aria-hidden="true" al menu movil.
     POR QUE: cuando el menu esta cerrado no debe ser leido por lectores de pantalla.
@@ -419,6 +449,11 @@
   -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav class="mobile-nav" aria-label="Menu movil">
+=======
+  <!-- Menu movil desplegable -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+>>>>>>> parent of 1b6254f (optimizacion)
       <a class="mobile-nav-link" href="#services">Servicios</a>
       <a class="mobile-nav-link" href="#portfolio">Portafolio</a>
       <a class="mobile-nav-link" href="#pricing">Precios</a>
@@ -427,16 +462,20 @@
   </div>
 
   <main>
+<<<<<<< HEAD
 
+=======
+    <!-- Seccion principal (Hero) con llamado a la accion -->
+>>>>>>> parent of 1b6254f (optimizacion)
     <section class="hero" id="hero">
-      <div class="hero-bg-grid" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
-      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
 
       <div class="container hero-inner">
         <div class="hero-content reveal-up">
           <div class="badge">
-            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-dot"></span>
             Disponible para nuevos proyectos
           </div>
           <h1 class="hero-title">
@@ -444,8 +483,8 @@
             <span class="hero-title-accent" id="heroAccent">Futuro Digital</span>
           </h1>
           <p class="hero-desc">
-            Soluciones web modernas y de alto rendimiento adaptadas a tus objetivos comerciales.
-            Especializado en React, Next.js y arquitecturas escalables que convierten usuarios en clientes.
+            Soluciones web modernas y de alto rendimiento adaptadas a tus objetivos comerciales. Especializado en React,
+            Next.js y arquitecturas escalables que convierten usuarios en clientes.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary btn-lg magnetic" href="#portfolio">Ver Portafolio</a>
@@ -456,12 +495,12 @@
               <span class="stat-num" data-target="48">0</span><span class="stat-suffix">+</span>
               <span class="stat-label">Proyectos</span>
             </div>
-            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-divider"></div>
             <div class="stat">
               <span class="stat-num" data-target="99">0</span><span class="stat-suffix">%</span>
               <span class="stat-label">Satisfaccion</span>
             </div>
-            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-divider"></div>
             <div class="stat">
               <span class="stat-num" data-target="5">0</span><span class="stat-suffix">★</span>
               <span class="stat-label">Calificacion</span>
@@ -472,6 +511,7 @@
         <div class="hero-visual reveal-right">
           <div class="hero-card-wrapper">
             <div class="hero-card">
+<<<<<<< HEAD
               <div class="hero-card-glow" aria-hidden="true"></div>
               <!--
                 LINEAS MODIFICADAS: imagen principal del hero (elemento LCP).
@@ -497,21 +537,30 @@
               <img src="/img/michael-baccin-XopauR-Nagk-unsplash.webp" alt="Workspace moderno de desarrollo web"
                 class="hero-img" width="600" height="840" fetchpriority="high" sizes="(max-width: 768px) 90vw, 50vw" />
               <div class="hero-card-overlay" aria-hidden="true"></div>
+=======
+              <div class="hero-card-glow"></div>
+              <img src="/img/michael-baccin-XopauR-Nagk-unsplash.jpg" alt="Workspace moderno" class="hero-img" />
+              <div class="hero-card-overlay"></div>
+>>>>>>> parent of 1b6254f (optimizacion)
             </div>
-            <div class="floating-chip chip-3" aria-hidden="true">
+            <!-- Chips flotantes (orbitales de tecnologia) -->
+            <div class="floating-chip chip-3">
               <span class="material-symbols-outlined">star</span> 5.0 Rating
             </div>
           </div>
         </div>
       </div>
 
-      <div class="scroll-indicator" aria-hidden="true">
+      <!-- Indicador de desplazamiento hacia abajo -->
+      <div class="scroll-indicator">
         <div class="scroll-wheel"></div>
       </div>
     </section>
 
-    <section class="trusted" aria-label="Clientes de confianza">
+    <!-- Seccion 'Con la confianza de' – logos de clientes -->
+    <section class="trusted">
       <div class="container">
+<<<<<<< HEAD
         <p class="trusted-label">CON LA CONFIANZA DE LIDERES DE LA INDUSTRIA</p>
         <!--
           LINEA MODIFICADA: aria-hidden="true" en el marquee.
@@ -519,9 +568,13 @@
           leer esta lista repetida de nombres dos veces seguidas.
         -->
         <div class="marquee-wrapper" aria-hidden="true">
+=======
+        <p class="trusted-label">CON LA CONFIANZA DE LÍDERES DE LA INDUSTRIA</p>
+        <div class="marquee-wrapper">
+>>>>>>> parent of 1b6254f (optimizacion)
           <div class="marquee">
             <div class="marquee-item"><span class="material-symbols-outlined">data_object</span> TechFlow</div>
-            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Wood Designs</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Wood Desings</div>
             <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
             <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
             <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
@@ -535,6 +588,7 @@
       </div>
     </section>
 
+    <!-- Seccion de servicios ofrecidos -->
     <section class="services" id="services">
       <div class="container">
         <div class="section-header reveal-up">
@@ -545,16 +599,20 @@
         </div>
         <div class="services-grid">
           <div class="service-card reveal-up" style="--delay:0.1s">
+<<<<<<< HEAD
             <div class="service-icon-wrap"><span class="material-symbols-outlined" aria-hidden="true">web</span></div>
             <h3>Diseno Web</h3>
+=======
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">web</span></div>
+            <h3>Diseño Web</h3>
+>>>>>>> parent of 1b6254f (optimizacion)
             <p>Interfaces modernas, atractivas y centradas en la experiencia del usuario.</p>
-            <div class="service-arrow" aria-hidden="true"><span class="material-symbols-outlined">arrow_forward</span>
-            </div>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
           </div>
           <div class="service-card reveal-up" style="--delay:0.2s">
-            <div class="service-icon-wrap"><span class="material-symbols-outlined"
-                aria-hidden="true">shopping_bag</span></div>
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">shopping_bag</span></div>
             <h3>E-Commerce</h3>
+<<<<<<< HEAD
             <p>Tiendas online optimizadas para conversiones y con gestion simplificada.</p>
             <div class="service-arrow" aria-hidden="true"><span class="material-symbols-outlined">arrow_forward</span>
             </div>
@@ -573,11 +631,27 @@
             <p>Maximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
             <div class="service-arrow" aria-hidden="true"><span class="material-symbols-outlined">arrow_forward</span>
             </div>
+=======
+            <p>Tiendas online optimizadas para conversiones y con gestión simplificada.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.3s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">phone_iphone</span></div>
+            <h3>Diseño Responsive</h3>
+            <p>Experiencias perfectas en cualquier dispositivo, pantalla o resolución.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.4s">
+            <div class="service-icon-wrap"><span class="material-symbols-outlined">speed</span></div>
+            <h3>Optimización</h3>
+            <p>Máximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
+            <div class="service-arrow"><span class="material-symbols-outlined">arrow_forward</span></div>
+>>>>>>> parent of 1b6254f (optimizacion)
           </div>
         </div>
       </div>
     </section>
-
+    <!-- Pricing Section -->
     <section class="pricing" id="pricing">
       <div class="container">
         <div class="section-header reveal-up">
@@ -588,10 +662,14 @@
         </div>
         <div class="pricing-grid">
 
+<<<<<<< HEAD
+=======
+
+          <!-- Plan 1: Tienda Online — destacado -->
+>>>>>>> parent of 1b6254f (optimizacion)
           <div class="pricing-card reveal-up" style="--delay:0.1s">
             <div class="pricing-header">
-              <span class="pricing-icon"><span class="material-symbols-outlined"
-                  aria-hidden="true">rocket_launch</span></span>
+              <span class="pricing-icon"><span class="material-symbols-outlined">rocket_launch</span></span>
               <h3>Tienda Online</h3>
             </div>
             <div class="pricing-price">
@@ -601,6 +679,7 @@
             <p class="pricing-desc">Perfecto para negocios de ropa, accesorios o cualquier producto fisico que quiera
               vender online.</p>
             <ul class="pricing-features">
+<<<<<<< HEAD
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Hasta 20 productos</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Pasarela de pagos
                 integrada</li>
@@ -610,16 +689,28 @@
               </li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 1 mes de soporte
                 incluido</li>
+=======
+              <li><span class="material-symbols-outlined">check_circle</span> Hasta 20 productos</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Pasarela de pagos integrada</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Panel de administración</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Gestión de inventario</li>
+              <li><span class="material-symbols-outlined">check_circle</span> 1 mes de soporte incluido</li>
+>>>>>>> parent of 1b6254f (optimizacion)
             </ul>
             <a class="btn btn-primary w-full" href="#contact">Quiero mi Tienda</a>
           </div>
+          <!-- Plan 1: Landing Page -->
 
           <div class="pricing-card pricing-featured reveal-up" style="--delay:0.2s">
+<<<<<<< HEAD
             <div class="pricing-badge">Mas Popular</div>
             <div class="pricing-glow" aria-hidden="true"></div>
+=======
+            <div class="pricing-badge">Más Popular</div>
+            <div class="pricing-glow"></div>
+>>>>>>> parent of 1b6254f (optimizacion)
             <div class="pricing-header">
-              <span class="pricing-icon"><span class="material-symbols-outlined"
-                  aria-hidden="true">storefront</span></span>
+              <span class="pricing-icon"><span class="material-symbols-outlined">storefront</span></span>
               <h3>Landing Page</h3>
             </div>
             <div class="pricing-price">
@@ -629,6 +720,7 @@
             <p class="pricing-desc">Ideal para emprendedores, profesionales y cualquier persona que necesite presencia
               online rapida.</p>
             <ul class="pricing-features">
+<<<<<<< HEAD
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Diseno de pagina unica
               </li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Adaptable a moviles
@@ -639,14 +731,22 @@
               </li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Entrega en menos de 7
                 dias</li>
+=======
+              <li><span class="material-symbols-outlined">check_circle</span> Diseño de página única</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Adaptable a móviles (responsive)</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Botón de WhatsApp y redes sociales</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Formulario de contacto</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Entrega en menos de 7 días</li>
+>>>>>>> parent of 1b6254f (optimizacion)
             </ul>
             <a class="btn btn-outline w-full" href="#contact">Quiero mi Landing</a>
           </div>
 
+
+          <!-- Plan 3: Proyecto Personalizado -->
           <div class="pricing-card reveal-up" style="--delay:0.3s">
             <div class="pricing-header">
-              <span class="pricing-icon"><span class="material-symbols-outlined"
-                  aria-hidden="true">auto_awesome</span></span>
+              <span class="pricing-icon"><span class="material-symbols-outlined">auto_awesome</span></span>
               <h3>Proyecto Personalizado</h3>
             </div>
             <div class="pricing-price">
@@ -656,6 +756,7 @@
             <p class="pricing-desc">Para ideas unicas: llaveros QR con perfil de mascota, directorios, reservas,
               portafolios especiales y mas.</p>
             <ul class="pricing-features">
+<<<<<<< HEAD
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Funcionalidad 100% a
                 medida</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Base de datos si se
@@ -665,6 +766,13 @@
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Optimizacion de
                 velocidad</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 3 meses de soporte</li>
+=======
+              <li><span class="material-symbols-outlined">check_circle</span> Funcionalidad 100% a medida</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Base de datos si se necesita</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Panel de administración</li>
+              <li><span class="material-symbols-outlined">check_circle</span> Optimización de velocidad</li>
+              <li><span class="material-symbols-outlined">check_circle</span> 3 meses de soporte</li>
+>>>>>>> parent of 1b6254f (optimizacion)
             </ul>
             <a class="btn btn-outline w-full" href="#contact">Contarme mi idea</a>
           </div>
@@ -673,15 +781,18 @@
       </div>
     </section>
 
+
+    <!-- Seccion de contacto con formulario y redes sociales -->
     <section class="contact" id="contact">
       <div class="container">
         <div class="contact-card reveal-up">
-          <div class="contact-glow-1" aria-hidden="true"></div>
-          <div class="contact-glow-2" aria-hidden="true"></div>
+          <div class="contact-glow-1"></div>
+          <div class="contact-glow-2"></div>
           <div class="contact-grid">
             <div class="contact-info">
               <span class="section-tag">Contacto</span>
               <h2 class="section-title">Empecemos tu <span class="text-accent">proyecto</span></h2>
+<<<<<<< HEAD
               <p class="section-desc">Listo para transformar tu vision en realidad? Conectate con nosotros a traves de
                 tu plataforma favorita.</p>
               <div class="social-links">
@@ -696,17 +807,30 @@
                 <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
                   rel="noopener noreferrer">
                   <span class="material-symbols-outlined" aria-hidden="true">camera</span>
+=======
+              <p class="section-desc">¿Listo para transformar tu visión en realidad? Conéctate con nosotros a través de
+                tu
+                plataforma favorita.</p>
+              <div class="social-links">
+                <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank">
+                  <span class="material-symbols-outlined">camera</span>
+>>>>>>> parent of 1b6254f (optimizacion)
                   <span>Instagram</span>
                 </a>
-                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
-                  rel="noopener noreferrer">
-                  <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
+                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank">
+                  <span class="material-symbols-outlined">video_library</span>
                   <span>TikTok</span>
                 </a>
                 <a class="social-btn social-btn-primary"
+<<<<<<< HEAD
                   href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
                   target="_blank" rel="noopener noreferrer">
                   <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+=======
+                  href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaría%20cotizar%20un%20proyecto%20web"
+                  target="_blank">
+                  <span class="material-symbols-outlined">chat</span>
+>>>>>>> parent of 1b6254f (optimizacion)
                   <span>Chat por WhatsApp</span>
                 </a>
               </div>
@@ -729,8 +853,9 @@
               </div>
               <button class="btn btn-primary w-full btn-lg" type="submit" id="submitBtn">
                 <span class="btn-text">Enviar Mensaje</span>
-                <span class="btn-icon"><span class="material-symbols-outlined" aria-hidden="true">send</span></span>
+                <span class="btn-icon"><span class="material-symbols-outlined">send</span></span>
               </button>
+<<<<<<< HEAD
               <!--
                 LINEAS MODIFICADAS: role="status" y aria-live="polite" en el mensaje de exito.
                 POR QUE: cuando el mensaje aparece dinamicamente los lectores de pantalla
@@ -740,6 +865,11 @@
               <div class="form-success" id="formSuccess" role="status" aria-live="polite">
                 <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
                 Mensaje enviado! Te respondere pronto.
+=======
+              <div class="form-success" id="formSuccess">
+                <span class="material-symbols-outlined">check_circle</span>
+                ¡Mensaje enviado! Te responderé pronto.
+>>>>>>> parent of 1b6254f (optimizacion)
               </div>
             </form>
           </div>
@@ -748,10 +878,11 @@
     </section>
 
   </main>
-
+  <!-- Pie de pagina con enlaces y derechos de autor -->
   <footer class="footer">
     <div class="container footer-inner">
       <a class="logo" href="#">
+<<<<<<< HEAD
         <!--
           LINEA MODIFICADA: logo del footer con loading="lazy".
           POR QUE: el footer esta fuera del viewport inicial (below the fold).
@@ -764,6 +895,12 @@
           class="logo-icon" width="140" height="40" loading="lazy" />
       </a>
       <nav class="footer-nav" aria-label="Navegacion del pie de pagina">
+=======
+        <img src="/img/Generated_Image_March_11__2026_-_12_19PM-removebg-preview.png" alt="HyperGrid.Studio Logo"
+          class="logo-icon" />
+      </a>
+      <nav class="footer-nav">
+>>>>>>> parent of 1b6254f (optimizacion)
         <a href="#">Sobre Nosotros</a>
         <a href="#services">Servicios</a>
         <a href="#portfolio">Portafolio</a>
@@ -773,10 +910,15 @@
     </div>
   </footer>
 
+<<<<<<< HEAD
   <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-label="Politica de Privacidad">
+=======
+  <!-- Modal Política de Privacidad -->
+  <div class="modal-overlay" id="privacyModal">
+>>>>>>> parent of 1b6254f (optimizacion)
     <div class="modal-card">
-      <button class="modal-close" id="modalClose" aria-label="Cerrar modal">
-        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      <button class="modal-close" id="modalClose">
+        <span class="material-symbols-outlined">close</span>
       </button>
       <h2 class="modal-title">Politica de Privacidad</h2>
       <p class="modal-date">Ultima actualizacion: marzo 2025</p>
@@ -787,21 +929,34 @@
         <h3>2. Como usamos tu informacion</h3>
         <p>Los datos se utilizan exclusivamente para responder tu consulta. No los usamos para enviar publicidad ni
           comunicaciones no solicitadas.</p>
+<<<<<<< HEAD
         <h3>3. Compartir informacion con terceros</h3>
         <p>No vendemos ni compartimos tu informacion. Los mensajes se procesan a traves de Formspree.</p>
+=======
+        <h3>3. Compartir información con terceros</h3>
+        <p>No vendemos ni compartimos tu información. Los mensajes se procesan a través de Formspree. Podés consultar
+          su política en formspree.io.</p>
+>>>>>>> parent of 1b6254f (optimizacion)
         <h3>4. Cookies</h3>
         <p>Este sitio no utiliza cookies ni tecnologias de rastreo.</p>
         <h3>5. Seguridad</h3>
         <p>El sitio cuenta con certificado SSL (HTTPS), toda la informacion viaja encriptada y segura.</p>
         <h3>6. Tus derechos</h3>
+<<<<<<< HEAD
         <p>Podes solicitar la eliminacion de tus datos escribiendonos a <a
             href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a></p>
+=======
+        <p>Podés solicitar la eliminación de tus datos escribiéndonos
+          <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>
+        </p>
+>>>>>>> parent of 1b6254f (optimizacion)
         <h3>7. Contacto</h3>
         <p>Dudas sobre esta politica: <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a></p>
       </div>
     </div>
   </div>
 
+<<<<<<< HEAD
   <!--
     LINEA MODIFICADA: se agrego el atributo defer al script.
     POR QUE: sin defer el navegador al encontrar <script src="..."> detiene el parseo
@@ -812,6 +967,9 @@
   -->
   <script src="script.js" defer></script>
 
+=======
+  <script src="script.js"></script>
+>>>>>>> parent of 1b6254f (optimizacion)
 </body>
 
 </html>
