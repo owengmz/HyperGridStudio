@@ -1123,24 +1123,32 @@ body:has(a:hover) .cursor-trail {
 /* ===========================
    MODAL PRIVACIDAD
 =========================== */
+/*
+  MODIFICADO: se cambio display:flex + opacity:0 por display:none.
+  POR QUE: con opacity:0 el elemento existe en el DOM y el navegador
+  lo renderiza en el primer frame antes de aplicar la opacidad,
+  causando el flash visible por milisegundas al cargar la pagina.
+  Con display:none el elemento no existe en el layout y no puede flashear.
+  La animacion de entrada se mantiene porque .open aplica display:flex
+  y opacity:1 al mismo tiempo, el navegador hace el fade correctamente.
+*/
 .modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(6px);
   z-index: 999;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   padding: 24px;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .modal-overlay.open {
+  display: flex;
   opacity: 1;
-  pointer-events: all;
 }
 
 .modal-card {
