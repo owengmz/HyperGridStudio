@@ -24,9 +24,8 @@
   </noscript>
 
   <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="styles.css" />
-  </noscript>
+  <!-- Volvé a esto — bloquea el render pero evita el FOUC -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
