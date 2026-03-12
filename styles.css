@@ -1,26 +1,44 @@
 /* ===========================
-   VARIABLES CSS Y RESET
+   VARIABLES CSS Y RESET BASE
+   Tokens de diseno: colores, tipografia, espaciado y transiciones
 =========================== */
 :root {
+  /* Colores principales */
   --primary: #10b981;
   --primary-dark: #059669;
   --primary-glow: rgba(16, 185, 129, 0.3);
+
+  /* Fondos y superficies */
   --bg: #080f14;
   --bg-card: #0d1a24;
   --bg-surface: #111f2c;
+
+  /* Bordes */
   --border: rgba(255, 255, 255, 0.07);
+
+  /* Textos */
   --text: #f0f4f8;
   --text-muted: #6b8094;
   --text-dim: #9ab0c2;
+
+  /* Tipografia */
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+
+  /* Radios de borde */
   --radius: 12px;
   --radius-lg: 20px;
   --radius-xl: 32px;
+
+  /* Transiciones */
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Altura del header para calcular offsets */
+  --header-h: 80px;
 }
 
+/* Reset universal: elimina margenes y paddings por defecto */
 *,
 *::before,
 *::after {
@@ -31,7 +49,10 @@
 
 html {
   scroll-behavior: smooth;
+  /* Compensacion del header fijo al navegar con anclas */
+  scroll-padding-top: var(--header-h);
   font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -41,7 +62,15 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   cursor: none;
+}
+
+/* En movil se usa cursor nativo del sistema */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
 }
 
 a {
@@ -51,15 +80,24 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
+  /* Optimizacion de renderizado para imagenes */
+  content-visibility: auto;
 }
 
 button {
   border: none;
   background: none;
   font-family: inherit;
+  cursor: pointer;
 }
 
+ul {
+  list-style: none;
+}
+
+/* Contenedor centrado con ancho maximo */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -68,6 +106,7 @@ button {
 
 /* ===========================
    CURSOR PERSONALIZADO
+   Solo visible en dispositivos con puntero fino (mouse)
 =========================== */
 .cursor {
   position: fixed;
@@ -80,6 +119,8 @@ button {
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background 0.2s;
   mix-blend-mode: difference;
+  /* Oculto por defecto; se muestra solo en escritorio via JS */
+  will-change: left, top;
 }
 
 .cursor-trail {
@@ -91,15 +132,18 @@ button {
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: transform 0.12s ease, width 0.3s, height 0.3s, border-color 0.3s;
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  will-change: left, top;
 }
 
+/* Cursor mas pequeno al pasar sobre links y botones */
 body:has(.btn:hover) .cursor,
 body:has(a:hover) .cursor {
   width: 6px;
   height: 6px;
 }
 
+/* Cursor expandido al pasar sobre links y botones */
 body:has(.btn:hover) .cursor-trail,
 body:has(a:hover) .cursor-trail {
   width: 56px;
@@ -109,6 +153,7 @@ body:has(a:hover) .cursor-trail {
 
 /* ===========================
    SUPERPOSICION DE RUIDO
+   Textura sutil para dar profundidad al fondo
 =========================== */
 .noise-overlay {
   position: fixed;
@@ -116,62 +161,66 @@ body:has(a:hover) .cursor-trail {
   pointer-events: none;
   z-index: 1;
   opacity: 0.03;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-image: url("noise.webp");
   background-size: 200px 200px;
 }
 
 /* ===========================
-   ENCABEZADO
+   ENCABEZADO FIJO
+   Barra de navegacion que permanece en la parte superior
 =========================== */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--border);
-  background: rgba(8, 15, 20, 0.7);
+  background: rgba(8, 15, 20, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   transition: background var(--transition), box-shadow var(--transition);
+  /* Altura fija para calculos de offset */
+  height: var(--header-h);
 }
 
+/* Estado scrolleado: fondo mas opaco y sombra */
 .header.scrolled {
-  background: rgba(8, 15, 20, 0.95);
+  background: rgba(8, 15, 20, 0.97);
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Layout interno del header: tres columnas (logo | nav | acciones) */
 .header-inner {
   display: flex;
   align-items: center;
-  height: 150px;
+  height: 100%;
+  gap: 16px;
 }
 
+/* Logo: imagen de marca */
 .logo {
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  width: 160px;
-  height: auto;
-  gap: 8px;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
   transition: opacity var(--transition);
-
-
 }
 
-
+.logo-icon {
+  width: auto;
+  height: 52px;
+  max-height: 52px;
+  object-fit: contain;
+  transition: transform var(--transition-spring);
+}
 
 .logo:hover {
   opacity: 0.8;
 }
 
-
 .logo:hover .logo-icon {
   transform: rotate(15deg) scale(1.1);
 }
 
+/* Navegacion principal: centrada y con links con subrayado animado */
 .nav {
   flex: 1;
   display: flex;
@@ -186,8 +235,10 @@ body:has(a:hover) .cursor-trail {
   color: var(--text-muted);
   position: relative;
   transition: color var(--transition);
+  white-space: nowrap;
 }
 
+/* Linea de subrayado animada que aparece al hover */
 .nav-link::after {
   content: '';
   position: absolute;
@@ -199,100 +250,145 @@ body:has(a:hover) .cursor-trail {
   transition: width var(--transition);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
   color: var(--text);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
+/* Contenedor de acciones: boton CTA + hamburguesa */
 .header-actions {
   display: flex;
-  flex-shrink: 0;
   align-items: center;
-  gap: 12px;
-  width: 160px;
-  /* igual que logo */
-  justify-content: flex-end;
+  margin-left: auto;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
-/* Hamburguesa */
-
+/* Boton hamburguesa: visible solo en movil */
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
-  padding: 4px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
   background: var(--bg-surface);
   border-radius: var(--radius);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: background var(--transition), border-color var(--transition);
 }
 
+.hamburger:hover {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* Tres lineas del icono hamburguesa */
 .hamburger span {
   display: block;
+  width: 18px;
   height: 1.5px;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
   transform-origin: center;
 }
 
+/* Animacion de las tres lineas al abrir el menu (forman una X) */
 .hamburger.open span:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
 }
 
 .hamburger.open span:nth-child(2) {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .hamburger.open span:nth-child(3) {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-/* Menu movil */
-
+/* ===========================
+   MENU MOVIL
+   Pantalla completa que se desliza desde la derecha
+=========================== */
 .mobile-menu {
   position: fixed;
-  inset: 68px 0 0;
+  /* Comienza justo debajo del header */
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(8, 15, 20, 0.98);
-  backdrop-filter: blur(20px);
-  z-index: 99;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 98;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Desplazado fuera de pantalla por defecto */
   transform: translateX(100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Invisible para lectores de pantalla cuando esta cerrado */
+  visibility: hidden;
 }
 
+/* Estado abierto: desliza hacia adentro */
 .mobile-menu.open {
   transform: translateX(0);
+  visibility: visible;
 }
 
+/* Links del menu movil: grandes y centrados */
 .mobile-nav {
   display: flex;
   flex-direction: column;
   gap: 32px;
   text-align: center;
+  padding: 24px;
 }
 
 .mobile-nav-link {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
   font-weight: 700;
   color: var(--text-muted);
   transition: color var(--transition), transform var(--transition-spring);
+  display: block;
 }
 
-.mobile-nav-link:hover {
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
   color: var(--primary);
   transform: scale(1.05);
 }
 
+/* Overlay oscuro semitransparente debajo del menu movil */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--header-h);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 97;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+}
+
 /* ===========================
-   BOTONES
+   SISTEMA DE BOTONES
 =========================== */
 .btn {
   display: inline-flex;
@@ -306,8 +402,11 @@ body:has(a:hover) .cursor-trail {
   white-space: nowrap;
   position: relative;
   overflow: hidden;
+  /* Foco visible para accesibilidad */
+  outline-offset: 3px;
 }
 
+/* Efecto de barrido al hacer hover */
 .btn::before {
   content: '';
   position: absolute;
@@ -316,12 +415,14 @@ body:has(a:hover) .cursor-trail {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
+  pointer-events: none;
 }
 
 .btn:hover::before {
   transform: scaleX(1);
 }
 
+/* Boton primario: fondo verde con sombra de brillo */
 .btn-primary {
   background: var(--primary);
   color: #fff;
@@ -340,6 +441,7 @@ body:has(a:hover) .cursor-trail {
   transform: translateY(0);
 }
 
+/* Boton fantasma: fondo semitransparente con borde */
 .btn-ghost {
   background: var(--bg-surface);
   color: var(--text);
@@ -354,6 +456,7 @@ body:has(a:hover) .cursor-trail {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* Boton con borde: transparente con borde de color primario */
 .btn-outline {
   background: transparent;
   color: var(--primary);
@@ -369,19 +472,22 @@ body:has(a:hover) .cursor-trail {
   box-shadow: 0 6px 20px var(--primary-glow);
 }
 
+/* Variante grande para CTAs principales */
 .btn-lg {
   padding: 14px 32px;
   font-size: 1rem;
   border-radius: var(--radius-lg);
 }
 
+/* Ancho completo para botones dentro de tarjetas */
 .w-full {
   width: 100%;
 }
 
 /* ===========================
-   SECCIONES COMUNES
+   COMPONENTES COMUNES DE SECCION
 =========================== */
+/* Etiqueta de categoria encima del titulo */
 .section-tag {
   display: inline-block;
   font-size: 0.75rem;
@@ -396,6 +502,7 @@ body:has(a:hover) .cursor-trail {
   margin-bottom: 16px;
 }
 
+/* Cabecera de seccion centrada con tag, titulo y descripcion */
 .section-header {
   text-align: center;
   margin-bottom: 64px;
@@ -403,7 +510,7 @@ body:has(a:hover) .cursor-trail {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 16px;
@@ -423,16 +530,18 @@ body:has(a:hover) .cursor-trail {
 
 /* ===========================
    SECCION HERO
+   Presentacion principal con dos columnas
 =========================== */
 .hero {
   position: relative;
   padding: 80px 0 120px;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: calc(100vh - var(--header-h));
   display: flex;
   align-items: center;
 }
 
+/* Cuadricula de fondo con mascara radial */
 .hero-bg-grid {
   position: absolute;
   inset: 0;
@@ -442,8 +551,10 @@ body:has(a:hover) .cursor-trail {
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  pointer-events: none;
 }
 
+/* Brillos de fondo con animacion de flotacion */
 .hero-glow {
   position: absolute;
   border-radius: 50%;
@@ -458,6 +569,7 @@ body:has(a:hover) .cursor-trail {
   top: -200px;
   right: -100px;
   animation: floatGlow 8s ease-in-out infinite alternate;
+  will-change: transform;
 }
 
 .hero-glow-2 {
@@ -467,6 +579,7 @@ body:has(a:hover) .cursor-trail {
   bottom: -100px;
   left: -100px;
   animation: floatGlow 10s ease-in-out infinite alternate-reverse;
+  will-change: transform;
 }
 
 @keyframes floatGlow {
@@ -479,6 +592,7 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
+/* Layout interno del hero: dos columnas iguales */
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -486,14 +600,17 @@ body:has(a:hover) .cursor-trail {
   align-items: center;
   position: relative;
   z-index: 2;
+  width: 100%;
 }
 
+/* Columna de contenido: disposicion vertical con gap */
 .hero-content {
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
+/* Insignia de estado con punto pulsante */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -508,6 +625,7 @@ body:has(a:hover) .cursor-trail {
   width: fit-content;
 }
 
+/* Punto verde con animacion de pulso */
 .badge-dot {
   position: relative;
   width: 8px;
@@ -541,9 +659,10 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
+/* Titulo principal muy grande con acento de color */
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(2.4rem, 5.5vw, 5rem);
   font-weight: 900;
   line-height: 1.05;
   letter-spacing: -0.04em;
@@ -551,33 +670,43 @@ body:has(a:hover) .cursor-trail {
 
 .hero-title-accent {
   color: var(--primary);
-  position: relative;
   display: inline-block;
 }
 
 .hero-desc {
   color: var(--text-dim);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   max-width: 500px;
   line-height: 1.7;
 }
 
+/* Fila de botones CTA */
 .hero-actions {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
 
+/* Estadisticas numericas con divisores */
 .hero-stats {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 24px;
   padding-top: 8px;
+  flex-wrap: wrap;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+}
+
+/* Fila que contiene el numero y el sufijo */
+.stat-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
 }
 
 .stat-num {
@@ -597,17 +726,17 @@ body:has(a:hover) .cursor-trail {
 .stat-label {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin-top: 2px;
 }
 
+/* Linea divisora vertical entre estadisticas */
 .stat-divider {
   width: 1px;
   height: 36px;
   background: var(--border);
+  flex-shrink: 0;
 }
 
-/* Visual del Hero */
-
+/* Columna visual: imagen con animacion de flotacion */
 .hero-visual {
   position: relative;
 }
@@ -630,6 +759,7 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
+/* Tarjeta de imagen con bordes redondeados y borde sutil */
 .hero-card {
   position: relative;
   border-radius: var(--radius-xl);
@@ -638,6 +768,7 @@ body:has(a:hover) .cursor-trail {
   aspect-ratio: 10 / 14;
 }
 
+/* Resplandor detras de la tarjeta */
 .hero-card-glow {
   position: absolute;
   inset: -2px;
@@ -648,6 +779,7 @@ body:has(a:hover) .cursor-trail {
   filter: blur(8px);
 }
 
+/* Imagen dentro de la tarjeta hero */
 .hero-img {
   width: 100%;
   height: 100%;
@@ -661,14 +793,15 @@ body:has(a:hover) .cursor-trail {
   transform: scale(1.04);
 }
 
+/* Gradiente de oscurecimiento en la parte inferior de la imagen */
 .hero-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--bg) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-/* Chips flotantes */
-
+/* Chip flotante con calificacion */
 .floating-chip {
   position: absolute;
   display: flex;
@@ -690,10 +823,12 @@ body:has(a:hover) .cursor-trail {
   color: var(--primary);
 }
 
+/* Chip de calificacion: abajo centrado con animacion */
 .chip-3 {
   bottom: -18px;
   left: 20%;
   animation: chipFloat 4.5s ease-in-out infinite 0.5s;
+  will-change: transform;
 }
 
 @keyframes chipFloat {
@@ -708,8 +843,7 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
-/* Indicador de desplazamiento */
-
+/* Indicador de scroll: rueda con punto que cae */
 .scroll-indicator {
   position: absolute;
   bottom: 36px;
@@ -731,6 +865,7 @@ body:has(a:hover) .cursor-trail {
   position: relative;
 }
 
+/* Punto interior que cae simulando el scroll */
 .scroll-wheel::before {
   content: '';
   position: absolute;
@@ -757,7 +892,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   CON LA CONFIANZA DE (MARQUEE)
+   SECCION DE CONFIANZA (MARQUEE)
+   Desplazamiento continuo de logos de clientes
 =========================== */
 .trusted {
   padding: 40px 0;
@@ -777,17 +913,25 @@ body:has(a:hover) .cursor-trail {
   margin-bottom: 28px;
 }
 
+/* Mascara de degradado para suavizar los bordes del marquee */
 .marquee-wrapper {
   overflow: hidden;
   mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
   -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
 }
 
+/* Contenedor del marquee en movimiento continuo */
 .marquee {
   display: flex;
   gap: 56px;
   width: max-content;
   animation: marquee 20s linear infinite;
+  will-change: transform;
+}
+
+/* Pausa la animacion al pasar el mouse por encima */
+.marquee:hover {
+  animation-play-state: paused;
 }
 
 .marquee-item {
@@ -822,19 +966,21 @@ body:has(a:hover) .cursor-trail {
 
 /* ===========================
    SECCION DE SERVICIOS
+   Cuadricula 2x2 de tarjetas de servicio
 =========================== */
 .services {
   padding: 120px 0;
   position: relative;
 }
 
+/* Grid de dos columnas para los servicios */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  isolation: isolate;
 }
 
+/* Tarjeta de servicio con efectos de hover */
 .service-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -844,10 +990,9 @@ body:has(a:hover) .cursor-trail {
   overflow: hidden;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
   cursor: default;
-  will-change: transform;
-  isolation: isolate;
 }
 
+/* Resplandor radial que aparece en la esquina superior izquierda */
 .service-card::before {
   content: '';
   position: absolute;
@@ -855,6 +1000,7 @@ body:has(a:hover) .cursor-trail {
   background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition);
+  pointer-events: none;
 }
 
 .service-card:hover {
@@ -867,6 +1013,7 @@ body:has(a:hover) .cursor-trail {
   opacity: 1;
 }
 
+/* Icono dentro de un cuadro con borde sutil */
 .service-icon-wrap {
   width: 52px;
   height: 52px;
@@ -903,6 +1050,7 @@ body:has(a:hover) .cursor-trail {
   line-height: 1.6;
 }
 
+/* Flecha decorativa que aparece al hacer hover */
 .service-arrow {
   position: absolute;
   bottom: 28px;
@@ -931,6 +1079,7 @@ body:has(a:hover) .cursor-trail {
 
 /* ===========================
    SECCION DE PRECIOS
+   Tres planes en columnas con destacado central
 =========================== */
 .pricing {
   padding: 120px 0;
@@ -938,14 +1087,15 @@ body:has(a:hover) .cursor-trail {
   position: relative;
 }
 
+/* Grid de tres columnas alineadas verticalmente al centro */
 .pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   align-items: center;
-  isolation: isolate;
 }
 
+/* Tarjeta de precio base */
 .pricing-card {
   background: var(--bg);
   border: 1px solid var(--border);
@@ -957,8 +1107,6 @@ body:has(a:hover) .cursor-trail {
   position: relative;
   overflow: hidden;
   transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-  will-change: transform;
-  isolation: isolate;
 }
 
 .pricing-card:hover {
@@ -967,6 +1115,7 @@ body:has(a:hover) .cursor-trail {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
+/* Tarjeta destacada: escalada y con borde luminoso */
 .pricing-featured {
   border-color: rgba(16, 185, 129, 0.4);
   transform: scale(1.04);
@@ -978,6 +1127,7 @@ body:has(a:hover) .cursor-trail {
   transform: scale(1.04) translateY(-4px);
 }
 
+/* Resplandor en la esquina superior derecha de la tarjeta destacada */
 .pricing-glow {
   position: absolute;
   top: -60px;
@@ -988,6 +1138,7 @@ body:has(a:hover) .cursor-trail {
   pointer-events: none;
 }
 
+/* Etiqueta "Mas Popular" en la parte superior */
 .pricing-badge {
   position: absolute;
   top: -1px;
@@ -1004,6 +1155,7 @@ body:has(a:hover) .cursor-trail {
   white-space: nowrap;
 }
 
+/* Cabecera del plan: icono y nombre */
 .pricing-header {
   display: flex;
   align-items: center;
@@ -1033,6 +1185,7 @@ body:has(a:hover) .cursor-trail {
   font-weight: 700;
 }
 
+/* Precio: numero grande con periodo debajo */
 .pricing-price {
   display: flex;
   flex-direction: column;
@@ -1041,7 +1194,7 @@ body:has(a:hover) .cursor-trail {
 
 .price-amount {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -1052,8 +1205,14 @@ body:has(a:hover) .cursor-trail {
   color: var(--text-muted);
 }
 
+.pricing-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Lista de caracteristicas del plan */
 .pricing-features {
-  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -1075,13 +1234,15 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   SECCIÓN DE CONTACTO
+   SECCION DE CONTACTO
+   Formulario + informacion en dos columnas
 =========================== */
 .contact {
   padding: 120px 0;
   position: relative;
 }
 
+/* Tarjeta que contiene toda la seccion de contacto */
 .contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1091,6 +1252,7 @@ body:has(a:hover) .cursor-trail {
   overflow: hidden;
 }
 
+/* Brillos decorativos en las esquinas */
 .contact-glow-1 {
   position: absolute;
   top: -80px;
@@ -1111,6 +1273,7 @@ body:has(a:hover) .cursor-trail {
   pointer-events: none;
 }
 
+/* Dos columnas: info a la izquierda, formulario a la derecha */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1128,12 +1291,14 @@ body:has(a:hover) .cursor-trail {
 
 .contact-info .section-title {
   margin-bottom: 0;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
 }
 
 .contact-info .section-desc {
   margin: 0;
 }
 
+/* Botones de redes sociales */
 .social-links {
   display: flex;
   flex-wrap: wrap;
@@ -1165,6 +1330,7 @@ body:has(a:hover) .cursor-trail {
   font-size: 1.1rem;
 }
 
+/* Boton de WhatsApp con fondo primario */
 .social-btn-primary {
   background: var(--primary);
   color: #fff;
@@ -1180,19 +1346,20 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* Formulario de contacto */
-
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+/* Fila de dos campos en la misma linea */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
+/* Grupo de campo: etiqueta + input */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -1206,6 +1373,7 @@ body:has(a:hover) .cursor-trail {
   letter-spacing: 0.03em;
 }
 
+/* Estilos comunes para inputs y textarea */
 .form-group input,
 .form-group textarea {
   background: var(--bg-surface);
@@ -1218,6 +1386,10 @@ body:has(a:hover) .cursor-trail {
   transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
   outline: none;
   resize: none;
+  /* Evita que el zoom automatico en iOS distorsione el layout */
+  font-size: max(16px, 0.9rem);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .form-group input::placeholder,
@@ -1225,6 +1397,7 @@ body:has(a:hover) .cursor-trail {
   color: var(--text-muted);
 }
 
+/* Estilo de foco con borde verde y sombra sutil */
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--primary);
@@ -1232,17 +1405,14 @@ body:has(a:hover) .cursor-trail {
   background: rgba(16, 185, 129, 0.03);
 }
 
+/* Estado de error: borde rojo */
 .form-group input.error,
 .form-group textarea.error {
   border-color: #ef4444;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 }
 
-#submitBtn {
-  position: relative;
-  overflow: hidden;
-}
-
+/* Boton de envio con icono que se desplaza al hover */
 #submitBtn .btn-icon {
   transition: transform var(--transition);
 }
@@ -1251,6 +1421,7 @@ body:has(a:hover) .cursor-trail {
   transform: translateX(4px);
 }
 
+/* Mensaje de exito mostrado tras enviar el formulario */
 .form-success {
   display: none;
   align-items: center;
@@ -1262,11 +1433,12 @@ body:has(a:hover) .cursor-trail {
   color: var(--primary);
   font-size: 0.9rem;
   font-weight: 500;
-  animation: fadeInUp 0.4s ease both;
 }
 
+/* Clase .show activa el display flex con animacion */
 .form-success.show {
   display: flex;
+  animation: fadeInUp 0.4s ease both;
 }
 
 .form-success .material-symbols-outlined {
@@ -1282,6 +1454,7 @@ body:has(a:hover) .cursor-trail {
   background: var(--bg-card);
 }
 
+/* Layout del footer: tres elementos en fila */
 .footer-inner {
   display: flex;
   align-items: center;
@@ -1312,26 +1485,33 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   MODAL PRIVACIDAD
+   MODAL DE PRIVACIDAD
+   Superposicion con tarjeta centrada y scrollable
 =========================== */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 999;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
+  /* Estado inicial: invisible y sin interaccion */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
+  /* Evita que se muestre antes de que JS lo inicialice */
+  visibility: hidden;
 }
 
+/* Estado abierto: visible e interactivo */
 .modal-overlay.open {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 
 .modal-card {
@@ -1341,17 +1521,21 @@ body:has(a:hover) .cursor-trail {
   padding: 48px;
   max-width: 640px;
   width: 100%;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow-y: auto;
   position: relative;
+  /* Desplazado hacia abajo al inicio */
   transform: translateY(24px);
   transition: transform 0.3s ease;
+  /* Scroll suave en iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 .modal-overlay.open .modal-card {
   transform: translateY(0);
 }
 
+/* Boton de cierre del modal */
 .modal-close {
   position: absolute;
   top: 20px;
@@ -1365,7 +1549,7 @@ body:has(a:hover) .cursor-trail {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background var(--transition), border-color var(--transition);
 }
 
 .modal-close:hover {
@@ -1410,21 +1594,15 @@ body:has(a:hover) .cursor-trail {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .modal-card {
-    padding: 28px;
-  }
-}
-
 /* ===========================
-   ANIMACIONES DE REVELADO
+   ANIMACIONES DE REVELADO AL SCROLL
+   Los elementos comienzan invisibles y se animan al entrar en viewport
 =========================== */
 .reveal-up {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.7s ease, transform 0.7s ease;
   transition-delay: var(--delay, 0s);
-  will-change: opacity, transform;
 }
 
 .reveal-right {
@@ -1434,6 +1612,7 @@ body:has(a:hover) .cursor-trail {
   will-change: opacity, transform;
 }
 
+/* Estado final cuando el elemento es visible */
 .reveal-up.visible,
 .reveal-right.visible {
   opacity: 1;
@@ -1442,7 +1621,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   UTILITY ANIMATIONS
+   ANIMACIONES DE UTILIDAD
 =========================== */
 @keyframes fadeInUp {
   from {
@@ -1457,42 +1636,60 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   RESPONSIVE
+   ACCESIBILIDAD: FOCO VISIBLE
+   Mejora la navegacion con teclado
+=========================== */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===========================
+   RESPONSIVE — TABLETS (max 1024px)
 =========================== */
 @media (max-width: 1024px) {
+
+  /* Hero: una columna apilada y centrada */
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 40px;
   }
 
   .hero-content {
     align-items: center;
+    order: 1;
+  }
+
+  .hero-visual {
+    order: 2;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .hero-desc {
     margin: 0 auto;
   }
 
+  /* reveal-right pasa a animarse verticalmente como reveal-up */
   .reveal-right {
     opacity: 0;
     transform: translateY(32px);
-  }
-
-  .hero-visual {
-    max-width: 520px;
-    margin: 0 auto;
   }
 
   .hero-stats {
     justify-content: center;
   }
 
+  /* Precios: columna unica centrada */
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 420px;
     margin: 0 auto;
   }
 
+  /* La tarjeta destacada pierde el scale en responsive */
   .pricing-featured {
     transform: none;
   }
@@ -1501,6 +1698,7 @@ body:has(a:hover) .cursor-trail {
     transform: translateY(-4px);
   }
 
+  /* Contacto: columna unica */
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1511,96 +1709,102 @@ body:has(a:hover) .cursor-trail {
   }
 }
 
+/* ===========================
+   RESPONSIVE — MOVILES (max 768px)
+=========================== */
 @media (max-width: 768px) {
+
+  /* El cursor personalizado no aplica en tactil */
+  .cursor,
+  .cursor-trail {
+    display: none;
+  }
+
+  /* Oculta la navegacion principal y muestra el hamburger */
   .nav {
     display: none;
   }
 
   .hamburger {
     display: flex;
-    width: 40px;
+  }
+
+  /* Header mas compacto */
+  .header {
+    --header-h: 64px;
+  }
+
+  .logo-icon {
     height: 40px;
-    background: var(--bg-surface);
-    border-radius: var(--radius);
-    flex-shrink: 0;
+    max-height: 40px;
   }
 
-  .hamburger span {
-    background: #ffffff;
-    height: 2px;
-    width: 100%;
+  .btn-primary {
+    padding: 9px 18px;
+    font-size: 0.82rem;
   }
 
+  /* Hero: menos padding y altura automatica */
+  .hero {
+    padding: 48px 0 72px;
+    min-height: auto;
+  }
+
+  /* Servicios: una columna */
   .services-grid {
     grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding: 60px 0 80px;
-    min-height: auto;
-  }
-
+  /* Contacto: padding reducido */
   .contact-card {
-    padding: 24px 20px;
+    padding: 28px 20px;
   }
 
+  /* Formulario: fila de campos en columna */
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  .footer-nav {
-    justify-content: center;
-  }
-
-  body {
-    cursor: auto;
-  }
-
-  .cursor,
-  .cursor-trail {
-    display: none;
-  }
-
+  /* Footer: centrado vertical */
   .footer-inner {
     flex-direction: column;
     text-align: center;
     align-items: center;
   }
 
-  /* Fix logo grande en header */
-  .logo {
+  .footer-nav {
     justify-content: center;
+    gap: 16px;
   }
 
-  /* Fix header altura y acciones */
-  .header-inner {
-    height: auto;
+  /* Modal: padding reducido */
+  .modal-card {
+    padding: 28px 20px;
+    max-height: 90vh;
   }
 
-  .header-actions {
-    width: auto;
-    gap: 8px;
+  /* Seccion de servicios y otras: menos padding vertical */
+  .services,
+  .contact {
+    padding: 72px 0;
   }
 
-  .btn-primary {
-    padding: 8px 16px;
-    font-size: 0.8rem;
+  .pricing {
+    padding: 72px 0;
   }
-
-  /* Fix título cortado en contacto */
-  .contact-info .section-title {
-    font-size: 1.6rem;
-  }
-
-  /* Fix section-tag cortado */
-  .section-tag {
-    font-size: 0.7rem;
-    padding: 3px 10px;
-  }
-
 }
 
+/* ===========================
+   RESPONSIVE — MOVILES PEQUENOS (max 480px)
+=========================== */
 @media (max-width: 480px) {
+
+  /* Contenedor con menos padding lateral */
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Botones de hero en columna y ancho completo */
   .hero-actions {
     flex-direction: column;
     width: 100%;
@@ -1608,8 +1812,10 @@ body:has(a:hover) .cursor-trail {
 
   .hero-actions .btn {
     width: 100%;
+    justify-content: center;
   }
 
+  /* Estadisticas con menos espacio */
   .hero-stats {
     gap: 16px;
   }
@@ -1618,7 +1824,7 @@ body:has(a:hover) .cursor-trail {
     font-size: 1.4rem;
   }
 
-  /* Fix título muy grande en pantallas chicas */
+  /* Titulos de seccion mas pequenos */
   .section-title {
     font-size: 1.6rem;
   }
@@ -1627,12 +1833,51 @@ body:has(a:hover) .cursor-trail {
     font-size: 1.4rem;
   }
 
-  /* Fix padding en móviles chicos */
-  .container {
-    padding: 0 16px;
-  }
-
+  /* Tarjeta de contacto con menos padding */
   .contact-card {
     padding: 20px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  /* Links sociales en columna */
+  .social-links {
+    flex-direction: column;
+  }
+
+  .social-btn {
+    justify-content: center;
+  }
+
+  /* Precio un poco mas pequeno para evitar overflow */
+  .price-amount {
+    font-size: 1.8rem;
+  }
+
+  /* Chip flotante: posicion ajustada en pantallas pequenas */
+  .chip-3 {
+    left: 10%;
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ===========================
+   RESPONSIVE — MOTION REDUCIDO
+   Respeta la preferencia del usuario de reducir animaciones
+=========================== */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-up,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
   }
 }
