@@ -8,23 +8,21 @@
     content="Hyper Grid Studio - Soluciones web modernas y de alto rendimiento. Especializado en diseño web, e-commerce y proyectos personalizados." />
   <title>Hyper Grid Studio | Professional Web Solutions</title>
 
-  <!-- Precarga de fuentes criticas para evitar flash de texto sin estilo -->
+  <!-- Preconexion a Google Fonts para reducir latencia -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link rel="preload" as="style"
+  <!-- Fuentes de texto: Syne y DM Sans -->
+  <link
     href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'" />
+    rel="stylesheet" />
 
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&display=swap" rel="stylesheet" />
-  </noscript>
+  <!-- Iconos: solo los que se usan en la pagina -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&text=web,shopping_bag,phone_iphone,speed,check_circle,send,chat,camera,video_library,star,rocket_launch,storefront,auto_awesome,arrow_forward,close,data_object,cloud,shield"
+    rel="stylesheet" />
 
-  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <!-- Volvé a esto — bloquea el render pero evita el FOUC -->
+  <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -43,7 +41,7 @@
     <div class="container header-inner">
       <!-- Logo con imagen optimizada -->
       <a class="logo" href="#" aria-label="Hyper Grid Studio - Inicio">
-        <img src="/img/logo.webp" alt="HyperGrid.Studio" class="logo-icon" width="140" height="56" loading="eager" />
+        <img src="/img/logo.webp" alt="HyperGrid.Studio" class="logo-icon" fetchpriority="high" loading="eager" />
       </a>
 
       <!-- Navegacion principal visible solo en escritorio -->
