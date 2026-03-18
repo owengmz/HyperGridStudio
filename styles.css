@@ -2,6 +2,47 @@
    VARIABLES CSS Y RESET BASE
    Tokens de diseno: colores, tipografia, espaciado y transiciones
 =========================== */
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/syne-v24-latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/syne-v24-latin-800.woff2') format('woff2');
+}
+
+/* 900 no existe, apuntamos al 800 que es el más cercano */
+@font-face {
+  font-family: 'Syne';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/syne-v24-latin-800.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/dm-sans-v17-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/dm-sans-v17-latin-500.woff2') format('woff2');
+}
+
 :root {
   /* Colores principales */
   --primary: #10b981;
@@ -162,7 +203,7 @@ body:has(a:hover) .cursor-trail {
   z-index: 1;
   opacity: 0.03;
   background-image: url("noise.webp");
-  background-size: 200px 200px;
+  background-size: 300px auto;
 }
 
 /* ===========================
@@ -1095,7 +1136,7 @@ body:has(a:hover) .cursor-trail {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  align-items: center;
+  align-items: start;
 }
 
 /* Tarjeta de precio base */
@@ -1124,6 +1165,7 @@ body:has(a:hover) .cursor-trail {
   transform: scale(1.04);
   box-shadow: 0 24px 80px rgba(16, 185, 129, 0.12);
   background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg) 100%);
+
 }
 
 .pricing-featured:hover {
@@ -1197,7 +1239,7 @@ body:has(a:hover) .cursor-trail {
 
 .price-amount {
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.03em;

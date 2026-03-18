@@ -8,19 +8,21 @@
     content="Hyper Grid Studio - Soluciones web modernas y de alto rendimiento. Especializado en diseño web, e-commerce y proyectos personalizados." />
   <title>Hyper Grid Studio | Professional Web Solutions</title>
 
-  <!-- Preconexion a Google Fonts para reducir latencia -->
+  <!-- Preconexion a Google Fonts solo para los iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Fuentes de texto: Syne y DM Sans -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap"
-    rel="stylesheet" />
+  <!-- Preload de la imagen hero: lo antes posible para mejor LCP -->
+  <link rel="preload" as="image" href="/img/michael-baccin-XopauR-Nagk-unsplash.webp" fetchpriority="high" />
 
-  <!-- Iconos: solo los que se usan en la pagina -->
-  <link
+  <!-- Iconos: carga no bloqueante -->
+  <link rel="preload"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&text=web,shopping_bag,phone_iphone,speed,check_circle,send,chat,camera,video_library,star,rocket_launch,storefront,auto_awesome,arrow_forward,close,data_object,cloud,shield"
-    rel="stylesheet" />
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&text=web,shopping_bag,phone_iphone,speed,check_circle,send,chat,camera,video_library,star,rocket_launch,storefront,auto_awesome,arrow_forward,close,data_object,cloud,shield" />
+  </noscript>
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="styles.css" />
@@ -301,7 +303,7 @@
               <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 1 mes de soporte
                 incluido</li>
             </ul>
-            <a class="btn btn-primary w-full" href="#contact">Quiero mi Tienda</a>
+            <a class="btn btn-outline w-full" href="#contact">Quiero mi Tienda</a>
           </div>
 
           <!-- Plan Landing Page: destacado como el mas popular -->
@@ -518,7 +520,7 @@
   </div>
 
   <!-- Script principal cargado al final para no bloquear el render -->
-  <script src="script.js" defer></script>
+  <script src="script.js" type="module"></script>
 </body>
 
 </html>

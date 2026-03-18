@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Hyper Grid Studio - Soluciones web modernas y de alto rendimiento. Especializado en diseño web, e-commerce y proyectos personalizados." />
+  <title>Hyper Grid Studio | Professional Web Solutions</title>
+
+  <!-- Preconexion a Google Fonts solo para los iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload de la imagen hero: lo antes posible para mejor LCP -->
+  <link rel="preload" as="image" href="/assets/michael-baccin-XopauR-Nagk-unsplash-Dmeom_7p.webp" fetchpriority="high" />
+
+  <!-- Iconos: carga no bloqueante -->
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&text=web,shopping_bag,phone_iphone,speed,check_circle,send,chat,camera,video_library,star,rocket_launch,storefront,auto_awesome,arrow_forward,close,data_object,cloud,shield"
+    as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0&text=web,shopping_bag,phone_iphone,speed,check_circle,send,chat,camera,video_library,star,rocket_launch,storefront,auto_awesome,arrow_forward,close,data_object,cloud,shield" />
+  </noscript>
+
+  <!-- CSS principal -->
+  <script type="module" crossorigin src="/assets/index-BHxQ2zZN.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DHRyYmSj.css">
+</head>
+
+<body>
+
+  <!-- Cursor personalizado: punto principal que sigue al puntero -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <!-- Rastro suave que sigue al cursor con retraso -->
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- Superposicion de ruido para efecto de textura sutil -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Encabezado fijo con navegacion principal -->
+  <header class="header" id="header" role="banner">
+    <div class="container header-inner">
+      <!-- Logo con imagen optimizada -->
+      <a class="logo" href="#" aria-label="Hyper Grid Studio - Inicio">
+        <img src="/assets/logo-BOfNj03t.webp" alt="HyperGrid.Studio" class="logo-icon" fetchpriority="high" loading="eager" />
+      </a>
+
+      <!-- Navegacion principal visible solo en escritorio -->
+      <nav class="nav" id="nav" role="navigation" aria-label="Navegacion principal">
+        <a class="nav-link" href="#services">Servicios</a>
+        <a class="nav-link" href="#portfolio">Portafolio</a>
+        <a class="nav-link" href="#pricing">Precios</a>
+        <a class="nav-link" href="#contact">Contacto</a>
+      </nav>
+
+      <!-- Acciones del encabezado: boton CTA y hamburguesa movil -->
+      <div class="header-actions">
+        <a class="btn btn-primary" href="#contact">Contrátame</a>
+        <!-- Boton hamburguesa visible solo en movil -->
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
+          aria-controls="mobileMenu" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu movil desplegable: se activa con el boton hamburguesa -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu de navegacion movil"
+    aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Navegacion movil">
+      <a class="mobile-nav-link" href="#services">Servicios</a>
+      <a class="mobile-nav-link" href="#portfolio">Portafolio</a>
+      <a class="mobile-nav-link" href="#pricing">Precios</a>
+      <a class="mobile-nav-link" href="#contact">Contacto</a>
+    </nav>
+  </div>
+
+  <!-- Overlay oscuro para cerrar el menu movil al hacer clic fuera -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  <main>
+    <!-- ===========================
+         SECCION HERO
+         Presentacion principal con llamado a la accion
+    =========================== -->
+    <section class="hero" id="hero" aria-label="Presentacion principal">
+      <!-- Fondo de cuadricula decorativo -->
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <!-- Brillos decorativos animados -->
+      <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
+
+      <div class="container hero-inner">
+        <!-- Columna izquierda: texto y acciones -->
+        <div class="hero-content reveal-up">
+          <!-- Insignia de disponibilidad -->
+          <div class="badge">
+            <span class="badge-dot" aria-hidden="true"></span>
+            Disponible para nuevos proyectos
+          </div>
+
+          <h1 class="hero-title">
+            Construye tu<br />
+            <span class="hero-title-accent">Futuro Digital</span>
+          </h1>
+
+          <p class="hero-desc">
+            Soluciones web modernas y de alto rendimiento adaptadas a tus objetivos
+            comerciales. Especializado en React, Next.js y arquitecturas escalables
+            que convierten usuarios en clientes.
+          </p>
+
+          <!-- Botones de accion principales -->
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-lg magnetic" href="#portfolio">Ver Portafolio</a>
+            <a class="btn btn-ghost btn-lg" href="#contact">Agendar Llamada</a>
+          </div>
+
+          <!-- Estadisticas numericas con animacion de conteo -->
+          <div class="hero-stats" role="list" aria-label="Estadisticas">
+            <div class="stat" role="listitem">
+              <div class="stat-row">
+                <span class="stat-num" data-target="48">0</span>
+                <span class="stat-suffix" aria-hidden="true">+</span>
+              </div>
+              <span class="stat-label">Proyectos</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat" role="listitem">
+              <div class="stat-row">
+                <span class="stat-num" data-target="99">0</span>
+                <span class="stat-suffix" aria-hidden="true">%</span>
+              </div>
+              <span class="stat-label">Satisfaccion</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat" role="listitem">
+              <div class="stat-row">
+                <span class="stat-num" data-target="5">0</span>
+                <span class="stat-suffix" aria-hidden="true">★</span>
+              </div>
+              <span class="stat-label">Calificacion</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: imagen visual con chips flotantes -->
+        <div class="hero-visual reveal-right">
+          <div class="hero-card-wrapper">
+            <div class="hero-card">
+              <div class="hero-card-glow" aria-hidden="true"></div>
+              <img src="/assets/michael-baccin-XopauR-Nagk-unsplash-Dmeom_7p.webp"
+                alt="Espacio de trabajo moderno con setup profesional" class="hero-img" width="480" height="672"
+                loading="eager" fetchpriority="high" />
+              <div class="hero-card-overlay" aria-hidden="true"></div>
+            </div>
+            <!-- Chip flotante con calificacion -->
+            <div class="floating-chip chip-3" aria-hidden="true">
+              <span class="material-symbols-outlined">star</span> 5.0 Rating
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicador de desplazamiento hacia abajo -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-wheel"></div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SECCION DE CONFIANZA
+         Logos de clientes en marquee continuo
+    =========================== -->
+    <section class="trusted" aria-label="Empresas que confian en nosotros">
+      <div class="container">
+        <p class="trusted-label">CON LA CONFIANZA DE LIDERES DE LA INDUSTRIA</p>
+        <!-- Envoltorio con mascara de degradado para el efecto marquee -->
+        <div class="marquee-wrapper" aria-hidden="true">
+          <div class="marquee">
+            <!-- Primer set de items -->
+            <div class="marquee-item"><span class="material-symbols-outlined">data_object</span> TechFlow</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Wood Designs</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
+            <!-- Segundo set duplicado para el efecto de loop sin corte -->
+            <div class="marquee-item"><span class="material-symbols-outlined">data_object</span> TechFlow</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">auto_awesome</span> Lumina UI</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
+            <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SECCION DE SERVICIOS
+         Cuadricula con los servicios ofrecidos
+    =========================== -->
+    <section class="services" id="services" aria-label="Servicios ofrecidos">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Lo que hago</span>
+          <h2 class="section-title">Servicios <span class="text-accent">Premium</span></h2>
+          <p class="section-desc">
+            Cada proyecto es construido con las ultimas tecnologias y mejores
+            practicas para garantizar resultados excepcionales.
+          </p>
+        </div>
+        <!-- Cuadricula de tarjetas de servicio -->
+        <div class="services-grid">
+          <div class="service-card reveal-up" style="--delay:0.1s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">web</span>
+            </div>
+            <h3>Diseno Web</h3>
+            <p>Interfaces modernas, atractivas y centradas en la experiencia del usuario.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.2s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">shopping_bag</span>
+            </div>
+            <h3>E-Commerce</h3>
+            <p>Tiendas online optimizadas para conversiones y con gestion simplificada.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.3s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">phone_iphone</span>
+            </div>
+            <h3>Diseno Responsive</h3>
+            <p>Experiencias perfectas en cualquier dispositivo, pantalla o resolucion.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+          <div class="service-card reveal-up" style="--delay:0.4s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">speed</span>
+            </div>
+            <h3>Optimizacion</h3>
+            <p>Maximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SECCION DE PRECIOS
+         Tres planes con precios transparentes
+    =========================== -->
+    <section class="pricing" id="pricing" aria-label="Planes y precios">
+      <div class="container">
+        <div class="section-header reveal-up">
+          <span class="section-tag">Inversion</span>
+          <h2 class="section-title">Precios <span class="text-accent">Transparentes</span></h2>
+          <p class="section-desc">
+            Desde una pagina simple hasta proyectos 100% personalizados.
+            Sin sorpresas, sin letras chicas.
+          </p>
+        </div>
+        <!-- Cuadricula de planes de precios -->
+        <div class="pricing-grid">
+
+          <!-- Plan Tienda Online -->
+          <div class="pricing-card reveal-up" style="--delay:0.1s">
+            <div class="pricing-header">
+              <span class="pricing-icon" aria-hidden="true">
+                <span class="material-symbols-outlined">rocket_launch</span>
+              </span>
+              <h3>Tienda Online</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">$400.000</span>
+              <span class="price-period">Ars · Precio segun complejidad</span>
+            </div>
+            <p class="pricing-desc">
+              Perfecto para negocios de ropa, accesorios o cualquier producto
+              fisico que quiera vender online.
+            </p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Hasta 20 productos</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Pasarela de pagos
+                integrada</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Panel de administracion
+              </li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Gestion de inventario
+              </li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 1 mes de soporte
+                incluido</li>
+            </ul>
+            <a class="btn btn-primary w-full" href="#contact">Quiero mi Tienda</a>
+          </div>
+
+          <!-- Plan Landing Page: destacado como el mas popular -->
+          <div class="pricing-card pricing-featured reveal-up" style="--delay:0.2s">
+            <div class="pricing-badge">Mas Popular</div>
+            <div class="pricing-glow" aria-hidden="true"></div>
+            <div class="pricing-header">
+              <span class="pricing-icon" aria-hidden="true">
+                <span class="material-symbols-outlined">storefront</span>
+              </span>
+              <h3>Landing Page</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">$100.000</span>
+              <span class="price-period">Ars · oferta unica</span>
+            </div>
+            <p class="pricing-desc">
+              Ideal para emprendedores, profesionales y cualquier persona
+              que necesite presencia online rapida.
+            </p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Diseno de pagina unica
+              </li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Adaptable a moviles
+                (responsive)</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Boton de WhatsApp y
+                redes sociales</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Formulario de contacto
+              </li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Entrega en menos de 7
+                dias</li>
+            </ul>
+            <a class="btn btn-outline w-full" href="#contact">Quiero mi Landing</a>
+          </div>
+
+          <!-- Plan Proyecto Personalizado -->
+          <div class="pricing-card reveal-up" style="--delay:0.3s">
+            <div class="pricing-header">
+              <span class="pricing-icon" aria-hidden="true">
+                <span class="material-symbols-outlined">auto_awesome</span>
+              </span>
+              <h3>Proyecto Personalizado</h3>
+            </div>
+            <div class="pricing-price">
+              <span class="price-amount">A consultar</span>
+              <span class="price-period">segun complejidad</span>
+            </div>
+            <p class="pricing-desc">
+              Para ideas unicas: llaveros QR con perfil de mascota, directorios,
+              reservas, portafolios especiales y mas.
+            </p>
+            <ul class="pricing-features">
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Funcionalidad 100% a
+                medida</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Base de datos si se
+                necesita</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Panel de administracion
+              </li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Optimizacion de
+                velocidad</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 3 meses de soporte</li>
+            </ul>
+            <a class="btn btn-outline w-full" href="#contact">Contarme mi idea</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SECCION DE CONTACTO
+         Formulario y redes sociales
+    =========================== -->
+    <section class="contact" id="contact" aria-label="Contacto">
+      <div class="container">
+        <div class="contact-card reveal-up">
+          <div class="contact-glow-1" aria-hidden="true"></div>
+          <div class="contact-glow-2" aria-hidden="true"></div>
+          <div class="contact-grid">
+
+            <!-- Informacion de contacto y redes sociales -->
+            <div class="contact-info">
+              <span class="section-tag">Contacto</span>
+              <h2 class="section-title">Empecemos tu <span class="text-accent">proyecto</span></h2>
+              <p class="section-desc">
+                Listo para transformar tu vision en realidad? Conectate con nosotros
+                a traves de tu plataforma favorita.
+              </p>
+              <!-- Botones de redes sociales -->
+              <div class="social-links">
+                <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
+                  rel="noopener noreferrer" aria-label="Instagram de Hyper Grid Studio">
+                  <span class="material-symbols-outlined" aria-hidden="true">camera</span>
+                  <span>Instagram</span>
+                </a>
+                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
+                  rel="noopener noreferrer" aria-label="TikTok de Hyper Grid Studio">
+                  <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
+                  <span>TikTok</span>
+                </a>
+                <a class="social-btn social-btn-primary"
+                  href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
+                  target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
+                  <span class="material-symbols-outlined" aria-hidden="true">chat</span>
+                  <span>Chat por WhatsApp</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Formulario de contacto: envio via Formspree -->
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqeykldg" method="POST"
+              novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Nombre Completo</label>
+                  <input type="text" id="name" name="name" placeholder="Juan Perez" autocomplete="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Correo Electronico</label>
+                  <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" autocomplete="email"
+                    required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Detalles del Proyecto</label>
+                <textarea id="message" name="message" rows="4" placeholder="Cuentame sobre tu proyecto..."
+                  required></textarea>
+              </div>
+              <!-- Boton de envio con icono -->
+              <button class="btn btn-primary w-full btn-lg" type="submit" id="submitBtn">
+                <span class="btn-text">Enviar Mensaje</span>
+                <span class="btn-icon" aria-hidden="true">
+                  <span class="material-symbols-outlined">send</span>
+                </span>
+              </button>
+              <!-- Mensaje de exito al enviar el formulario -->
+              <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+                Mensaje enviado! Te respondere pronto.
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de pagina con links y derechos de autor -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <a class="logo" href="#" aria-label="Hyper Grid Studio - volver al inicio">
+        <img src="/assets/logo-BOfNj03t.webp" alt="HyperGrid.Studio" class="logo-icon" width="120" height="48" loading="lazy" />
+      </a>
+      <nav class="footer-nav" aria-label="Navegacion del pie de pagina">
+        <a href="#">Sobre Nosotros</a>
+        <a href="#services">Servicios</a>
+        <a href="#portfolio">Portafolio</a>
+        <a href="#" id="privacyLink">Politica de Privacidad</a>
+      </nav>
+      <p class="footer-copy">
+        <small>© 2026 Hyper Grid Studio. Todos los derechos reservados.</small>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       MODAL DE POLITICA DE PRIVACIDAD
+       Se abre desde el enlace del pie de pagina
+  =========================== -->
+  <div class="modal-overlay" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar modal" type="button">
+        <span class="material-symbols-outlined" aria-hidden="true">close</span>
+      </button>
+      <h2 class="modal-title" id="modalTitle">Politica de Privacidad</h2>
+      <p class="modal-date">Ultima actualizacion: marzo 2025</p>
+      <div class="modal-body">
+        <h3>1. Informacion que recopilamos</h3>
+        <p>
+          Cuando completas el formulario de contacto recopilamos tu nombre completo,
+          correo electronico y mensaje. No recopilamos ningun otro dato personal.
+        </p>
+        <h3>2. Como usamos tu informacion</h3>
+        <p>
+          Los datos se utilizan exclusivamente para responder tu consulta.
+          No los usamos para enviar publicidad ni comunicaciones no solicitadas.
+        </p>
+        <h3>3. Compartir informacion con terceros</h3>
+        <p>
+          No vendemos ni compartimos tu informacion. Los mensajes se procesan
+          a traves de Formspree. Podes consultar su politica en formspree.io.
+        </p>
+        <h3>4. Cookies</h3>
+        <p>Este sitio no utiliza cookies ni tecnologias de rastreo.</p>
+        <h3>5. Seguridad</h3>
+        <p>
+          El sitio cuenta con certificado SSL (HTTPS), toda la informacion
+          viaja encriptada y segura.
+        </p>
+        <h3>6. Tus derechos</h3>
+        <p>
+          Podes solicitar la eliminacion de tus datos escribiendonos a
+          <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>
+        </p>
+        <h3>7. Contacto</h3>
+        <p>
+          Dudas sobre esta politica:
+          <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script principal cargado al final para no bloquear el render -->
+</body>
+
+</html>
