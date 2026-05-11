@@ -4,8 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "dev": "node node_modules/vite/bin/vite.js",
-    "build": "node node_modules/vite/bin/vite.js build"
+  "dev": "node node_modules/vite/bin/vite.js",
+  "build": "node node_modules/vite/bin/vite.js build"
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,5 @@
     "terser": "^5.46.1",
     "vite": "^8.0.0",
     "vite-plugin-static-copy": "^3.3.0"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^2.0.1"
   }
 }
