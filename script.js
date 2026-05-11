@@ -4,6 +4,13 @@
    Toda la logica de UI del front-end
 ============================================ */
 
+/* ─────────────────────────────────────────
+   VERCEL WEB ANALYTICS
+   Inicializa el tracking de visitas y eventos
+───────────────────────────────────────── */
+import { inject } from '@vercel/analytics';
+inject();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─────────────────────────────────────────
