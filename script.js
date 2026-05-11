@@ -4,6 +4,11 @@
    Toda la logica de UI del front-end
 ============================================ */
 
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─────────────────────────────────────────
