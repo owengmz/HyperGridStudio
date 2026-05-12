@@ -5,6 +5,9 @@
 ============================================ */
 
 import { inject } from '@vercel/analytics';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 // Initialize Vercel Web Analytics
 inject();
@@ -20,9 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const cursorTrail = document.getElementById('cursorTrail');
 
   /* Solo se activa si el dispositivo tiene un puntero preciso (mouse) */
-  const hasFinePonter = window.matchMedia('(pointer: fine)').matches;
+  const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
 
-  if (cursor && cursorTrail && hasFinePonter) {
+  if (cursor && cursorTrail && hasFinePointer) {
+    /* Activa el cursor custom en CSS solo si JS funciona correctamente */
+    document.body.classList.add('has-custom-cursor');
+
     let mouseX = 0, mouseY = 0;
     let trailX = 0, trailY = 0;
 
@@ -35,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     /* El rastro sigue con lerp (interpolacion lineal) para suavidad */
+    let trailRunning = true;
     const animateTrail = () => {
+      if (!trailRunning) return;
       trailX += (mouseX - trailX) * 0.12;
       trailY += (mouseY - trailY) * 0.12;
       cursorTrail.style.left = trailX + 'px';
@@ -43,6 +51,16 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateTrail);
     };
     animateTrail();
+
+    /* Pausa el loop cuando el tab esta en segundo plano para ahorrar recursos */
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        trailRunning = false;
+      } else {
+        trailRunning = true;
+        animateTrail();
+      }
+    });
 
     /* Oculta el cursor al salir del documento */
     document.addEventListener('mouseleave', () => {
@@ -145,82 +163,103 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
-     4. REVELADO AL SCROLL (IntersectionObserver)
+     4. REVELADO AL SCROLL (GSAP ScrollTrigger)
      Elementos con .reveal-up o .reveal-right se animan
      cuando entran al viewport
   ───────────────────────────────────────── */
-  const revealEls = document.querySelectorAll('.reveal-up, .reveal-right');
-
-  /* Si prefers-reduced-motion esta activo, muestra todo de inmediato */
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (reducedMotion) {
-    revealEls.forEach(el => el.classList.add('visible'));
+  if (!reducedMotion) {
+    /* Elementos que suben */
+    gsap.utils.toArray('.reveal-up').forEach(el => {
+      const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
+      gsap.from(el, {
+        y: 32,
+        opacity: 0,
+        duration: 0.9,
+        delay: delay, //
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        }
+      });
+    });
+
+    /* Elementos que entran desde la derecha */
+    gsap.utils.toArray('.reveal-right').forEach(el => {
+      gsap.from(el, {
+        x: 32,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          once: true
+        }
+      });
+    });
+    /* Hero: entrada inmediata con timeline */
+    const heroTl = gsap.timeline({ delay: 0.4 }); // 
+    const heroContent = document.querySelector('#hero .hero-content');
+    const heroVisual = document.querySelector('#hero .hero-visual');
+
+
+    if (heroContent) {
+      heroTl.fromTo(
+        heroContent,
+        { y: 40, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out' }
+      );
+    }
+
+    if (heroVisual) {
+      heroTl.fromTo(
+        heroVisual,
+        { x: 40, opacity: 0 }, // 
+        { x: 0, opacity: 1, duration: 0.6, ease: 'power3.out' },
+        '-=0.3' //
+      );
+    }
   } else {
-    const revealObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            /* Deja de observar una vez que el elemento es visible */
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-
-    revealEls.forEach(el => revealObserver.observe(el));
-
-    /* Activa los elementos del hero sin esperar el scroll */
-    document.querySelectorAll('#hero .reveal-up, #hero .reveal-right').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 100);
+    /* Reduced motion: mostrar todo directamente */
+    document.querySelectorAll('.reveal-up, .reveal-right').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
     });
   }
 
 
   /* ─────────────────────────────────────────
-     5. CONTADORES ANIMADOS
+     5. CONTADORES ANIMADOS (GSAP)
      Los numeros aumentan desde 0 hasta el valor destino
      cuando entran en viewport
   ───────────────────────────────────────── */
-  const statNums = document.querySelectorAll('.stat-num[data-target]');
-
-  if (!reducedMotion && statNums.length) {
-    const countUp = el => {
+  if (!reducedMotion) {
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
       const target = parseInt(el.getAttribute('data-target'), 10);
-      const duration = 1600;
-      const step = 16;
-      const steps = duration / step;
-      let current = 0;
+      const obj = { val: 0 };
 
-      const timer = setInterval(() => {
-        current += target / steps;
-        if (current >= target) {
-          el.textContent = target;
-          clearInterval(timer);
-        } else {
-          el.textContent = Math.floor(current);
+      gsap.to(obj, {
+        val: target,
+        duration: 1.6,
+        ease: 'power1.out',
+        snap: { val: 1 },
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          once: true
+        },
+        onUpdate: () => {
+          el.textContent = Math.floor(obj.val);
         }
-      }, step);
-    };
-
-    const statsObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            countUp(entry.target);
-            statsObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    statNums.forEach(el => statsObserver.observe(el));
+      });
+    });
   } else {
     /* Sin animacion: muestra el valor final directamente */
-    statNums.forEach(el => {
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
       el.textContent = el.getAttribute('data-target');
     });
   }
@@ -231,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
      El boton se desplaza ligeramente hacia el cursor
      Solo en dispositivos con puntero preciso (mouse)
   ───────────────────────────────────────── */
-  if (hasFinePonter && !reducedMotion) {
+  if (hasFinePointer && !reducedMotion) {
     document.querySelectorAll('.magnetic').forEach(btn => {
       btn.addEventListener('mousemove', e => {
         const rect = btn.getBoundingClientRect();
@@ -249,31 +288,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
-     7. ENLACE DE NAVEGACION ACTIVO
+     7. ENLACE DE NAVEGACION ACTIVO (GSAP ScrollTrigger)
      Resalta el link de navegacion correspondiente a la seccion visible
   ───────────────────────────────────────── */
-  const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  if (sections.length && navLinks.length) {
-    const navObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
+  if (navLinks.length) {
+    document.querySelectorAll('main section[id]').forEach(section => {
+      ScrollTrigger.create({
+        trigger: section,
+        start: 'top 40%',
+        end: 'bottom 40%',
+        onToggle: ({ isActive }) => {
+          if (isActive) {
+            const id = section.getAttribute('id');
             navLinks.forEach(link => {
-              link.classList.toggle(
-                'active',
-                link.getAttribute('href') === '#' + id
-              );
+              link.classList.toggle('active', link.getAttribute('href') === '#' + id);
             });
           }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    sections.forEach(s => navObserver.observe(s));
+        }
+      });
+    });
   }
 
 
@@ -282,22 +317,28 @@ document.addEventListener('DOMContentLoaded', () => {
      Las tarjetas se inclinan levemente al mover el mouse
      Solo en escritorio para mejor rendimiento
   ───────────────────────────────────────── */
-  if (hasFinePonter && !reducedMotion) {
+  if (hasFinePointer && !reducedMotion) {
     document.querySelectorAll('.pricing-card').forEach(card => {
+      const isFeatured = card.classList.contains('pricing-featured');
+
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
-        card.style.transform = [
+        const parts = [
           'perspective(800px)',
           'rotateY(' + (x * 8) + 'deg)',
           'rotateX(' + (y * -8) + 'deg)',
           'translateY(-4px)'
-        ].join(' ');
+        ];
+        /* La card destacada conserva su scale para no perder el estilo CSS */
+        if (isFeatured) parts.push('scale(1.04)');
+        card.style.transform = parts.join(' ');
       });
 
       card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
+        /* Restaura solo el scale en la card destacada, limpia las demas */
+        card.style.transform = isFeatured ? 'scale(1.04)' : '';
       });
     });
   }
@@ -307,7 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
      9. DESTELLO DE LUZ EN TARJETAS DE SERVICIO
      Un gradiente radial sigue al cursor dentro de cada tarjeta
   ───────────────────────────────────────── */
-  if (hasFinePonter) {
+  if (hasFinePointer) {
     document.querySelectorAll('.service-card').forEach(card => {
       card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
@@ -417,24 +458,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ─────────────────────────────────────────
-     11. PARALLAX — BRILLO DEL HERO AL MOVER EL MOUSE
-     Los brillos de fondo se desplazan suavemente segun la posicion del cursor
-     Solo en escritorio para no afectar el rendimiento en movil
+     11. PARALLAX DEL HERO CON SCROLL (GSAP)
+     Los brillos de fondo se desplazan al hacer scroll
   ───────────────────────────────────────── */
-  if (hasFinePonter && !reducedMotion) {
+  if (!reducedMotion) {
     const glow1 = document.querySelector('.hero-glow-1');
     const glow2 = document.querySelector('.hero-glow-2');
 
-    if (glow1 || glow2) {
-      document.addEventListener('mousemove', e => {
-        const cx = window.innerWidth / 2;
-        const cy = window.innerHeight / 2;
-        const dx = (e.clientX - cx) / cx;
-        const dy = (e.clientY - cy) / cy;
+    if (glow1) {
+      gsap.to(glow1, {
+        y: 120,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5
+        }
+      });
+    }
 
-        if (glow1) glow1.style.transform = 'translate(' + (dx * 24) + 'px, ' + (dy * 24) + 'px)';
-        if (glow2) glow2.style.transform = 'translate(' + (-dx * 18) + 'px, ' + (-dy * 18) + 'px)';
-      }, { passive: true });
+    if (glow2) {
+      gsap.to(glow2, {
+        y: -80,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: 1.5
+        }
+      });
     }
   }
 
