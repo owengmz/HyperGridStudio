@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!reducedMotion) {
     /* Elementos que suben */
-    gsap.utils.toArray('.reveal-up').forEach(el => {
+    gsap.utils.toArray('.reveal-up:not(#hero .reveal-up)').forEach(el => {
       const delay = parseFloat(getComputedStyle(el).getPropertyValue('--delay')) || 0;
       gsap.from(el, {
         y: 32,
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /* Elementos que entran desde la derecha */
-    gsap.utils.toArray('.reveal-right').forEach(el => {
+    gsap.utils.toArray('.reveal-right:not(#hero .reveal-right)').forEach(el => {
       gsap.from(el, {
         x: 32,
         opacity: 0,
