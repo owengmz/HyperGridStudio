@@ -12,7 +12,9 @@ export default defineConfig({
   plugins: [
     viteStaticCopy({
       targets: [
-        { src: 'noise.webp', dest: '.' }
+        { src: 'noise.webp', dest: '.' },
+        { src: 'public/sitemap.xml', dest: '.' },
+        { src: 'public/robots.txt', dest: '.' }
       ]
     })
   ]
