@@ -1,7 +1,7 @@
 # Dependencias
 node_modules/
 .claude/
-
+design-system
 # Build output
 dist/
 

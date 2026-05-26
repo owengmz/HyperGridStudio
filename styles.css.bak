@@ -45,15 +45,14 @@
 
 :root {
   /* Colores principales */
-  --primary: #7c3aed;
-  --primary-dark: #6d28d9;
-  --primary-glow: rgba(124, 58, 237, 0.35);
-  --primary-light: #a78bfa;
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --primary-glow: rgba(16, 185, 129, 0.3);
 
   /* Fondos y superficies */
-  --bg: #0a0a14;
-  --bg-card: #141028;
-  --bg-surface: #1a1432;
+  --bg: #080f14;
+  --bg-card: #0d1a24;
+  --bg-surface: #111f2c;
 
   /* Bordes */
   --border: rgba(255, 255, 255, 0.07);
@@ -191,7 +190,7 @@ ul {
   position: fixed;
   width: 36px;
   height: 36px;
-  border: 1.5px solid rgba(124, 58, 237, 0.58);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
@@ -351,8 +350,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 .hamburger:hover {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 /* Tres lineas del icono hamburguesa */
@@ -559,8 +558,8 @@ body:has(a:hover) .cursor-trail {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--primary);
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   padding: 4px 12px;
   border-radius: 999px;
   margin-bottom: 16px;
@@ -629,7 +628,7 @@ body:has(a:hover) .cursor-trail {
 .hero-glow-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
   top: -200px;
   right: -100px;
   animation: floatGlow 8s ease-in-out infinite alternate;
@@ -642,7 +641,7 @@ body:has(a:hover) .cursor-trail {
   position: absolute;
   bottom: -100px;
   left: -100px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
   contain: strict;
   animation: floatGlow 10s ease-in-out infinite alternate-reverse;
   will-change: transform;
@@ -684,8 +683,8 @@ body:has(a:hover) .cursor-trail {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--primary);
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.29);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   padding: 6px 14px;
   border-radius: 999px;
   width: fit-content;
@@ -990,15 +989,15 @@ body:has(a:hover) .cursor-trail {
 }
 
 .about-block:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
 }
 
 .about-block-icon {
   width: 48px;
   height: 48px;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -1044,7 +1043,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 .about-stat:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-2px);
 }
 
@@ -1168,14 +1167,14 @@ body:has(a:hover) .cursor-trail {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 0% 0%, rgba(124, 58, 237, 0.07) 0%, transparent 60%);
+  background: radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.06) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition);
   pointer-events: none;
 }
 
 .service-card:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -1188,8 +1187,8 @@ body:has(a:hover) .cursor-trail {
 .service-icon-wrap {
   width: 52px;
   height: 52px;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -1199,7 +1198,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 .service-card:hover .service-icon-wrap {
-  background: rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.2);
   transform: scale(1.1) rotate(-5deg);
 }
 
@@ -1228,7 +1227,7 @@ body:has(a:hover) .cursor-trail {
   right: 28px;
   width: 36px;
   height: 36px;
-  background: rgba(124, 58, 237, 0.12);
+  background: rgba(16, 185, 129, 0.1);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -1272,7 +1271,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 .portfolio-card:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
@@ -1337,8 +1336,8 @@ body:has(a:hover) .cursor-trail {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--primary);
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   padding: 3px 10px;
   border-radius: 999px;
 }
@@ -1374,7 +1373,7 @@ body:has(a:hover) .cursor-trail {
 }
 
 .testimonial-card:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-4px);
 }
 
@@ -1406,8 +1405,8 @@ body:has(a:hover) .cursor-trail {
 .testimonial-avatar {
   width: 40px;
   height: 40px;
-  background: rgba(124, 58, 237, 0.18);
-  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1462,16 +1461,16 @@ body:has(a:hover) .cursor-trail {
 }
 
 .pricing-card:hover {
-  border-color: rgba(124, 58, 237, 0.35);
+  border-color: rgba(16, 185, 129, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
 /* Tarjeta destacada: escalada y con borde luminoso */
 .pricing-featured {
-  border-color: rgba(124, 58, 237, 0.47);
+  border-color: rgba(16, 185, 129, 0.4);
   transform: scale(1.04);
-  box-shadow: 0 24px 80px rgba(124, 58, 237, 0.14);
+  box-shadow: 0 24px 80px rgba(16, 185, 129, 0.12);
   background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg) 100%);
 
 }
@@ -1487,7 +1486,7 @@ body:has(a:hover) .cursor-trail {
   right: -60px;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1518,8 +1517,8 @@ body:has(a:hover) .cursor-trail {
 .pricing-icon {
   width: 46px;
   height: 46px;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.23);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
@@ -1612,7 +1611,7 @@ body:has(a:hover) .cursor-trail {
   right: -80px;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1673,8 +1672,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 .social-btn:hover {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
   color: var(--primary);
   transform: translateY(-2px);
 }
@@ -1753,8 +1752,8 @@ body:has(a:hover) .cursor-trail {
 .form-group input:focus,
 .form-group textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.14);
-  background: rgba(124, 58, 237, 0.04);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+  background: rgba(16, 185, 129, 0.03);
 }
 
 /* Estado de error: borde rojo */
@@ -1779,8 +1778,8 @@ body:has(a:hover) .cursor-trail {
   align-items: center;
   gap: 10px;
   padding: 14px 18px;
-  background: rgba(124, 58, 237, 0.12);
-  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius);
   color: var(--primary);
   font-size: 0.9rem;
@@ -1905,8 +1904,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 .modal-close:hover {
-  background: rgba(124, 58, 237, 0.12);
-  border-color: rgba(124, 58, 237, 0.35);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .modal-close .material-symbols-outlined {
@@ -2258,8 +2257,8 @@ body:has(a:hover) .cursor-trail {
   align-items: center;
   gap: 6px;
   padding: 6px 14px 6px 10px;
-  background: rgba(124, 58, 237, 0.09);
-  border: 1px solid rgba(124, 58, 237, 0.29);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.78rem;
@@ -2271,8 +2270,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 .badge-reviews:hover {
-  background: rgba(124, 58, 237, 0.18);
-  border-color: rgba(124, 58, 237, 0.58);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.5);
 }
 
 .badge-stars {
@@ -2350,8 +2349,8 @@ body:has(a:hover) .cursor-trail {
 }
 
 .portfolio-chip-category {
-  background: rgba(124, 58, 237, 0.23);
-  border: 1px solid rgba(124, 58, 237, 0.47);
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
   color: var(--primary);
 }
 
@@ -2463,94 +2462,6 @@ body:has(a:hover) .cursor-trail {
 /* ===========================
    RESPONSIVE — ajustes para móvil
 =========================== */
-/* ===========================
-   BOTON FLOTANTE DE WHATSAPP
-   Posicion fija, animacion de pulso, accesible
-=========================== */
-
-/* Anillo de pulso expandiendose */
-@keyframes whatsapp-pulse {
-  0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(1.9); opacity: 0; }
-}
-
-.whatsapp-float {
-  /* Posicionamiento fijo: encima del cursor custom (z-index 9998-9999),
-     debajo de modales (los modales usan z-index mayor) */
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 9500;
-
-  /* Forma y tamanio */
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-
-  /* Layout: icono centrado */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* Color de marca */
-  background: var(--whatsapp);
-
-  /* Sombra con glow verde sutil */
-  box-shadow:
-    0 4px 16px rgba(37, 211, 102, 0.4),
-    0 2px 6px rgba(0, 0, 0, 0.25);
-
-  /* Transicion suave en hover */
-  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
-
-  text-decoration: none;
-}
-
-/* Anillo de pulso via ::before */
-.whatsapp-float::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: var(--whatsapp);
-  z-index: -1;
-  animation: whatsapp-pulse 1.8s ease-out infinite;
-}
-
-/* Hover: escala y fondo mas oscuro */
-.whatsapp-float:hover {
-  transform: scale(1.08);
-  background: var(--whatsapp-dark);
-  box-shadow:
-    0 6px 24px rgba(37, 211, 102, 0.5),
-    0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsive: moviles */
-@media (max-width: 768px) {
-  .whatsapp-float {
-    bottom: 20px;
-    right: 20px;
-    width: 56px;
-    height: 56px;
-  }
-
-  .whatsapp-float::before {
-    width: 56px;
-    height: 56px;
-  }
-}
-
-/* Accesibilidad: desactivar animacion de pulso si el usuario lo prefiere */
-@media (prefers-reduced-motion: reduce) {
-  .whatsapp-float::before {
-    animation: none;
-  }
-}
-
 @media (max-width: 480px) {
   .hero-badges {
     gap: 8px;
@@ -2564,59 +2475,5 @@ body:has(a:hover) .cursor-trail {
   .portfolio-meta-chips {
     bottom: 8px;
     left: 8px;
-  }
-}
-
-/* ===========================
-   SELECTOR DE IDIOMA (i18n)
-=========================== */
-.lang-switcher {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  padding: 4px;
-}
-
-.lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-pill);
-  padding: 5px 10px;
-  color: var(--text-muted);
-  font: 600 0.78rem/1 'DM Sans', sans-serif;
-  letter-spacing: 0.03em;
-  cursor: pointer;
-  transition: color var(--transition-fast), background var(--transition-fast);
-}
-
-.lang-btn:hover {
-  color: var(--text);
-}
-
-.lang-btn.active {
-  background: rgba(124,58,237,0.15);
-  color: var(--primary-light);
-}
-
-.lang-flag {
-  width: 20px;
-  height: 14px;
-  border-radius: 2px;
-  flex-shrink: 0;
-}
-
-/* Mobile: hide text labels, show flags only */
-@media (max-width: 480px) {
-  .lang-btn span:last-child {
-    display: none;
-  }
-  .lang-btn {
-    padding: 5px 7px;
   }
 }

@@ -5,6 +5,7 @@
 ============================================ */
 
 import { inject } from '@vercel/analytics';
+import { translations } from './i18n.js';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -608,5 +609,76 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ─────────────────────────────────────────
+     14. SISTEMA DE INTERNACIONALIZACION (i18n)
+         ES / EN con selector de banderas en header
+  ───────────────────────────────────────── */
+  (function initI18n() {
+    const STORAGE_KEY = 'hgs-lang';
+    const DEFAULT_LANG = 'es';
+
+    /* Determina el idioma inicial: localStorage → default */
+    let currentLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
+
+    /* Aplica todas las traducciones al DOM */
+    function applyLang(lang) {
+      const t = translations[lang];
+      if (!t) return;
+
+      /* Función helper para leer una clave anidada: "hero.title_line1" */
+      function resolve(key) {
+        return key.split('.').reduce((obj, k) => obj && obj[k], t);
+      }
+
+      /* data-i18n → textContent */
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const val = resolve(el.dataset.i18n);
+        if (val !== undefined) el.textContent = val;
+      });
+
+      /* data-i18n-html → innerHTML (para textos con <br> o <span class="text-accent">) */
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const val = resolve(el.dataset.i18nHtml);
+        if (val !== undefined) el.innerHTML = val;
+      });
+
+      /* data-i18n-placeholder → placeholder attribute */
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const val = resolve(el.dataset.i18nPlaceholder);
+        if (val !== undefined) el.placeholder = val;
+      });
+
+      /* data-i18n-aria → aria-label attribute */
+      document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+        const val = resolve(el.dataset.i18nAria);
+        if (val !== undefined) el.setAttribute('aria-label', val);
+      });
+
+      /* Actualiza el atributo lang del <html> */
+      document.documentElement.lang = lang;
+
+      /* Actualiza botones del switcher */
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+
+      currentLang = lang;
+      localStorage.setItem(STORAGE_KEY, lang);
+    }
+
+    /* Aplica idioma guardado al cargar */
+    applyLang(currentLang);
+
+    /* Listeners en los botones del switcher */
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        if (lang !== currentLang) applyLang(lang);
+      });
+    });
+  })();
 
 }); /* fin DOMContentLoaded */
