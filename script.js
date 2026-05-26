@@ -81,20 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ─────────────────────────────────────────
-     2. EFECTO DE CABECERA AL HACER SCROLL
-     Agrega la clase .scrolled cuando el usuario baja 40px
-  ───────────────────────────────────────── */
+  /* header — referencia usada en sección 10 (scroll) y sección 3 (menú móvil) */
   const header = document.getElementById('header');
-
-  if (header) {
-    const handleScroll = () => {
-      header.classList.toggle('scrolled', window.scrollY > 40);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    /* Ejecutar una vez al cargar por si ya hay scroll */
-    handleScroll();
-  }
 
 
   /* ─────────────────────────────────────────
@@ -680,5 +668,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   })();
+
+  /* ─────────────────────────────────────────
+     10. HEADER SCROLL — transparente → glassmorphism dinámico por sección
+  ───────────────────────────────────────── */
+  if (header) {
+
+    /* Toggle de la clase al primer px de scroll */
+    const onScroll = () => header.classList.toggle('header-scrolled', window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); /* ejecutar al cargar por si ya hay scroll */
+
+    /* Paleta RGB por sección — se aplica como --header-tint */
+    const sectionTints = {
+      hero:         '20, 10, 36',   /* morado profundo */
+      about:        '10, 18, 36',   /* azul oscuro     */
+      services:     '16, 10, 32',   /* violeta         */
+      portfolio:    '8,  14, 28',   /* azul marino     */
+      testimonials: '20, 8,  32',   /* púrpura         */
+      pricing:      '10, 16, 32',   /* azul índigo     */
+      contact:      '13, 11, 20',   /* neutro oscuro   */
+    };
+
+    const sections = document.querySelectorAll('section[id]');
+
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const tint = sectionTints[entry.target.id] ?? '13, 11, 20';
+          header.style.setProperty('--header-tint', tint);
+        }
+      });
+    }, {
+      threshold: 0.25   /* la sección ocupa al menos 25 % de la ventana */
+    });
+
+    sections.forEach(s => sectionObserver.observe(s));
+  }
 
 }); /* fin DOMContentLoaded */

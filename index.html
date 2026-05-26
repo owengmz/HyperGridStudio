@@ -190,6 +190,7 @@
               <span class="badge-dot" aria-hidden="true"></span>
               <span data-i18n="hero.badge_available">Disponible para nuevos proyectos</span>
             </div>
+            <!-- Reseñas de Google con estrellas y enlace a perfil -->
             <a class="badge badge-reviews" href="https://g.co/kgs/hypergridstudio" target="_blank"
               rel="noopener noreferrer" aria-label="Ver 50+ reseñas en Google">
               <span class="badge-stars" aria-hidden="true">★★★★★</span>
@@ -359,6 +360,41 @@
             </div>
           </div>
         </div>
+
+        <div class="process-grid">
+          <div class="process-step reveal-up">
+            <span class="process-num">01</span>
+            <h3 class="process-title">Descubrimiento</h3>
+            <p class="process-desc">
+              Entendemos tu negocio, tus objetivos y tu cliente
+              ideal antes de escribir una línea de código.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.1s">
+            <span class="process-num">02</span>
+            <h3 class="process-title">Diseño</h3>
+            <p class="process-desc">
+              Creamos el diseño visual completo para tu aprobación
+              antes de desarrollar.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.2s">
+            <span class="process-num">03</span>
+            <h3 class="process-title">Desarrollo</h3>
+            <p class="process-desc">
+              Código limpio, optimizado para SEO y velocidad
+              desde el primer día.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.3s">
+            <span class="process-num">04</span>
+            <h3 class="process-title">Lanzamiento</h3>
+            <p class="process-desc">
+              Deploy, pruebas finales y entrega en menos de
+              10 días con soporte post-lanzamiento.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -486,6 +522,12 @@
               </div>
             </div>
 
+            <div class="portfolio-chips">
+              <span class="chip chip-live">Live ↗</span>
+              <span class="chip chip-country">EE.UU.</span>
+              <span class="chip chip-type">Landing Page</span>
+            </div>
+
             <div class="portfolio-body">
               <h3 class="portfolio-title">Zycor Construction LLC</h3>
               <p class="portfolio-desc" data-i18n="portfolio.zycor_desc">
@@ -517,6 +559,12 @@
                 <span class="portfolio-chip portfolio-chip-category"
                   data-i18n="portfolio.wood_category">Carpintería</span>
               </div>
+            </div>
+
+            <div class="portfolio-chips">
+              <span class="chip chip-live">Live ↗</span>
+              <span class="chip chip-country">Argentina</span>
+              <span class="chip chip-type">Sitio Web</span>
             </div>
 
             <div class="portfolio-body">
@@ -803,78 +851,48 @@
     =========================== -->
     <section class="contact" id="contact" aria-label="Contacto">
       <div class="container">
-        <div class="contact-card reveal-up">
-          <div class="contact-glow-1" aria-hidden="true"></div>
-          <div class="contact-glow-2" aria-hidden="true"></div>
-          <div class="contact-grid">
-
-            <!-- Informacion de contacto y redes sociales -->
-            <div class="contact-info">
-              <span class="section-tag" data-i18n="contact.tag">Contacto</span>
-              <h2 class="section-title" data-i18n-html="contact.title">Empecemos tu <span
-                  class="text-accent">proyecto</span></h2>
-              <p class="section-desc" data-i18n="contact.desc">
-                Listo para transformar tu vision en realidad? Conectate con nosotros
-                a traves de tu plataforma favorita.
-              </p>
-              <!-- Botones de redes sociales -->
-              <div class="social-links">
-                <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
-                  rel="noopener noreferrer" aria-label="Instagram de Hyper Grid Studio">
-                  <span class="material-symbols-outlined" aria-hidden="true">camera</span>
-                  <span>Instagram</span>
-                </a>
-                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
-                  rel="noopener noreferrer" aria-label="TikTok de Hyper Grid Studio">
-                  <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
-                  <span>TikTok</span>
-                </a>
-                <a class="social-btn social-btn-primary"
-                  href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
-                  target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-                  <span class="material-symbols-outlined" aria-hidden="true">chat</span>
-                  <span data-i18n="contact.whatsapp_btn">Chat por WhatsApp</span>
-                </a>
-              </div>
+        <div class="contact-hero reveal-up">
+          <div class="section-tag">Contacto</div>
+          <h2 class="contact-headline">
+            ¿Listo para empezar<br>
+            <span class="text-accent">tu proyecto?</span>
+          </h2>
+          <p class="contact-sub">
+            Contanos tu idea. En menos de 24 horas te respondemos
+            con una propuesta personalizada.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-lg magnetic"
+              href="https://wa.me/5492657501242?text=Hola%2C%20vi%20tu%20landing%20y%20quiero%20cotizar%20mi%20web"
+              target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.145.565 4.159 1.549 5.903L.062 23.056a1 1 0 001.226 1.226l5.153-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.908 0-3.7-.474-5.27-1.308l-.376-.202-3.895 1.122 1.122-3.895-.202-.376A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+              </svg>
+              Hablar por WhatsApp
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://calendly.com/USUARIO" target="_blank" rel="noopener">
+              Agendar reunión →
+            </a>
+          </div>
+          <div class="contact-meta">
+            <!-- Botones de redes sociales -->
+            <div class="social-links">
+              <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
+                rel="noopener noreferrer" aria-label="Instagram de Hyper Grid Studio">
+                <span class="material-symbols-outlined" aria-hidden="true">camera</span>
+                <span>Instagram</span>
+              </a>
+              <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
+                rel="noopener noreferrer" aria-label="TikTok de Hyper Grid Studio">
+                <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
+                <span>TikTok</span>
+              </a>
             </div>
-
-            <!-- Formulario de contacto: envio via Formspree -->
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqeykldg" method="POST"
-              novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name" data-i18n="contact.form_name_label">Nombre Completo</label>
-                  <input type="text" id="name" name="name" placeholder="Juan Perez"
-                    data-i18n-placeholder="contact.form_name_placeholder" autocomplete="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="email" data-i18n="contact.form_email_label">Correo Electronico</label>
-                  <input type="email" id="email" name="email" placeholder="juan@ejemplo.com"
-                    data-i18n-placeholder="contact.form_email_placeholder" autocomplete="email" required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message" data-i18n="contact.form_msg_label">Detalles del Proyecto</label>
-                <textarea id="message" name="message" rows="4" placeholder="Cuentame sobre tu proyecto..."
-                  data-i18n-placeholder="contact.form_msg_placeholder" required></textarea>
-              </div>
-              <!-- Boton de envio con icono -->
-              <button class="btn btn-primary w-full btn-lg" type="submit" id="submitBtn">
-                <span class="btn-text" data-i18n="contact.form_submit">Enviar Mensaje</span>
-                <span class="btn-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined">send</span>
-                </span>
-              </button>
-              <!-- Mensaje de exito al enviar el formulario -->
-              <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
-                <span data-i18n="contact.form_success">Mensaje enviado! Te respondere pronto.</span>
-              </div>
-            </form>
-
           </div>
         </div>
-      </div>
     </section>
   </main>
 
