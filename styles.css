@@ -273,7 +273,7 @@ body:has(a:hover) .cursor-trail {
 
 /* Estado scrolleado: glassmorphism suave — clase añadida por JS al primer scroll */
 .header-scrolled {
-  background: rgba(13, 11, 20, 0.32);
+  background: rgba(var(--header-tint, 13, 11, 20), 0.72);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
