@@ -44,7 +44,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Preload de la imagen hero: lo antes posible para mejor LCP -->
-  <link rel="preload" as="image" href="/assets/michael-baccin-XopauR-Nagk-unsplash-Dmeom_7p.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/img/michael-baccin-XopauR-Nagk-unsplash.webp" fetchpriority="high" />
 
   <!-- Iconos: carga no bloqueante -->
   <link rel="preload"
@@ -83,14 +83,14 @@
   "serviceType": ["Diseño Web", "E-commerce", "Landing Pages", "Desarrollo Web a Medida"]
 }
   </script>
-  <script type="module" crossorigin src="/assets/index-C0or8mQv.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-DoZUC3l5.css">
+  <script type="module" crossorigin src="/assets/index-cBYVGLnL.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CiXXz92e.css">
 </head>
 
 <body>
 
   <!-- Skip link: permite a usuarios de teclado/lector de pantalla saltar la navegacion -->
-  <a class="skip-link" href="#hero">Saltar al contenido principal</a>
+  <a class="skip-link" href="#hero" data-i18n="misc.skip_link">Saltar al contenido principal</a>
 
   <!-- Cursor personalizado: punto principal que sigue al puntero -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -110,16 +110,40 @@
 
       <!-- Navegacion principal visible solo en escritorio -->
       <nav class="nav" id="nav" role="navigation" aria-label="Navegacion principal">
-        <a class="nav-link" href="#about">Nosotros</a>
-        <a class="nav-link" href="#services">Servicios</a>
-        <a class="nav-link" href="#portfolio">Portafolio</a>
-        <a class="nav-link" href="#pricing">Precios</a>
-        <a class="nav-link" href="#contact">Contacto</a>
+        <a class="nav-link" href="#about" data-i18n="nav.about">Nosotros</a>
+        <a class="nav-link" href="#services" data-i18n="nav.services">Servicios</a>
+        <a class="nav-link" href="#portfolio" data-i18n="nav.portfolio">Portafolio</a>
+        <a class="nav-link" href="#pricing" data-i18n="nav.pricing">Precios</a>
+        <a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
       </nav>
 
-      <!-- Acciones del encabezado: boton CTA y hamburguesa movil -->
+      <!-- Acciones del encabezado: selector idioma + boton CTA + hamburguesa movil -->
       <div class="header-actions">
-        <a class="btn btn-primary" href="#contact">Contrátame</a>
+
+        <!-- Selector de idioma ES / EN -->
+        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" aria-label="Cambiar a Español" type="button">
+            <svg class="lang-flag" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Bandera España: rojo-amarillo-rojo -->
+              <rect width="24" height="16" fill="#c60b1e" />
+              <rect y="4" width="24" height="8" fill="#ffc400" />
+            </svg>
+            <span>ES</span>
+          </button>
+          <button class="lang-btn" data-lang="en" aria-label="Switch to English" type="button">
+            <svg class="lang-flag" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Union Jack simplificado -->
+              <rect width="24" height="16" fill="#012169" />
+              <path d="M0 0 L24 16 M24 0 L0 16" stroke="#fff" stroke-width="2.5" />
+              <path d="M12 0 V16 M0 8 H24" stroke="#fff" stroke-width="4" />
+              <path d="M12 0 V16 M0 8 H24" stroke="#c8102e" stroke-width="2" />
+              <path d="M0 0 L24 16 M24 0 L0 16" stroke="#c8102e" stroke-width="1" />
+            </svg>
+            <span>EN</span>
+          </button>
+        </div>
+
+        <a class="btn btn-primary" href="#contact" data-i18n="nav.cta">Contrátame</a>
         <!-- Boton hamburguesa visible solo en movil -->
         <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
           aria-controls="mobileMenu" type="button">
@@ -135,11 +159,11 @@
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu de navegacion movil"
     aria-hidden="true">
     <nav class="mobile-nav" aria-label="Navegacion movil">
-      <a class="mobile-nav-link" href="#about">Nosotros</a>
-      <a class="mobile-nav-link" href="#services">Servicios</a>
-      <a class="mobile-nav-link" href="#portfolio">Portafolio</a>
-      <a class="mobile-nav-link" href="#pricing">Precios</a>
-      <a class="mobile-nav-link" href="#contact">Contacto</a>
+      <a class="mobile-nav-link" href="#about" data-i18n="nav.about">Nosotros</a>
+      <a class="mobile-nav-link" href="#services" data-i18n="nav.services">Servicios</a>
+      <a class="mobile-nav-link" href="#portfolio" data-i18n="nav.portfolio">Portafolio</a>
+      <a class="mobile-nav-link" href="#pricing" data-i18n="nav.pricing">Precios</a>
+      <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 
@@ -161,45 +185,67 @@
       <div class="container hero-inner">
         <!-- Columna izquierda: texto y acciones -->
         <div class="hero-content reveal-up">
-          <!-- Insignia de disponibilidad -->
-          <div class="badge">
-            <span class="badge-dot" aria-hidden="true"></span>
-            Disponible para nuevos proyectos
+          <!-- Insignias de estado y reseñas -->
+          <div class="hero-badges">
+            <div class="badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.badge_available">Disponible para nuevos proyectos</span>
+            </div>
+            <!-- Reseñas de Google con estrellas y enlace a perfil -->
+            <a class="badge badge-reviews" href="https://g.co/kgs/hypergridstudio" target="_blank"
+              rel="noopener noreferrer" aria-label="Ver 50+ reseñas en Google">
+              <span class="badge-stars" aria-hidden="true">★★★★★</span>
+              <span data-i18n="hero.badge_reviews">50+ Google Reviews</span>
+            </a>
           </div>
 
           <h1 class="hero-title">
-            Construye tu<br />
-            <span class="hero-title-accent">Futuro Digital</span>
+            <span data-i18n="hero.title_line1">Páginas web que</span><br />
+            <span class="hero-title-accent" data-i18n-html="hero.title_accent">convierten visitantes<br />en clientes
+              reales</span>
           </h1>
 
-          <p class="hero-desc">
-            Soluciones web modernas y de alto rendimiento adaptadas a tus objetivos
-            comerciales. Especializado en React, Next.js y arquitecturas escalables
-            que convierten usuarios en clientes.
+          <p class="hero-desc" data-i18n="hero.desc">
+            Diseño y desarrollamos tu sitio en menos de 10 días, con foco en
+            resultados medibles: más consultas, más ventas, más confianza para
+            tu negocio.
           </p>
 
           <!-- Botones de accion principales -->
           <div class="hero-actions">
-            <a class="btn btn-primary btn-lg magnetic" href="#portfolio">Ver Portafolio</a>
-            <a class="btn btn-ghost btn-lg" href="#contact">Agendar Llamada</a>
+            <a class="btn btn-primary btn-lg magnetic" href="#portfolio" data-i18n="hero.cta_primary">Ver Portafolio</a>
+            <a class="btn btn-whatsapp btn-lg"
+              href="https://wa.me/5492657501242?text=Hola%2C%20vi%20tu%20landing%20y%20quiero%20cotizar%20mi%20web"
+              target="_blank" rel="noopener noreferrer" aria-label="Cotizar por WhatsApp">
+              <!-- SVG oficial de WhatsApp -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                aria-hidden="true" focusable="false">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.126.558 4.117 1.532 5.847L.057 23.882l6.206-1.448A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.65-.487-5.188-1.34l-.371-.22-3.683.859.92-3.574-.242-.38A9.944 9.944 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+              </svg>
+              <span data-i18n="hero.cta_whatsapp">Cotizar por WhatsApp</span>
+            </a>
           </div>
 
           <!-- Estadisticas numericas con animacion de conteo -->
+          <!-- NOTA: .stat-num NO recibe data-i18n (GSAP lo maneja). Solo labels y sufijos. -->
           <div class="hero-stats" role="list" aria-label="Estadisticas">
             <div class="stat" role="listitem">
               <div class="stat-row">
                 <span class="stat-num" data-target="48">0</span>
                 <span class="stat-suffix" aria-hidden="true">+</span>
               </div>
-              <span class="stat-label">Proyectos</span>
+              <span class="stat-label" data-i18n="hero.stat_projects">Proyectos</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat" role="listitem">
               <div class="stat-row">
-                <span class="stat-num" data-target="99">0</span>
-                <span class="stat-suffix" aria-hidden="true">%</span>
+                <span class="stat-num" data-target="10">0</span>
+                <span class="stat-suffix" data-i18n="hero.stat_delivery_suffix" aria-hidden="true"> días</span>
               </div>
-              <span class="stat-label">Satisfaccion</span>
+              <span class="stat-label" data-i18n="hero.stat_delivery_label">Entrega</span>
             </div>
             <div class="stat-divider" aria-hidden="true"></div>
             <div class="stat" role="listitem">
@@ -207,7 +253,7 @@
                 <span class="stat-num" data-target="5">0</span>
                 <span class="stat-suffix" aria-hidden="true">★</span>
               </div>
-              <span class="stat-label">Calificacion</span>
+              <span class="stat-label" data-i18n="hero.stat_rating">Calificación</span>
             </div>
           </div>
         </div>
@@ -217,9 +263,8 @@
           <div class="hero-card-wrapper">
             <div class="hero-card">
               <div class="hero-card-glow" aria-hidden="true"></div>
-              <img src="/assets/michael-baccin-XopauR-Nagk-unsplash-Dmeom_7p.webp"
-                alt="Espacio de trabajo moderno con setup profesional" class="hero-img" width="480" height="672"
-                loading="eager" fetchpriority="high" />
+              <img src="/assets/248shots_so-BvyZRyam.webp" alt="Espacio de trabajo moderno con setup profesional" class="hero-img"
+                width="480" height="672" loading="eager" fetchpriority="high" />
               <div class="hero-card-overlay" aria-hidden="true"></div>
             </div>
             <!-- Chip flotante con calificacion -->
@@ -243,71 +288,111 @@
     <section class="about" id="about" aria-label="Sobre Hyper Grid Studio">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag">Quiénes Somos</span>
-          <h2 class="section-title">Innovación <span class="text-accent">Digital</span></h2>
-          <p class="section-desc">Transformamos ideas en experiencias web que impulsan resultados.</p>
+          <span class="section-tag" data-i18n="about.tag">Quiénes Somos</span>
+          <h2 class="section-title" data-i18n-html="about.title">Innovación <span class="text-accent">Digital</span>
+          </h2>
+          <p class="section-desc" data-i18n="about.desc">Transformamos ideas en experiencias web que impulsan
+            resultados.</p>
         </div>
 
         <div class="about-grid">
           <!-- Columna izquierda: bloques de contenido -->
           <div class="about-blocks">
-            <!-- Bloque 1: Nuestra Misión -->
+            <!-- Bloque 1 -->
             <div class="about-block reveal-up" style="--delay:0.1s">
               <div class="about-block-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">rocket_launch</span>
               </div>
               <div>
-                <h4>Nuestra Misión</h4>
-                <p>En Hyper Grid Studio creemos que cada negocio merece una presencia digital excepcional. Combinamos
+                <h4 data-i18n="about.block1_title">Nuestra Misión</h4>
+                <p data-i18n="about.block1_body">En Hyper Grid Studio creemos que cada negocio merece una presencia
+                  digital excepcional. Combinamos
                   diseño moderno con tecnología de punta para crear sitios web que no solo se ven bien, sino que generan
                   resultados reales.</p>
               </div>
             </div>
 
-            <!-- Bloque 2: Cómo Trabajamos -->
+            <!-- Bloque 2 -->
             <div class="about-block reveal-up" style="--delay:0.2s">
               <div class="about-block-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">engineering</span>
               </div>
               <div>
-                <h4>Cómo Trabajamos</h4>
-                <p>Cada proyecto comienza con una conversación. Entendemos tus objetivos, diseñamos una solución a
+                <h4 data-i18n="about.block2_title">Cómo Trabajamos</h4>
+                <p data-i18n="about.block2_body">Cada proyecto comienza con una conversación. Entendemos tus objetivos,
+                  diseñamos una solución a
                   medida y la construimos con las mejores herramientas del mercado. Sin plantillas genéricas, sin
                   sorpresas.</p>
               </div>
             </div>
 
-            <!-- Bloque 3: Stack Moderno -->
+            <!-- Bloque 3 -->
             <div class="about-block reveal-up" style="--delay:0.3s">
               <div class="about-block-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">code</span>
               </div>
               <div>
-                <h4>Stack Moderno</h4>
-                <p>Trabajamos con HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, y deployamos en plataformas
+                <h4 data-i18n="about.block3_title">Stack Moderno</h4>
+                <p data-i18n="about.block3_body">Trabajamos con HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, y
+                  deployamos en plataformas
                   como Vercel y Netlify para máximo rendimiento.</p>
               </div>
             </div>
           </div>
 
-          <!-- Columna derecha: estadisticas numericas -->
+          <!-- Columna derecha: estadisticas (los numeros no se traducen) -->
           <div class="about-stats reveal-right">
             <div class="about-stat">
               <span class="about-stat-num">2+</span>
-              <span class="about-stat-label">Años de Experiencia</span>
+              <span class="about-stat-label" data-i18n="about.stat1">Años de Experiencia</span>
             </div>
             <div class="about-stat">
               <span class="about-stat-num">48+</span>
-              <span class="about-stat-label">Proyectos Entregados</span>
+              <span class="about-stat-label" data-i18n="about.stat2">Proyectos Entregados</span>
             </div>
             <div class="about-stat">
               <span class="about-stat-num">100%</span>
-              <span class="about-stat-label">Clientes Satisfechos</span>
+              <span class="about-stat-label" data-i18n="about.stat3">Clientes Satisfechos</span>
             </div>
             <div class="about-stat">
               <span class="about-stat-num">24/7</span>
-              <span class="about-stat-label">Soporte Disponible</span>
+              <span class="about-stat-label" data-i18n="about.stat4">Soporte Disponible</span>
             </div>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step reveal-up">
+            <span class="process-num">01</span>
+            <h3 class="process-title">Descubrimiento</h3>
+            <p class="process-desc">
+              Entendemos tu negocio, tus objetivos y tu cliente
+              ideal antes de escribir una línea de código.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.1s">
+            <span class="process-num">02</span>
+            <h3 class="process-title">Diseño</h3>
+            <p class="process-desc">
+              Creamos el diseño visual completo para tu aprobación
+              antes de desarrollar.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.2s">
+            <span class="process-num">03</span>
+            <h3 class="process-title">Desarrollo</h3>
+            <p class="process-desc">
+              Código limpio, optimizado para SEO y velocidad
+              desde el primer día.
+            </p>
+          </div>
+          <div class="process-step reveal-up" style="--delay:0.3s">
+            <span class="process-num">04</span>
+            <h3 class="process-title">Lanzamiento</h3>
+            <p class="process-desc">
+              Deploy, pruebas finales y entrega en menos de
+              10 días con soporte post-lanzamiento.
+            </p>
           </div>
         </div>
       </div>
@@ -319,7 +404,7 @@
     =========================== -->
     <section class="trusted" aria-label="Empresas que confian en nosotros">
       <div class="container">
-        <p class="trusted-label">CON LA CONFIANZA DE LIDERES DE LA INDUSTRIA</p>
+        <p class="trusted-label" data-i18n="trusted.label">CON LA CONFIANZA DE LIDERES DE LA INDUSTRIA</p>
         <!-- Envoltorio con mascara de degradado para el efecto marquee -->
         <div class="marquee-wrapper" aria-hidden="true">
           <div class="marquee">
@@ -347,9 +432,10 @@
     <section class="services" id="services" aria-label="Servicios ofrecidos">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag">Lo que hago</span>
-          <h2 class="section-title">Servicios <span class="text-accent">Premium</span></h2>
-          <p class="section-desc">
+          <span class="section-tag" data-i18n="services.tag">Lo que hago</span>
+          <h2 class="section-title" data-i18n-html="services.title">Servicios <span class="text-accent">Premium</span>
+          </h2>
+          <p class="section-desc" data-i18n="services.desc">
             Cada proyecto es construido con las ultimas tecnologias y mejores
             practicas para garantizar resultados excepcionales.
           </p>
@@ -360,8 +446,9 @@
             <div class="service-icon-wrap" aria-hidden="true">
               <span class="material-symbols-outlined">web</span>
             </div>
-            <h3>Diseno Web</h3>
-            <p>Interfaces modernas, atractivas y centradas en la experiencia del usuario.</p>
+            <h3 data-i18n="services.card1_title">Landing Page que Vende</h3>
+            <p data-i18n="services.card1_body">Tu negocio online en menos de 10 días. Diseño profesional que transmite
+              confianza y convierte visitas en consultas reales desde el primer día.</p>
             <div class="service-arrow" aria-hidden="true">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
@@ -370,8 +457,9 @@
             <div class="service-icon-wrap" aria-hidden="true">
               <span class="material-symbols-outlined">shopping_bag</span>
             </div>
-            <h3>E-Commerce</h3>
-            <p>Tiendas online optimizadas para conversiones y con gestion simplificada.</p>
+            <h3 data-i18n="services.card2_title">Tienda Online que Crece</h3>
+            <p data-i18n="services.card2_body">Vendé las 24 hs sin intermediarios. Tus clientes compran fácil, vos
+              cobrás rápido y manejás todo desde un panel sin necesidad de conocimientos técnicos.</p>
             <div class="service-arrow" aria-hidden="true">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
@@ -380,8 +468,9 @@
             <div class="service-icon-wrap" aria-hidden="true">
               <span class="material-symbols-outlined">phone_iphone</span>
             </div>
-            <h3>Diseno Responsive</h3>
-            <p>Experiencias perfectas en cualquier dispositivo, pantalla o resolucion.</p>
+            <h3 data-i18n="services.card3_title">Visible en Cualquier Pantalla</h3>
+            <p data-i18n="services.card3_body">El 70% de tus clientes entra desde el celular. Tu sitio se ve y funciona
+              perfecto en móvil, tablet y desktop para que no pierdas ninguna oportunidad.</p>
             <div class="service-arrow" aria-hidden="true">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
@@ -390,8 +479,9 @@
             <div class="service-icon-wrap" aria-hidden="true">
               <span class="material-symbols-outlined">speed</span>
             </div>
-            <h3>Optimizacion</h3>
-            <p>Maximo rendimiento y velocidad de carga para mejorar tu SEO y conversiones.</p>
+            <h3 data-i18n="services.card4_title">Mejor Posición en Google</h3>
+            <p data-i18n="services.card4_body">Un sitio lento pierde clientes antes de que lean tu propuesta.
+              Optimizamos velocidad y SEO para que aparezcas primero cuando tu cliente te busca.</p>
             <div class="service-arrow" aria-hidden="true">
               <span class="material-symbols-outlined">arrow_forward</span>
             </div>
@@ -407,9 +497,10 @@
     <section class="portfolio" id="portfolio" aria-label="Portafolio de proyectos">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag">Portafolio</span>
-          <h2 class="section-title">Proyectos <span class="text-accent">Destacados</span></h2>
-          <p class="section-desc">
+          <span class="section-tag" data-i18n="portfolio.tag">Portafolio</span>
+          <h2 class="section-title" data-i18n-html="portfolio.title">Proyectos <span
+              class="text-accent">Destacados</span></h2>
+          <p class="section-desc" data-i18n="portfolio.desc">
             Una seleccion de proyectos reales que reflejan calidad, atencion al detalle
             y resultados concretos para cada cliente.
           </p>
@@ -424,55 +515,71 @@
               <img src="/assets/portfolio-zycor-nxewqY86.webp"
                 alt="Zycor Construction LLC — Landing page para constructora en New Jersey" class="portfolio-img"
                 loading="lazy" width="600" height="450" />
+              <div class="portfolio-meta-chips" aria-hidden="true">
+                <span class="portfolio-chip portfolio-chip-country">🇺🇸 EE.UU.</span>
+                <span class="portfolio-chip portfolio-chip-category"
+                  data-i18n="portfolio.zycor_category">Construcción</span>
+              </div>
             </div>
 
-            <!-- Contenido de la card -->
+            <div class="portfolio-chips">
+              <span class="chip chip-live">Live ↗</span>
+              <span class="chip chip-country">EE.UU.</span>
+              <span class="chip chip-type">Landing Page</span>
+            </div>
+
             <div class="portfolio-body">
               <h3 class="portfolio-title">Zycor Construction LLC</h3>
-              <p class="portfolio-desc">
+              <p class="portfolio-desc" data-i18n="portfolio.zycor_desc">
                 Landing page bilingüe (EN/ES) para constructora especializada en Framing,
                 Renovaciones y Roofing en New Jersey, USA.
               </p>
-              <!-- Chips de tecnologias -->
               <ul class="portfolio-tags" aria-label="Tecnologias usadas">
                 <li class="portfolio-tag">HTML5</li>
                 <li class="portfolio-tag">Tailwind CSS</li>
                 <li class="portfolio-tag">JavaScript</li>
                 <li class="portfolio-tag">Vercel</li>
               </ul>
-              <a class="btn btn-outline" href="https://zc-construction.vercel.app/" target="_blank"
-                rel="noopener noreferrer" aria-label="Ver proyecto Zycor Construction">
+              <a class="btn btn-outline" href="https://www.zycorconstruction.com/" target="_blank"
+                rel="noopener noreferrer" aria-label="Ver proyecto Zycor Construction" data-i18n="portfolio.zycor_btn">
                 Ver Proyecto
               </a>
             </div>
           </article>
 
-          <!-- Proyecto 2: Wood Designs (sin deploy aun) -->
+          <!-- Proyecto 2: Wood Designs -->
           <article class="portfolio-card reveal-up" style="--delay:0.2s">
-            <!-- Imagen / placeholder con badge Proximamente -->
             <div class="portfolio-img-wrap">
               <img src="/assets/portfolio-wood-lhb1zRv3.webp"
                 alt="Wood Designs — Sitio web para carpintería artesanal de muebles a medida" class="portfolio-img"
                 loading="lazy" width="600" height="450" />
-              <!-- Badge superpuesto en esquina superior derecha -->
-              <div class="portfolio-soon-badge" aria-label="Proximamente disponible">Próximamente</div>
+              <div class="portfolio-soon-badge" data-i18n="portfolio.wood_soon">Próximamente</div>
+              <div class="portfolio-meta-chips" aria-hidden="true">
+                <span class="portfolio-chip portfolio-chip-country">🇦🇷 Argentina</span>
+                <span class="portfolio-chip portfolio-chip-category"
+                  data-i18n="portfolio.wood_category">Carpintería</span>
+              </div>
             </div>
 
-            <!-- Contenido de la card -->
+            <div class="portfolio-chips">
+              <span class="chip chip-live">Live ↗</span>
+              <span class="chip chip-country">Argentina</span>
+              <span class="chip chip-type">Sitio Web</span>
+            </div>
+
             <div class="portfolio-body">
               <h3 class="portfolio-title">Wood Designs</h3>
-              <p class="portfolio-desc">
+              <p class="portfolio-desc" data-i18n="portfolio.wood_desc">
                 Sitio web para carpintería artesanal especializada en muebles a medida —
                 cocinas, closets, baños y escritorios. Diseño con galería filtrable por categorías.
               </p>
-              <!-- Chips de tecnologias -->
               <ul class="portfolio-tags" aria-label="Tecnologias usadas">
                 <li class="portfolio-tag">HTML5</li>
                 <li class="portfolio-tag">CSS3</li>
                 <li class="portfolio-tag">JavaScript</li>
               </ul>
-              <!-- Boton deshabilitado mientras no hay deploy -->
-              <button class="btn btn-outline portfolio-btn-disabled" disabled aria-disabled="true">
+              <button class="btn btn-outline portfolio-btn-disabled" disabled aria-disabled="true"
+                data-i18n="portfolio.wood_btn">
                 Próximamente
               </button>
             </div>
@@ -489,54 +596,130 @@
     <section class="testimonials" id="testimonials" aria-label="Testimonios de clientes">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag">Testimonios</span>
-          <h2 class="section-title">Lo que dicen nuestros <span class="text-accent">Clientes</span></h2>
-          <p class="section-desc">La satisfacción de nuestros clientes es nuestra mejor carta de presentación.</p>
+          <span class="section-tag" data-i18n="testimonials.tag">Testimonios</span>
+          <h2 class="section-title" data-i18n-html="testimonials.title">Lo que dicen nuestros <span
+              class="text-accent">Clientes</span></h2>
+          <p class="section-desc" data-i18n="testimonials.desc">La satisfacción de nuestros clientes es nuestra mejor
+            carta de presentación.</p>
         </div>
 
         <div class="testimonials-grid">
 
-          <!-- PLACEHOLDER: reemplazar con testimonio real -->
+          <!-- Testimonio 1: Yerin Dominguez — Zycor Construction -->
           <article class="testimonial-card reveal-up" style="--delay:0.1s">
-            <p class="testimonial-stars" aria-label="5 estrellas">★★★★★</p>
-            <p class="testimonial-text">"Superaron todas mis expectativas. El sitio quedó exactamente como lo imaginaba,
-              y la comunicación durante todo el proceso fue excelente."</p>
+            <!-- Cabecera: logo de plataforma + estrellas -->
+            <div class="testimonial-header">
+              <svg class="testimonial-google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                height="20" aria-label="Google Review" role="img">
+                <path fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
+                <path fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+              <span class="testimonial-stars" aria-label="5 estrellas">★★★★★</span>
+            </div>
+
+            <blockquote class="testimonial-text" data-i18n="testimonials.t1_quote">
+              "Superaron todas mis expectativas. El sitio quedó exactamente como lo imaginaba, y la comunicación durante
+              todo el proceso fue excelente. Desde el primer día empezamos a recibir consultas."
+            </blockquote>
+
             <hr class="testimonial-divider" aria-hidden="true" />
+
+            <!-- Autor: foto + datos -->
             <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">CM</div>
-              <div>
+              <div class="testimonial-avatar-wrap">
+                <img src="/img/testimonial-yerin.webp" alt="Foto de Yerin Dominguez" class="testimonial-photo"
+                  width="48" height="48" loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="testimonial-avatar-fallback" aria-hidden="true">YD</div>
+              </div>
+              <div class="testimonial-author-info">
                 <p class="testimonial-name">Yerin Dominguez</p>
-                <p class="testimonial-role">CEO, Zycor Construction</p>
+                <p class="testimonial-company">Zycor Construction LLC</p>
+                <p class="testimonial-role" data-i18n="testimonials.t1_role">CEO · New Jersey, USA</p>
               </div>
             </div>
           </article>
 
-          <!-- PLACEHOLDER: reemplazar con testimonio real -->
+          <!-- Testimonio 2: Facundo Bustos — Wood Designs -->
           <article class="testimonial-card reveal-up" style="--delay:0.2s">
-            <p class="testimonial-stars" aria-label="5 estrellas">★★★★★</p>
-            <p class="testimonial-text">"Profesionalismo de principio a fin. Entendieron la esencia de mi negocio y la
-              plasmaron perfectamente en el diseño web."</p>
+            <div class="testimonial-header">
+              <svg class="testimonial-google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                height="20" aria-label="Google Review" role="img">
+                <path fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
+                <path fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+              <span class="testimonial-stars" aria-label="5 estrellas">★★★★★</span>
+            </div>
+
+            <blockquote class="testimonial-text" data-i18n="testimonials.t2_quote">
+              "Profesionalismo de principio a fin. Entendieron la esencia de mi negocio y la plasmaron perfectamente en
+              el diseño. El panel de administración me permite actualizar todo sin necesitar ayuda externa."
+            </blockquote>
+
             <hr class="testimonial-divider" aria-hidden="true" />
+
             <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">ML</div>
-              <div>
+              <div class="testimonial-avatar-wrap">
+                <img src="/img/testimonial-facundo.webp" alt="Foto de Facundo Bustos" class="testimonial-photo"
+                  width="48" height="48" loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="testimonial-avatar-fallback" aria-hidden="true">FB</div>
+              </div>
+              <div class="testimonial-author-info">
                 <p class="testimonial-name">Facundo Bustos</p>
-                <p class="testimonial-role">Fundador, Wood Designs</p>
+                <p class="testimonial-company">Wood Designs</p>
+                <p class="testimonial-role" data-i18n="testimonials.t2_role">Fundador · Argentina</p>
               </div>
             </div>
           </article>
 
-          <!-- PLACEHOLDER: reemplazar con testimonio real -->
+          <!-- Testimonio 3: Andrés R. -->
           <article class="testimonial-card reveal-up" style="--delay:0.3s">
-            <p class="testimonial-stars" aria-label="5 estrellas">★★★★★</p>
-            <p class="testimonial-text">"Rápidos, eficientes y con un ojo increíble para el detalle. Mi landing page
-              convierte visitantes en clientes todos los días."</p>
+            <div class="testimonial-header">
+              <svg class="testimonial-google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"
+                height="20" aria-label="Google Review" role="img">
+                <path fill="#4285F4"
+                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                <path fill="#34A853"
+                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                <path fill="#FBBC05"
+                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" />
+                <path fill="#EA4335"
+                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+              </svg>
+              <span class="testimonial-stars" aria-label="5 estrellas">★★★★★</span>
+            </div>
+
+            <blockquote class="testimonial-text" data-i18n="testimonials.t3_quote">
+              "Rápidos, eficientes y con un ojo increíble para el detalle. Mi landing page convierte visitantes en
+              clientes todos los días. La entregaron en 7 días exactos, tal como prometieron."
+            </blockquote>
+
             <hr class="testimonial-divider" aria-hidden="true" />
+
             <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">AR</div>
-              <div>
+              <div class="testimonial-avatar-wrap">
+                <img src="/img/testimonial-andres.webp" alt="Foto de Andrés R." class="testimonial-photo" width="48"
+                  height="48" loading="lazy"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                <div class="testimonial-avatar-fallback" aria-hidden="true">AR</div>
+              </div>
+              <div class="testimonial-author-info">
                 <p class="testimonial-name">Andrés R.</p>
-                <p class="testimonial-role">Emprendedor Digital</p>
+                <p class="testimonial-company">Emprendedor Digital</p>
+                <p class="testimonial-role" data-i18n="testimonials.t3_role">E-commerce · Argentina</p>
               </div>
             </div>
           </article>
@@ -552,9 +735,10 @@
     <section class="pricing" id="pricing" aria-label="Planes y precios">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag">Inversion</span>
-          <h2 class="section-title">Precios <span class="text-accent">Transparentes</span></h2>
-          <p class="section-desc">
+          <span class="section-tag" data-i18n="pricing.tag">Inversion</span>
+          <h2 class="section-title" data-i18n-html="pricing.title">Precios <span
+              class="text-accent">Transparentes</span></h2>
+          <p class="section-desc" data-i18n="pricing.desc">
             Desde una pagina simple hasta proyectos 100% personalizados.
             Sin sorpresas, sin letras chicas.
           </p>
@@ -568,61 +752,62 @@
               <span class="pricing-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">rocket_launch</span>
               </span>
-              <h3>Tienda Online</h3>
+              <h3 data-i18n="pricing.plan1_name">Tienda Online</h3>
             </div>
             <div class="pricing-price">
               <span class="price-amount">$800</span>
-              <span class="price-period">Usd · Precio segun complejidad</span>
+              <span class="price-period" data-i18n="pricing.plan1_period">Usd · Precio segun complejidad</span>
             </div>
-            <p class="pricing-desc">
+            <p class="pricing-desc" data-i18n="pricing.plan1_desc">
               Perfecto para negocios de ropa, accesorios o cualquier producto
               fisico que quiera vender online.
             </p>
             <ul class="pricing-features">
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Hasta 20 productos</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Pasarela de pagos
-                integrada</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Panel de administracion
-              </li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Gestion de inventario
-              </li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 1 mes de soporte
-                incluido</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan1_f1">Hasta 20 productos</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan1_f2">Pasarela de pagos integrada</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan1_f3">Panel de administracion</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan1_f4">Gestion de inventario</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan1_f5">1 mes de soporte incluido</span></li>
             </ul>
-            <a class="btn btn-outline w-full" href="#contact">Quiero mi Tienda</a>
+            <a class="btn btn-outline w-full" href="#contact" data-i18n="pricing.plan1_cta">Quiero mi Tienda</a>
           </div>
 
-          <!-- Plan Landing Page: destacado como el mas popular -->
+          <!-- Plan Landing Page: destacado -->
           <div class="pricing-card pricing-featured reveal-up" style="--delay:0.2s">
-            <div class="pricing-badge">Mas Popular</div>
+            <div class="pricing-badge" data-i18n="pricing.plan2_badge">Mas Popular</div>
             <div class="pricing-glow" aria-hidden="true"></div>
             <div class="pricing-header">
               <span class="pricing-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">storefront</span>
               </span>
-              <h3>Landing Page</h3>
+              <h3 data-i18n="pricing.plan2_name">Landing Page</h3>
             </div>
             <div class="pricing-price">
               <span class="price-amount">$150</span>
-              <span class="price-period">Usd · oferta unica</span>
+              <span class="price-period" data-i18n="pricing.plan2_period">Usd · oferta unica</span>
             </div>
-            <p class="pricing-desc">
+            <p class="pricing-desc" data-i18n="pricing.plan2_desc">
               Ideal para emprendedores, profesionales y cualquier persona
               que necesite presencia online rapida.
             </p>
             <ul class="pricing-features">
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Diseno de pagina unica
-              </li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Adaptable a moviles
-                (responsive)</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Boton de WhatsApp y
-                redes sociales</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Formulario de contacto
-              </li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Entrega en menos de 7
-                dias</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan2_f1">Diseno de pagina unica</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan2_f2">Adaptable a moviles (responsive)</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan2_f3">Boton de WhatsApp y redes sociales</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan2_f4">Formulario de contacto</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan2_f5">Entrega en menos de 7 dias</span></li>
             </ul>
-            <a class="btn btn-outline w-full" href="#contact">Quiero mi Landing</a>
+            <a class="btn btn-outline w-full" href="#contact" data-i18n="pricing.plan2_cta">Quiero mi Landing</a>
           </div>
 
           <!-- Plan Proyecto Personalizado -->
@@ -631,28 +816,29 @@
               <span class="pricing-icon" aria-hidden="true">
                 <span class="material-symbols-outlined">auto_awesome</span>
               </span>
-              <h3>Proyecto Personalizado</h3>
+              <h3 data-i18n="pricing.plan3_name">Proyecto Personalizado</h3>
             </div>
             <div class="pricing-price">
-              <span class="price-amount">A consultar</span>
-              <span class="price-period">segun complejidad</span>
+              <span class="price-amount" data-i18n="pricing.plan3_amount">A consultar</span>
+              <span class="price-period" data-i18n="pricing.plan3_period">segun complejidad</span>
             </div>
-            <p class="pricing-desc">
+            <p class="pricing-desc" data-i18n="pricing.plan3_desc">
               Para ideas unicas: llaveros QR con perfil de mascota, directorios,
               reservas, portafolios especiales y mas.
             </p>
             <ul class="pricing-features">
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Funcionalidad 100% a
-                medida</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Base de datos si se
-                necesita</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Panel de administracion
-              </li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> Optimizacion de
-                velocidad</li>
-              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> 3 meses de soporte</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan3_f1">Funcionalidad 100% a medida</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan3_f2">Base de datos si se necesita</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan3_f3">Panel de administracion</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan3_f4">Optimizacion de velocidad</span></li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span> <span
+                  data-i18n="pricing.plan3_f5">3 meses de soporte</span></li>
             </ul>
-            <a class="btn btn-outline w-full" href="#contact">Contarme mi idea</a>
+            <a class="btn btn-outline w-full" href="#contact" data-i18n="pricing.plan3_cta">Contarme mi idea</a>
           </div>
 
         </div>
@@ -665,76 +851,48 @@
     =========================== -->
     <section class="contact" id="contact" aria-label="Contacto">
       <div class="container">
-        <div class="contact-card reveal-up">
-          <div class="contact-glow-1" aria-hidden="true"></div>
-          <div class="contact-glow-2" aria-hidden="true"></div>
-          <div class="contact-grid">
-
-            <!-- Informacion de contacto y redes sociales -->
-            <div class="contact-info">
-              <span class="section-tag">Contacto</span>
-              <h2 class="section-title">Empecemos tu <span class="text-accent">proyecto</span></h2>
-              <p class="section-desc">
-                Listo para transformar tu vision en realidad? Conectate con nosotros
-                a traves de tu plataforma favorita.
-              </p>
-              <!-- Botones de redes sociales -->
-              <div class="social-links">
-                <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
-                  rel="noopener noreferrer" aria-label="Instagram de Hyper Grid Studio">
-                  <span class="material-symbols-outlined" aria-hidden="true">camera</span>
-                  <span>Instagram</span>
-                </a>
-                <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
-                  rel="noopener noreferrer" aria-label="TikTok de Hyper Grid Studio">
-                  <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
-                  <span>TikTok</span>
-                </a>
-                <a class="social-btn social-btn-primary"
-                  href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
-                  target="_blank" rel="noopener noreferrer" aria-label="Chatear por WhatsApp">
-                  <span class="material-symbols-outlined" aria-hidden="true">chat</span>
-                  <span>Chat por WhatsApp</span>
-                </a>
-              </div>
+        <div class="contact-hero reveal-up">
+          <div class="section-tag">Contacto</div>
+          <h2 class="contact-headline">
+            ¿Listo para empezar<br>
+            <span class="text-accent">tu proyecto?</span>
+          </h2>
+          <p class="contact-sub">
+            Contanos tu idea. En menos de 24 horas te respondemos
+            con una propuesta personalizada.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-lg magnetic"
+              href="https://wa.me/5492657501242?text=Hola%2C%20vi%20tu%20landing%20y%20quiero%20cotizar%20mi%20web"
+              target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.145.565 4.159 1.549 5.903L.062 23.056a1 1 0 001.226 1.226l5.153-1.487A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.908 0-3.7-.474-5.27-1.308l-.376-.202-3.895 1.122 1.122-3.895-.202-.376A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+              </svg>
+              Hablar por WhatsApp
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://calendly.com/USUARIO" target="_blank" rel="noopener">
+              Agendar reunión →
+            </a>
+          </div>
+          <div class="contact-meta">
+            <!-- Botones de redes sociales -->
+            <div class="social-links">
+              <a class="social-btn" href="https://www.instagram.com/hypergrid.studio" target="_blank"
+                rel="noopener noreferrer" aria-label="Instagram de Hyper Grid Studio">
+                <span class="material-symbols-outlined" aria-hidden="true">camera</span>
+                <span>Instagram</span>
+              </a>
+              <a class="social-btn" href="https://www.tiktok.com/@hypergrid.studio" target="_blank"
+                rel="noopener noreferrer" aria-label="TikTok de Hyper Grid Studio">
+                <span class="material-symbols-outlined" aria-hidden="true">video_library</span>
+                <span>TikTok</span>
+              </a>
             </div>
-
-            <!-- Formulario de contacto: envio via Formspree -->
-            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqeykldg" method="POST"
-              novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name">Nombre Completo</label>
-                  <input type="text" id="name" name="name" placeholder="Juan Perez" autocomplete="name" required />
-                </div>
-                <div class="form-group">
-                  <label for="email">Correo Electronico</label>
-                  <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" autocomplete="email"
-                    required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="message">Detalles del Proyecto</label>
-                <textarea id="message" name="message" rows="4" placeholder="Cuentame sobre tu proyecto..."
-                  required></textarea>
-              </div>
-              <!-- Boton de envio con icono -->
-              <button class="btn btn-primary w-full btn-lg" type="submit" id="submitBtn">
-                <span class="btn-text">Enviar Mensaje</span>
-                <span class="btn-icon" aria-hidden="true">
-                  <span class="material-symbols-outlined">send</span>
-                </span>
-              </button>
-              <!-- Mensaje de exito al enviar el formulario -->
-              <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-                <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
-                Mensaje enviado! Te respondere pronto.
-              </div>
-            </form>
-
           </div>
         </div>
-      </div>
     </section>
   </main>
 
@@ -745,13 +903,13 @@
         <img src="/assets/logo-BOfNj03t.webp" alt="HyperGrid.Studio" class="logo-icon" width="120" height="48" loading="lazy" />
       </a>
       <nav class="footer-nav" aria-label="Navegacion del pie de pagina">
-        <a href="#about">Sobre Nosotros</a>
-        <a href="#services">Servicios</a>
-        <a href="#portfolio">Portafolio</a>
-        <a href="#" id="privacyLink">Politica de Privacidad</a>
+        <a href="#about" data-i18n="footer.about">Sobre Nosotros</a>
+        <a href="#services" data-i18n="footer.services">Servicios</a>
+        <a href="#portfolio" data-i18n="footer.portfolio">Portafolio</a>
+        <a href="#" id="privacyLink" data-i18n="footer.privacy">Politica de Privacidad</a>
       </nav>
       <p class="footer-copy">
-        <small>© 2026 Hyper Grid Studio. Todos los derechos reservados.</small>
+        <small data-i18n="footer.copy">© 2026 Hyper Grid Studio. Todos los derechos reservados.</small>
       </p>
     </div>
   </footer>
@@ -804,6 +962,17 @@
       </div>
     </div>
   </div>
+
+  <!-- Boton flotante de WhatsApp -->
+  <a class="whatsapp-float"
+    href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
+    target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-i18n-aria="misc.whatsapp_float">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" aria-hidden="true"
+      focusable="false">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
 
   <!-- Script principal: type="module" implica defer, se declara explicitamente por claridad -->
 </body>
