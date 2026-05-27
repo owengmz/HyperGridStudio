@@ -626,7 +626,7 @@ body:has(a:hover) .cursor-trail {
    Presentacion principal con dos columnas
 =========================== */
 .hero {
-  padding: 80px 0 120px;
+  padding: calc(var(--header-h) + 80px) 0 120px;
   overflow: hidden;
   /* position:relative es necesario para que overflow:hidden recorte
      los .hero-glow absolutamente posicionados (900px y 600px de ancho) */
@@ -1923,7 +1923,7 @@ body:has(a:hover) .cursor-trail {
 
   /* Hero: menos padding y altura automatica */
   .hero {
-    padding: 48px 0 72px;
+    padding: calc(var(--header-h) + 48px) 0 72px;
     min-height: auto;
   }
 
