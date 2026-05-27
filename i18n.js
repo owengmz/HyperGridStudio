@@ -39,16 +39,10 @@ export const translations = {
     },
 
     about: {
-      tag:  'Quiénes Somos',
+      tag:  'Lo que Hacemos',
       /* data-i18n-html — contiene <span class="text-accent"> */
-      title:       'Innovación <span class="text-accent">Digital</span>',
-      desc:        'Transformamos ideas en experiencias web que impulsan resultados.',
-      block1_title: 'Nuestra Misión',
-      block1_body:  'En Hyper Grid Studio creemos que cada negocio merece una presencia digital excepcional. Combinamos diseño moderno con tecnología de punta para crear sitios web que no solo se ven bien, sino que generan resultados reales.',
-      block2_title: 'Cómo Trabajamos',
-      block2_body:  'Cada proyecto comienza con una conversación. Entendemos tus objetivos, diseñamos una solución a medida y la construimos con las mejores herramientas del mercado. Sin plantillas genéricas, sin sorpresas.',
-      block3_title: 'Stack Moderno',
-      block3_body:  'Trabajamos con HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, y deployamos en plataformas como Vercel y Netlify para máximo rendimiento.',
+      title: 'Soluciones <span class="text-accent">Digitales</span>',
+      desc:  'Cada proyecto es construido a medida con las últimas tecnologías, enfocado en resultados reales para tu negocio.',
       stat1: 'Años de Experiencia',
       stat2: 'Proyectos Entregados',
       stat3: 'Clientes Satisfechos',
@@ -68,10 +62,10 @@ export const translations = {
       card1_body:  'Tu negocio online en menos de 10 días. Diseño profesional que transmite confianza y convierte visitas en consultas reales desde el primer día.',
       card2_title: 'Tienda Online que Crece',
       card2_body:  'Vendé las 24 hs sin intermediarios. Tus clientes compran fácil, vos cobrás rápido y manejás todo desde un panel sin necesidad de conocimientos técnicos.',
-      card3_title: 'Visible en Cualquier Pantalla',
-      card3_body:  'El 70% de tus clientes entra desde el celular. Tu sitio se ve y funciona perfecto en móvil, tablet y desktop para que no pierdas ninguna oportunidad.',
       card4_title: 'Mejor Posición en Google',
       card4_body:  'Un sitio lento pierde clientes antes de que lean tu propuesta. Optimizamos velocidad y SEO para que aparezcas primero cuando tu cliente te busca.',
+      card5_title: 'Automatizaciones para tu Negocio',
+      card5_body:  'Sistemas de reserva de turnos y gestión de pedidos online para que tu negocio trabaje solo mientras vos te enfocás en lo que importa.',
     },
 
     portfolio: {
@@ -195,15 +189,9 @@ export const translations = {
     },
 
     about: {
-      tag:  'About Us',
-      title: 'Digital <span class="text-accent">Innovation</span>',
-      desc:  'We transform ideas into web experiences that drive real results.',
-      block1_title: 'Our Mission',
-      block1_body:  'At Hyper Grid Studio we believe every business deserves an exceptional digital presence. We combine modern design with cutting-edge technology to create websites that not only look great but generate real results.',
-      block2_title: 'How We Work',
-      block2_body:  'Every project starts with a conversation. We understand your goals, design a custom solution and build it with the best tools available. No generic templates, no surprises.',
-      block3_title: 'Modern Stack',
-      block3_body:  'We work with HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, and deploy on platforms like Vercel and Netlify for maximum performance.',
+      tag:  'What We Do',
+      title: 'Digital <span class="text-accent">Solutions</span>',
+      desc:  'Every project is built custom with the latest technologies, focused on real results for your business.',
       stat1: 'Years of Experience',
       stat2: 'Projects Delivered',
       stat3: 'Satisfied Clients',
@@ -222,10 +210,10 @@ export const translations = {
       card1_body:  'Your business online in under 10 days. Professional design that builds trust and turns visits into real inquiries from day one.',
       card2_title: 'Online Store that Grows',
       card2_body:  'Sell 24/7 with no middlemen. Your clients buy easily, you get paid fast and manage everything from a panel without any technical knowledge.',
-      card3_title: 'Visible on Every Screen',
-      card3_body:  '70% of your clients browse on mobile. Your site looks and works perfectly on mobile, tablet and desktop so you never miss an opportunity.',
       card4_title: 'Better Google Ranking',
       card4_body:  'A slow site loses clients before they read your offer. We optimize speed and SEO so you appear first when your client searches for you.',
+      card5_title: 'Automations for Your Business',
+      card5_body:  'Appointment booking and online order management systems so your business runs on autopilot while you focus on what matters.',
     },
 
     portfolio: {

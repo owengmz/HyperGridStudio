@@ -96,9 +96,6 @@
   <!-- Rastro suave que sigue al cursor con retraso -->
   <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
 
-  <!-- Superposicion de ruido para efecto de textura sutil -->
-  <div class="noise-overlay" aria-hidden="true"></div>
-
   <!-- Encabezado fijo con navegacion principal -->
   <header class="header" id="header" role="banner">
     <div class="container header-inner">
@@ -110,7 +107,6 @@
       <!-- Navegacion principal visible solo en escritorio -->
       <nav class="nav" id="nav" role="navigation" aria-label="Navegacion principal">
         <a class="nav-link" href="#about" data-i18n="nav.about">Nosotros</a>
-        <a class="nav-link" href="#services" data-i18n="nav.services">Servicios</a>
         <a class="nav-link" href="#portfolio" data-i18n="nav.portfolio">Portafolio</a>
         <a class="nav-link" href="#pricing" data-i18n="nav.pricing">Precios</a>
         <a class="nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
@@ -159,7 +155,6 @@
     aria-hidden="true">
     <nav class="mobile-nav" aria-label="Navegacion movil">
       <a class="mobile-nav-link" href="#about" data-i18n="nav.about">Nosotros</a>
-      <a class="mobile-nav-link" href="#services" data-i18n="nav.services">Servicios</a>
       <a class="mobile-nav-link" href="#portfolio" data-i18n="nav.portfolio">Portafolio</a>
       <a class="mobile-nav-link" href="#pricing" data-i18n="nav.pricing">Precios</a>
       <a class="mobile-nav-link" href="#contact" data-i18n="nav.contact">Contacto</a>
@@ -175,8 +170,6 @@
          Presentacion principal con llamado a la accion
     =========================== -->
     <section class="hero" id="hero" aria-label="Presentacion principal">
-      <!-- Fondo de cuadricula decorativo -->
-      <div class="hero-bg-grid" aria-hidden="true"></div>
       <!-- Brillos decorativos animados -->
       <div class="hero-glow hero-glow-1" aria-hidden="true"></div>
       <div class="hero-glow hero-glow-2" aria-hidden="true"></div>
@@ -281,117 +274,84 @@
     </section>
 
     <!-- ===========================
-         SECCION SOBRE NOSOTROS
-         Presentacion del estudio con bloques de contenido y estadisticas
+         SECCION NOSOTROS + SERVICIOS (fusionada)
+         Estadisticas + tarjetas de lo que ofrecemos
     =========================== -->
-    <section class="about" id="about" aria-label="Sobre Hyper Grid Studio">
+    <section class="about" id="about" aria-label="Sobre Hyper Grid Studio y servicios">
       <div class="container">
         <div class="section-header reveal-up">
-          <span class="section-tag" data-i18n="about.tag">Quiénes Somos</span>
-          <h2 class="section-title" data-i18n-html="about.title">Innovación <span class="text-accent">Digital</span>
+          <span class="section-tag" data-i18n="about.tag">Lo que Hacemos</span>
+          <h2 class="section-title" data-i18n-html="about.title">Soluciones <span class="text-accent">Digitales</span>
           </h2>
-          <p class="section-desc" data-i18n="about.desc">Transformamos ideas en experiencias web que impulsan
-            resultados.</p>
+          <p class="section-desc" data-i18n="about.desc">Cada proyecto es construido a medida con las últimas
+            tecnologías, enfocado en resultados reales para tu negocio.</p>
         </div>
 
-        <div class="about-grid">
-          <!-- Columna izquierda: bloques de contenido -->
-          <div class="about-blocks">
-            <!-- Bloque 1 -->
-            <div class="about-block reveal-up" style="--delay:0.1s">
-              <div class="about-block-icon" aria-hidden="true">
-                <span class="material-symbols-outlined">rocket_launch</span>
-              </div>
-              <div>
-                <h4 data-i18n="about.block1_title">Nuestra Misión</h4>
-                <p data-i18n="about.block1_body">En Hyper Grid Studio creemos que cada negocio merece una presencia
-                  digital excepcional. Combinamos
-                  diseño moderno con tecnología de punta para crear sitios web que no solo se ven bien, sino que generan
-                  resultados reales.</p>
-              </div>
-            </div>
-
-            <!-- Bloque 2 -->
-            <div class="about-block reveal-up" style="--delay:0.2s">
-              <div class="about-block-icon" aria-hidden="true">
-                <span class="material-symbols-outlined">engineering</span>
-              </div>
-              <div>
-                <h4 data-i18n="about.block2_title">Cómo Trabajamos</h4>
-                <p data-i18n="about.block2_body">Cada proyecto comienza con una conversación. Entendemos tus objetivos,
-                  diseñamos una solución a
-                  medida y la construimos con las mejores herramientas del mercado. Sin plantillas genéricas, sin
-                  sorpresas.</p>
-              </div>
-            </div>
-
-            <!-- Bloque 3 -->
-            <div class="about-block reveal-up" style="--delay:0.3s">
-              <div class="about-block-icon" aria-hidden="true">
-                <span class="material-symbols-outlined">code</span>
-              </div>
-              <div>
-                <h4 data-i18n="about.block3_title">Stack Moderno</h4>
-                <p data-i18n="about.block3_body">Trabajamos con HTML5, CSS3, JavaScript, React, Next.js, Tailwind CSS, y
-                  deployamos en plataformas
-                  como Vercel y Netlify para máximo rendimiento.</p>
-              </div>
-            </div>
+        <!-- Estadisticas en fila horizontal -->
+        <div class="about-stats reveal-up">
+          <div class="about-stat">
+            <span class="about-stat-num">2+</span>
+            <span class="about-stat-label" data-i18n="about.stat1">Años de Experiencia</span>
           </div>
-
-          <!-- Columna derecha: estadisticas (los numeros no se traducen) -->
-          <div class="about-stats reveal-right">
-            <div class="about-stat">
-              <span class="about-stat-num">2+</span>
-              <span class="about-stat-label" data-i18n="about.stat1">Años de Experiencia</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-num">48+</span>
-              <span class="about-stat-label" data-i18n="about.stat2">Proyectos Entregados</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-num">100%</span>
-              <span class="about-stat-label" data-i18n="about.stat3">Clientes Satisfechos</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-num">24/7</span>
-              <span class="about-stat-label" data-i18n="about.stat4">Soporte Disponible</span>
-            </div>
+          <div class="about-stat">
+            <span class="about-stat-num">48+</span>
+            <span class="about-stat-label" data-i18n="about.stat2">Proyectos Entregados</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">100%</span>
+            <span class="about-stat-label" data-i18n="about.stat3">Clientes Satisfechos</span>
+          </div>
+          <div class="about-stat">
+            <span class="about-stat-num">24/7</span>
+            <span class="about-stat-label" data-i18n="about.stat4">Soporte Disponible</span>
           </div>
         </div>
 
-        <div class="process-grid">
-          <div class="process-step reveal-up">
-            <span class="process-num">01</span>
-            <h3 class="process-title">Descubrimiento</h3>
-            <p class="process-desc">
-              Entendemos tu negocio, tus objetivos y tu cliente
-              ideal antes de escribir una línea de código.
-            </p>
+        <!-- Tarjetas de servicios -->
+        <div class="services-grid">
+          <div class="service-card reveal-up" style="--delay:0.1s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">web</span>
+            </div>
+            <h3 data-i18n="services.card1_title">Landing Page que Vende</h3>
+            <p data-i18n="services.card1_body">Tu negocio online en menos de 10 días. Diseño profesional que transmite
+              confianza y convierte visitas en consultas reales desde el primer día.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
           </div>
-          <div class="process-step reveal-up" style="--delay:0.1s">
-            <span class="process-num">02</span>
-            <h3 class="process-title">Diseño</h3>
-            <p class="process-desc">
-              Creamos el diseño visual completo para tu aprobación
-              antes de desarrollar.
-            </p>
+          <div class="service-card reveal-up" style="--delay:0.2s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">shopping_bag</span>
+            </div>
+            <h3 data-i18n="services.card2_title">Tienda Online que Crece</h3>
+            <p data-i18n="services.card2_body">Vendé las 24 hs sin intermediarios. Tus clientes compran fácil, vos
+              cobrás rápido y manejás todo desde un panel sin necesidad de conocimientos técnicos.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
           </div>
-          <div class="process-step reveal-up" style="--delay:0.2s">
-            <span class="process-num">03</span>
-            <h3 class="process-title">Desarrollo</h3>
-            <p class="process-desc">
-              Código limpio, optimizado para SEO y velocidad
-              desde el primer día.
-            </p>
+          <div class="service-card reveal-up" style="--delay:0.4s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">speed</span>
+            </div>
+            <h3 data-i18n="services.card4_title">Mejor Posición en Google</h3>
+            <p data-i18n="services.card4_body">Un sitio lento pierde clientes antes de que lean tu propuesta.
+              Optimizamos velocidad y SEO para que aparezcas primero cuando tu cliente te busca.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
           </div>
-          <div class="process-step reveal-up" style="--delay:0.3s">
-            <span class="process-num">04</span>
-            <h3 class="process-title">Lanzamiento</h3>
-            <p class="process-desc">
-              Deploy, pruebas finales y entrega en menos de
-              10 días con soporte post-lanzamiento.
-            </p>
+          <div class="service-card reveal-up" style="--delay:0.5s">
+            <div class="service-icon-wrap" aria-hidden="true">
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
+            <h3 data-i18n="services.card5_title">Automatizaciones para tu Negocio</h3>
+            <p data-i18n="services.card5_body">Sistemas de reserva de turnos y gestión de pedidos online para que tu
+              negocio trabaje solo mientras vos te enfocás en lo que importa.</p>
+            <div class="service-arrow" aria-hidden="true">
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </div>
           </div>
         </div>
       </div>
@@ -419,71 +379,6 @@
             <div class="marquee-item"><span class="material-symbols-outlined">cloud</span> SkyNet</div>
             <div class="marquee-item"><span class="material-symbols-outlined">rocket_launch</span> Venture X</div>
             <div class="marquee-item"><span class="material-symbols-outlined">shield</span> SecureBase</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
-         SECCION DE SERVICIOS
-         Cuadricula con los servicios ofrecidos
-    =========================== -->
-    <section class="services" id="services" aria-label="Servicios ofrecidos">
-      <div class="container">
-        <div class="section-header reveal-up">
-          <span class="section-tag" data-i18n="services.tag">Lo que hago</span>
-          <h2 class="section-title" data-i18n-html="services.title">Servicios <span class="text-accent">Premium</span>
-          </h2>
-          <p class="section-desc" data-i18n="services.desc">
-            Cada proyecto es construido con las ultimas tecnologias y mejores
-            practicas para garantizar resultados excepcionales.
-          </p>
-        </div>
-        <!-- Cuadricula de tarjetas de servicio -->
-        <div class="services-grid">
-          <div class="service-card reveal-up" style="--delay:0.1s">
-            <div class="service-icon-wrap" aria-hidden="true">
-              <span class="material-symbols-outlined">web</span>
-            </div>
-            <h3 data-i18n="services.card1_title">Landing Page que Vende</h3>
-            <p data-i18n="services.card1_body">Tu negocio online en menos de 10 días. Diseño profesional que transmite
-              confianza y convierte visitas en consultas reales desde el primer día.</p>
-            <div class="service-arrow" aria-hidden="true">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </div>
-          </div>
-          <div class="service-card reveal-up" style="--delay:0.2s">
-            <div class="service-icon-wrap" aria-hidden="true">
-              <span class="material-symbols-outlined">shopping_bag</span>
-            </div>
-            <h3 data-i18n="services.card2_title">Tienda Online que Crece</h3>
-            <p data-i18n="services.card2_body">Vendé las 24 hs sin intermediarios. Tus clientes compran fácil, vos
-              cobrás rápido y manejás todo desde un panel sin necesidad de conocimientos técnicos.</p>
-            <div class="service-arrow" aria-hidden="true">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </div>
-          </div>
-          <div class="service-card reveal-up" style="--delay:0.3s">
-            <div class="service-icon-wrap" aria-hidden="true">
-              <span class="material-symbols-outlined">phone_iphone</span>
-            </div>
-            <h3 data-i18n="services.card3_title">Visible en Cualquier Pantalla</h3>
-            <p data-i18n="services.card3_body">El 70% de tus clientes entra desde el celular. Tu sitio se ve y funciona
-              perfecto en móvil, tablet y desktop para que no pierdas ninguna oportunidad.</p>
-            <div class="service-arrow" aria-hidden="true">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </div>
-          </div>
-          <div class="service-card reveal-up" style="--delay:0.4s">
-            <div class="service-icon-wrap" aria-hidden="true">
-              <span class="material-symbols-outlined">speed</span>
-            </div>
-            <h3 data-i18n="services.card4_title">Mejor Posición en Google</h3>
-            <p data-i18n="services.card4_body">Un sitio lento pierde clientes antes de que lean tu propuesta.
-              Optimizamos velocidad y SEO para que aparezcas primero cuando tu cliente te busca.</p>
-            <div class="service-arrow" aria-hidden="true">
-              <span class="material-symbols-outlined">arrow_forward</span>
-            </div>
           </div>
         </div>
       </div>
