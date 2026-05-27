@@ -81,6 +81,7 @@
 
   /* Altura del header para calcular offsets */
   --header-h: 80px;
+  --header-tint: 13, 11, 20;
 
   /* Tokens semánticos adicionales (MASTER.md §3) */
   --whatsapp: #25d366;
@@ -273,9 +274,10 @@ body:has(a:hover) .cursor-trail {
 
 /* Estado scrolleado: glassmorphism suave — clase añadida por JS al primer scroll */
 .header-scrolled {
-  background: rgba(var(--header-tint, 13, 11, 20), 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(var(--header-tint), 0.72);
+  /* backdrop-filter en ambos prefijos — el minificador no debe eliminar ninguno */
+  -webkit-backdrop-filter: blur(20px) !important;
+  backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
