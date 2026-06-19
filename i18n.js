@@ -156,6 +156,55 @@ export const translations = {
       privacy:  'Política de Privacidad',
       copy:     '© 2026 Hyper Grid Studio. Todos los derechos reservados.',
     },
+
+    /* Página standalone de Política de Privacidad (privacidad.html) */
+    privacy: {
+      page_title: 'Política de Privacidad | Hyper Grid Studio',
+      back:       'Volver al inicio',
+      title:      'Política de Privacidad',
+      updated:    'Última actualización: 19 de junio de 2026',
+      intro:      'En Hyper Grid Studio respetamos tu privacidad. Esta política explica qué datos recopilamos, cómo los usamos y cuáles son tus derechos.',
+
+      s1_title: '1. Información que recopilamos',
+      s1_body:  'Cuando completás el formulario de contacto recopilamos tu nombre completo, correo electrónico y mensaje. No recopilamos ningún otro dato personal a través del sitio web.',
+
+      s2_title: '2. Cómo usamos tu información',
+      s2_body:  'Los datos se utilizan exclusivamente para responder tu consulta. No los usamos para enviar publicidad ni comunicaciones no solicitadas.',
+
+      s3_title: '3. Compartir información con terceros',
+      s3_body:  'No vendemos ni compartimos tu información. Los mensajes del formulario se procesan a través de Formspree. Podés consultar su política en formspree.io.',
+
+      s4_title: '4. Cookies',
+      s4_body:  'Este sitio no utiliza cookies ni tecnologías de rastreo.',
+
+      /* Sección específica del bot de agendamiento por WhatsApp (proyecto Aliz) */
+      wa_title:           '5. Servicio de agendamiento por WhatsApp (Aliz)',
+      wa_intro:           'Ofrecemos Aliz, un asistente que permite agendar turnos a través de WhatsApp. Cuando interactuás con nuestro bot de WhatsApp se aplican las condiciones descritas a continuación.',
+      wa_data_title:      'Qué datos recopilamos',
+      wa_data_body:       'Cuando escribís al bot de WhatsApp recopilamos: tu número de teléfono, tu nombre de contacto de WhatsApp, el contenido de los mensajes que enviás al bot y los datos del turno que agendás (fecha y hora).',
+      wa_use_title:       'Para qué usamos esos datos',
+      wa_use_body:        'Usamos estos datos exclusivamente para gestionar el agendamiento de turnos del negocio cliente correspondiente. No se utilizan para ningún otro fin.',
+      wa_proc_title:      'Cómo se procesan los datos',
+      wa_proc_body:       'Tus datos se procesan mediante la API de WhatsApp Business de Meta (para enviar y recibir los mensajes), la API de Google Calendar (para registrar el turno en la agenda del negocio) y la API de Anthropic (Claude) (para interpretar tu solicitud de turno expresada en lenguaje natural).',
+      wa_share_title:     'No compartimos tus datos',
+      wa_share_body:      'No vendemos ni compartimos tus datos con terceros fuera de los proveedores de servicio mencionados, que son los estrictamente necesarios para el funcionamiento del bot.',
+      wa_retention_title: 'Cuánto tiempo conservamos los datos',
+      wa_retention_body:  'Conservamos los datos de las conversaciones y los turnos durante un máximo de 12 meses, o hasta que solicites su eliminación, lo que ocurra primero.',
+      wa_deletion_title:  'Cómo solicitar la eliminación de tus datos',
+      /* data-i18n-html — contiene el enlace mailto */
+      wa_deletion_body:   'Podés solicitar la eliminación de tus datos en cualquier momento escribiendo a <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>. Procesaremos tu solicitud a la brevedad.',
+
+      s6_title: '6. Seguridad',
+      s6_body:  'El sitio cuenta con certificado SSL (HTTPS); toda la información viaja encriptada y de forma segura.',
+
+      s7_title: '7. Tus derechos',
+      /* data-i18n-html — contiene el enlace mailto */
+      s7_body:  'Podés solicitar el acceso o la eliminación de tus datos escribiéndonos a <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.',
+
+      s8_title: '8. Contacto',
+      /* data-i18n-html — contiene el enlace mailto */
+      s8_body:  'Ante cualquier duda sobre esta política, escribinos a <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.',
+    },
   },
 
   /* ─── ENGLISH ─── */
@@ -299,6 +348,55 @@ export const translations = {
       portfolio:'Portfolio',
       privacy:  'Privacy Policy',
       copy:     '© 2026 Hyper Grid Studio. All rights reserved.',
+    },
+
+    /* Standalone Privacy Policy page (privacidad.html) */
+    privacy: {
+      page_title: 'Privacy Policy | Hyper Grid Studio',
+      back:       'Back to home',
+      title:      'Privacy Policy',
+      updated:    'Last updated: June 19, 2026',
+      intro:      'At Hyper Grid Studio we respect your privacy. This policy explains what data we collect, how we use it and what your rights are.',
+
+      s1_title: '1. Information we collect',
+      s1_body:  'When you fill out the contact form we collect your full name, email address and message. We do not collect any other personal data through the website.',
+
+      s2_title: '2. How we use your information',
+      s2_body:  'The data is used solely to respond to your inquiry. We do not use it to send advertising or unsolicited communications.',
+
+      s3_title: '3. Sharing information with third parties',
+      s3_body:  'We do not sell or share your information. Form messages are processed through Formspree. You can review their policy at formspree.io.',
+
+      s4_title: '4. Cookies',
+      s4_body:  'This site does not use cookies or tracking technologies.',
+
+      /* WhatsApp appointment-booking bot section (Aliz project) */
+      wa_title:           '5. WhatsApp booking service (Aliz)',
+      wa_intro:           'We offer Aliz, an assistant that lets you book appointments through WhatsApp. When you interact with our WhatsApp bot, the conditions described below apply.',
+      wa_data_title:      'What data we collect',
+      wa_data_body:       'When you message the WhatsApp bot we collect: your phone number, your WhatsApp contact name, the content of the messages you send to the bot and the booking details you schedule (date and time).',
+      wa_use_title:       'What we use that data for',
+      wa_use_body:        'We use this data solely to manage appointment booking for the corresponding client business. It is not used for any other purpose.',
+      wa_proc_title:      'How the data is processed',
+      wa_proc_body:       'Your data is processed through the Meta WhatsApp Business API (to send and receive messages), the Google Calendar API (to register the appointment in the business calendar) and the Anthropic (Claude) API (to interpret your booking request expressed in natural language).',
+      wa_share_title:     'We do not share your data',
+      wa_share_body:      'We do not sell or share your data with third parties beyond the service providers mentioned, which are strictly necessary for the bot to operate.',
+      wa_retention_title: 'How long we keep the data',
+      wa_retention_body:  'We keep conversation and appointment data for a maximum of 12 months, or until you request its deletion, whichever comes first.',
+      wa_deletion_title:  'How to request deletion of your data',
+      /* data-i18n-html — contains the mailto link */
+      wa_deletion_body:   'You can request the deletion of your data at any time by writing to <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>. We will process your request promptly.',
+
+      s6_title: '6. Security',
+      s6_body:  'The site has an SSL certificate (HTTPS); all information travels encrypted and securely.',
+
+      s7_title: '7. Your rights',
+      /* data-i18n-html — contains the mailto link */
+      s7_body:  'You can request access to or deletion of your data by writing to <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.',
+
+      s8_title: '8. Contact',
+      /* data-i18n-html — contains the mailto link */
+      s8_body:  'For any questions about this policy, write to <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.',
     },
   },
 };

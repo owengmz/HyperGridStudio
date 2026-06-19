@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="privacy.page_title">Política de Privacidad | Hyper Grid Studio</title>
+
+  <!-- SEO: la pagina debe ser indexable y accesible por URL directa (requisito de Meta) -->
+  <meta name="description"
+    content="Política de Privacidad de Hyper Grid Studio: qué datos recopilamos, cómo los usamos y el tratamiento de datos del servicio de agendamiento por WhatsApp (Aliz)." />
+  <meta name="author" content="Hyper Grid Studio" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#080f14" />
+  <link rel="icon" type="image/webp" href="/img/logo.webp" />
+  <link rel="canonical" href="https://hypergridstudio.com/privacidad.html" />
+
+  <!-- Seguridad: fuerza HTTPS en recursos mixtos -->
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+  <!-- Preload de fuentes criticas -->
+  <link rel="preload" href="/fonts/syne-v24-latin-800.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/dm-sans-v17-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- CSS principal (mismo tema oscuro/violeta que el resto del sitio) -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Skip link: accesibilidad por teclado -->
+  <a class="skip-link" href="#privacy-content" data-i18n="misc.skip_link">Saltar al contenido principal</a>
+
+  <!-- Cursor personalizado (activado por JS solo en escritorio) -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <!-- Encabezado fijo: identico al del sitio. Los anclas apuntan a index.html -->
+  <header class="header" id="header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="index.html" aria-label="Hyper Grid Studio - Inicio">
+        <img src="/img/logo.webp" alt="HyperGrid.Studio" class="logo-icon" fetchpriority="high" loading="eager" />
+      </a>
+
+      <!-- Navegacion principal: enlaces hacia las secciones del index -->
+      <nav class="nav" id="nav" role="navigation" aria-label="Navegacion principal">
+        <a class="nav-link" href="index.html#about" data-i18n="nav.about">Nosotros</a>
+        <a class="nav-link" href="index.html#portfolio" data-i18n="nav.portfolio">Portafolio</a>
+        <a class="nav-link" href="index.html#pricing" data-i18n="nav.pricing">Precios</a>
+        <a class="nav-link" href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+
+        <!-- Selector de idioma ES / EN (mismo patron que el resto del sitio) -->
+        <div class="lang-switcher" role="group" aria-label="Selector de idioma">
+          <button class="lang-btn active" data-lang="es" aria-label="Cambiar a Español" type="button">
+            <svg class="lang-flag" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="24" height="16" fill="#c60b1e" />
+              <rect y="4" width="24" height="8" fill="#ffc400" />
+            </svg>
+            <span>ES</span>
+          </button>
+          <button class="lang-btn" data-lang="en" aria-label="Switch to English" type="button">
+            <svg class="lang-flag" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="24" height="16" fill="#012169" />
+              <path d="M0 0 L24 16 M24 0 L0 16" stroke="#fff" stroke-width="2.5" />
+              <path d="M12 0 V16 M0 8 H24" stroke="#fff" stroke-width="4" />
+              <path d="M12 0 V16 M0 8 H24" stroke="#c8102e" stroke-width="2" />
+              <path d="M0 0 L24 16 M24 0 L0 16" stroke="#c8102e" stroke-width="1" />
+            </svg>
+            <span>EN</span>
+          </button>
+        </div>
+
+        <a class="btn btn-primary" href="index.html#contact" data-i18n="nav.cta">Contrátame</a>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false"
+          aria-controls="mobileMenu" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu movil desplegable -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu de navegacion movil"
+    aria-hidden="true">
+    <nav class="mobile-nav" aria-label="Navegacion movil">
+      <a class="mobile-nav-link" href="index.html#about" data-i18n="nav.about">Nosotros</a>
+      <a class="mobile-nav-link" href="index.html#portfolio" data-i18n="nav.portfolio">Portafolio</a>
+      <a class="mobile-nav-link" href="index.html#pricing" data-i18n="nav.pricing">Precios</a>
+      <a class="mobile-nav-link" href="index.html#contact" data-i18n="nav.contact">Contacto</a>
+    </nav>
+  </div>
+
+  <!-- Overlay oscuro para cerrar el menu movil -->
+  <div class="mobile-overlay" id="mobileOverlay" aria-hidden="true"></div>
+
+  <main class="legal" id="privacy-content">
+    <div class="container">
+      <article class="legal-card">
+
+        <!-- Enlace de retorno al inicio -->
+        <a class="legal-back" href="index.html">&larr; <span data-i18n="privacy.back">Volver al inicio</span></a>
+
+        <h1 class="legal-title" data-i18n="privacy.title">Política de Privacidad</h1>
+        <p class="legal-date" data-i18n="privacy.updated">Última actualización: 19 de junio de 2026</p>
+        <p class="legal-intro" data-i18n="privacy.intro">
+          En Hyper Grid Studio respetamos tu privacidad. Esta política explica qué datos recopilamos,
+          cómo los usamos y cuáles son tus derechos.
+        </p>
+
+        <div class="legal-body">
+
+          <!-- 1. Informacion que recopilamos -->
+          <h2 data-i18n="privacy.s1_title">1. Información que recopilamos</h2>
+          <p data-i18n="privacy.s1_body">
+            Cuando completás el formulario de contacto recopilamos tu nombre completo, correo electrónico
+            y mensaje. No recopilamos ningún otro dato personal a través del sitio web.
+          </p>
+
+          <!-- 2. Como usamos tu informacion -->
+          <h2 data-i18n="privacy.s2_title">2. Cómo usamos tu información</h2>
+          <p data-i18n="privacy.s2_body">
+            Los datos se utilizan exclusivamente para responder tu consulta. No los usamos para enviar
+            publicidad ni comunicaciones no solicitadas.
+          </p>
+
+          <!-- 3. Compartir informacion con terceros -->
+          <h2 data-i18n="privacy.s3_title">3. Compartir información con terceros</h2>
+          <p data-i18n="privacy.s3_body">
+            No vendemos ni compartimos tu información. Los mensajes del formulario se procesan a través
+            de Formspree. Podés consultar su política en formspree.io.
+          </p>
+
+          <!-- 4. Cookies -->
+          <h2 data-i18n="privacy.s4_title">4. Cookies</h2>
+          <p data-i18n="privacy.s4_body">Este sitio no utiliza cookies ni tecnologías de rastreo.</p>
+
+          <!-- 5. Servicio de agendamiento por WhatsApp (Aliz) -->
+          <h2 data-i18n="privacy.wa_title">5. Servicio de agendamiento por WhatsApp (Aliz)</h2>
+          <p data-i18n="privacy.wa_intro">
+            Ofrecemos Aliz, un asistente que permite agendar turnos a través de WhatsApp. Cuando interactuás
+            con nuestro bot de WhatsApp se aplican las condiciones descritas a continuación.
+          </p>
+
+          <h3 data-i18n="privacy.wa_data_title">Qué datos recopilamos</h3>
+          <p data-i18n="privacy.wa_data_body">
+            Cuando escribís al bot de WhatsApp recopilamos: tu número de teléfono, tu nombre de contacto de
+            WhatsApp, el contenido de los mensajes que enviás al bot y los datos del turno que agendás (fecha y hora).
+          </p>
+
+          <h3 data-i18n="privacy.wa_use_title">Para qué usamos esos datos</h3>
+          <p data-i18n="privacy.wa_use_body">
+            Usamos estos datos exclusivamente para gestionar el agendamiento de turnos del negocio cliente
+            correspondiente. No se utilizan para ningún otro fin.
+          </p>
+
+          <h3 data-i18n="privacy.wa_proc_title">Cómo se procesan los datos</h3>
+          <p data-i18n="privacy.wa_proc_body">
+            Tus datos se procesan mediante la API de WhatsApp Business de Meta (para enviar y recibir los mensajes),
+            la API de Google Calendar (para registrar el turno en la agenda del negocio) y la API de Anthropic
+            (Claude) (para interpretar tu solicitud de turno expresada en lenguaje natural).
+          </p>
+
+          <h3 data-i18n="privacy.wa_share_title">No compartimos tus datos</h3>
+          <p data-i18n="privacy.wa_share_body">
+            No vendemos ni compartimos tus datos con terceros fuera de los proveedores de servicio mencionados,
+            que son los estrictamente necesarios para el funcionamiento del bot.
+          </p>
+
+          <h3 data-i18n="privacy.wa_retention_title">Cuánto tiempo conservamos los datos</h3>
+          <p data-i18n="privacy.wa_retention_body">
+            Conservamos los datos de las conversaciones y los turnos durante un máximo de 12 meses, o hasta que
+            solicites su eliminación, lo que ocurra primero.
+          </p>
+
+          <h3 data-i18n="privacy.wa_deletion_title">Cómo solicitar la eliminación de tus datos</h3>
+          <!-- data-i18n-html: el texto contiene un enlace mailto -->
+          <p data-i18n-html="privacy.wa_deletion_body">
+            Podés solicitar la eliminación de tus datos en cualquier momento escribiendo a
+            <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>. Procesaremos tu solicitud a la brevedad.
+          </p>
+
+          <!-- 6. Seguridad -->
+          <h2 data-i18n="privacy.s6_title">6. Seguridad</h2>
+          <p data-i18n="privacy.s6_body">
+            El sitio cuenta con certificado SSL (HTTPS); toda la información viaja encriptada y de forma segura.
+          </p>
+
+          <!-- 7. Tus derechos -->
+          <h2 data-i18n="privacy.s7_title">7. Tus derechos</h2>
+          <p data-i18n-html="privacy.s7_body">
+            Podés solicitar el acceso o la eliminación de tus datos escribiéndonos a
+            <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.
+          </p>
+
+          <!-- 8. Contacto -->
+          <h2 data-i18n="privacy.s8_title">8. Contacto</h2>
+          <p data-i18n-html="privacy.s8_body">
+            Ante cualquier duda sobre esta política, escribinos a
+            <a href="mailto:owen.dev94@gmail.com">owen.dev94@gmail.com</a>.
+          </p>
+
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!-- Pie de pagina: identico al del sitio, con anclas hacia index.html -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <a class="logo" href="index.html" aria-label="Hyper Grid Studio - volver al inicio">
+        <img src="/img/logo.webp" alt="HyperGrid.Studio" class="logo-icon" width="120" height="48" loading="lazy" />
+      </a>
+      <nav class="footer-nav" aria-label="Navegacion del pie de pagina">
+        <a href="index.html#about" data-i18n="footer.about">Sobre Nosotros</a>
+        <a href="index.html#services" data-i18n="footer.services">Servicios</a>
+        <a href="index.html#portfolio" data-i18n="footer.portfolio">Portafolio</a>
+        <a href="privacidad.html" data-i18n="footer.privacy">Politica de Privacidad</a>
+      </nav>
+      <p class="footer-copy">
+        <small data-i18n="footer.copy">© 2026 Hyper Grid Studio. Todos los derechos reservados.</small>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Boton flotante de WhatsApp -->
+  <a class="whatsapp-float"
+    href="https://wa.me/5492657501242?text=Hola,%20vi%20tu%20portafolio%20y%20me%20gustaria%20cotizar%20un%20proyecto%20web"
+    target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp" data-i18n-aria="misc.whatsapp_float">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" aria-hidden="true"
+      focusable="false">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- Mismo script del sitio: provee el selector de idioma (i18n), el header dinamico
+       y el menu movil. Todo su codigo esta protegido con guards, por lo que las
+       partes que dependen de elementos ausentes en esta pagina simplemente no se ejecutan. -->
+  <script src="script.js" type="module" defer></script>
+</body>
+
+</html>
