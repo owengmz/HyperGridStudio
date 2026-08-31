@@ -21,14 +21,6 @@ const eslintConfig = [
     ],
   },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
-  {
-    rules: {
-      // La Etapa 1c usa <img> para comparar 1:1 contra legacy/index.html.
-      // La migracion a next/image (srcset, AVIF, blur) es tarea de la Etapa 2;
-      // al hacerla, quitar esta regla.
-      '@next/next/no-img-element': 'off',
-    },
-  },
 ]
 
 export default eslintConfig

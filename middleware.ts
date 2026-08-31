@@ -9,7 +9,12 @@ export default createMiddleware(routing)
 
 export const config = {
   /*
-   * Excluye API, internos de Next y cualquier path con extension.
+   * Excluye API, internos de Next, la imagen Open Graph y cualquier path con
+   * extension.
+   *
+   * `opengraph-image` va listado aparte porque su ruta no lleva extension: sin
+   * excluirla, el middleware intentaria prefijarla con el locale y la imagen
+   * dejaria de resolver.
    *
    * El punto va como clase de caracteres `[.]` y no como `\.` a proposito:
    * escrito con barra invertida es un escape desconocido en un literal de
@@ -19,5 +24,5 @@ export const config = {
    * Que queden afuera los archivos con punto es lo correcto: el 301 de
    * /privacidad.html lo resuelve next.config.ts, que corre antes.
    */
-  matcher: '/((?!api|_next|_vercel|.*[.].*).*)',
+  matcher: '/((?!api|_next|_vercel|opengraph-image|.*[.].*).*)',
 }

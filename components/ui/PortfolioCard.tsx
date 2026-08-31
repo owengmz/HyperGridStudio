@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import type { Project } from '@/data/portfolio'
 import { delayStyle } from '@/lib/css'
@@ -15,13 +16,14 @@ export function PortfolioCard({ project, delay }: PortfolioCardProps) {
   return (
     <article className="portfolio-card reveal-up" style={delayStyle(delay)}>
       <div className="portfolio-img-wrap">
-        <img
+        <Image
           src={project.image.src}
           alt={t(p('alt'))}
           className="portfolio-img"
-          loading="lazy"
           width={project.image.width}
           height={project.image.height}
+          sizes="(max-width: 768px) 100vw, 600px"
+          loading="lazy"
         />
 
         {!isLive && <div className="portfolio-soon-badge">{t(p('badge'))}</div>}

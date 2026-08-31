@@ -45,8 +45,8 @@ export const projects: readonly Project[] = [
     url: 'https://www.zycorconstruction.com/',
     image: {
       src: '/img/portfolio-zycor.webp',
-      width: 600,
-      height: 450,
+      width: 640,
+      height: 481,
     },
     country: 'us',
     flag: '\u{1F1FA}\u{1F1F8}',
@@ -61,8 +61,8 @@ export const projects: readonly Project[] = [
     url: null,
     image: {
       src: '/img/portfolio-wood.webp',
-      width: 600,
-      height: 450,
+      width: 641,
+      height: 480,
     },
     country: 'ar',
     flag: '\u{1F1E6}\u{1F1F7}',

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import type { Testimonial } from '@/data/testimonials'
 import { delayStyle } from '@/lib/css'
@@ -31,7 +32,7 @@ export function TestimonialCard({ testimonial, delay }: TestimonialCardProps) {
       <div className="testimonial-author">
         <div className="testimonial-avatar-wrap">
           {testimonial.avatar ? (
-            <img
+            <Image
               src={testimonial.avatar}
               alt={testimonial.author}
               className="testimonial-photo"

@@ -2614,3 +2614,136 @@ body:has(a:hover) .cursor-trail {
     gap: 24px;
   }
 }
+
+/* ===========================
+   NAV - DESPLEGABLE DE PILARES (Etapa 1e)
+   Saca de huerfanas a las rutas de Desarrollo Web, Soluciones de Software y
+   Automatizaciones. Version minima y funcional: el diseno definitivo del
+   header es tarea de la Etapa 3.
+=========================== */
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* El trigger es un <button> por accesibilidad, pero debe verse igual que un
+   .nav-link: se neutralizan los estilos por defecto del boton. */
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.nav-dropdown-trigger .material-symbols-outlined {
+  font-size: 1.1rem;
+  transition: transform var(--transition);
+}
+
+.nav-dropdown-trigger[aria-expanded='true'] .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 20px;
+  background: rgba(19, 16, 32, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), transform var(--transition-fast),
+    visibility var(--transition-fast);
+  z-index: 99;
+}
+
+.nav-dropdown-menu.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nav-dropdown-hub {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: color var(--transition-fast);
+}
+
+.nav-dropdown-hub:hover {
+  color: var(--primary-light);
+}
+
+.nav-dropdown-child {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.nav-dropdown-child:hover {
+  color: var(--primary-light);
+  border-left-color: var(--primary);
+}
+
+/* Menu movil: los pilares van como lista plana debajo de las anclas. */
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.mobile-nav-sublink {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.mobile-nav-sublink:hover {
+  color: var(--primary-light);
+}
+
+/* Footer: los pilares en su propia fila para no apretar la navegacion legal. */
+.footer-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  font-size: 0.85rem;
+}
+
+.footer-pillars a {
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.footer-pillars a:hover {
+  color: var(--primary-light);
+}

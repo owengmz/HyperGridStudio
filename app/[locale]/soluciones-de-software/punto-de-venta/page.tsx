@@ -39,5 +39,5 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   setRequestLocale(locale)
   const t = await getTranslations({ locale, namespace: NAMESPACE })
 
-  return <PlaceholderSection title={t('title')} description={t('description')} />
+  return <PlaceholderSection href={HREF} title={t('title')} description={t('description')} />
 }

@@ -1,5 +1,6 @@
+import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { footerAnchors, footerRoutes } from '@/data/navigation'
+import { footerAnchors, footerRoutes, pillars } from '@/data/navigation'
 import { site } from '@/data/site'
 import { Link, getPathname } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
@@ -13,12 +14,12 @@ export function Footer() {
     <footer className="footer" role="contentinfo">
       <div className="container footer-inner">
         <Link className="logo" href="/" aria-label={`${site.name} - volver al inicio`}>
-          <img
+          <Image
             src="/img/logo.webp"
             alt={site.logoAlt}
             className="logo-icon"
-            width={120}
-            height={48}
+            width={210}
+            height={141}
             loading="lazy"
           />
         </Link>
@@ -33,6 +34,19 @@ export function Footer() {
           {footerRoutes.map((item) => (
             <Link key={item.i18nKey} href={item.href}>
               {t(item.i18nKey)}
+            </Link>
+          ))}
+        </nav>
+
+        {/*
+          Los tres hubs de pilar, en su propia fila. Las subpaginas quedan
+          enlazadas desde el desplegable del header y desde cada hub, asi que
+          repetirlas aca solo cargaria el pie sin aportar alcance.
+        */}
+        <nav className="footer-pillars" aria-label="Servicios">
+          {pillars.map((pillar) => (
+            <Link key={pillar.href} href={pillar.href}>
+              {t(pillar.i18nKey)}
             </Link>
           ))}
         </nav>

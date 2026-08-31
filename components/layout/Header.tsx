@@ -1,12 +1,14 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { mainNav } from '@/data/navigation'
+import { mainNav, pillars } from '@/data/navigation'
 import { site } from '@/data/site'
 import { Link, getPathname } from '@/i18n/navigation'
 import type { Locale } from '@/i18n/routing'
 import { cx } from '@/lib/css'
+import { MaterialIcon } from '@/components/ui/icons'
 import { LangSwitcher } from '@/components/layout/LangSwitcher'
 import { MobileMenu } from '@/components/layout/MobileMenu'
 import { MobileOverlay } from '@/components/layout/MobileOverlay'
@@ -36,6 +38,9 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [overlayMounted, setOverlayMounted] = useState(false)
   const [overlayOpen, setOverlayOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const closeMenu = useCallback(() => {
     setMenuOpen(false)
@@ -100,17 +105,42 @@ export function Header() {
     }
   }, [menuOpen, closeMenu])
 
+  /* El desplegable se cierra con Escape o al hacer foco/clic fuera. */
+  useEffect(() => {
+    if (!servicesOpen) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setServicesOpen(false)
+    }
+
+    const onFocusOrClickOutside = (event: Event) => {
+      const target = event.target as Node | null
+      if (target && !dropdownRef.current?.contains(target)) setServicesOpen(false)
+    }
+
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('focusin', onFocusOrClickOutside)
+    document.addEventListener('pointerdown', onFocusOrClickOutside)
+
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('focusin', onFocusOrClickOutside)
+      document.removeEventListener('pointerdown', onFocusOrClickOutside)
+    }
+  }, [servicesOpen])
+
   return (
     <>
       <header className={cx('header', scrolled && 'header-scrolled')} id="header" role="banner">
         <div className="container header-inner">
           <Link className="logo" href="/" aria-label={`${site.name} - Inicio`}>
-            <img
+            <Image
               src="/img/logo.webp"
               alt={site.logoAlt}
               className="logo-icon"
-              fetchPriority="high"
-              loading="eager"
+              width={210}
+              height={141}
+              priority
             />
           </Link>
 
@@ -120,6 +150,56 @@ export function Header() {
                 {t(item.i18nKey)}
               </a>
             ))}
+
+            {/*
+              Desplegable con los tres pilares y sus subpaginas. Es lo que evita
+              que esas ocho rutas queden sin ningun enlace interno.
+            */}
+            <div
+              className="nav-dropdown"
+              ref={dropdownRef}
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button
+                type="button"
+                className="nav-link nav-dropdown-trigger"
+                aria-expanded={servicesOpen}
+                aria-controls="nav-services-menu"
+                onClick={() => setServicesOpen((open) => !open)}
+              >
+                {t('nav.services')}
+                <MaterialIcon name="expand_more" />
+              </button>
+
+              <div
+                className={cx('nav-dropdown-menu', servicesOpen && 'open')}
+                id="nav-services-menu"
+              >
+                {pillars.map((pillar) => (
+                  <div className="nav-dropdown-group" key={pillar.href}>
+                    <Link
+                      className="nav-dropdown-hub"
+                      href={pillar.href}
+                      onClick={() => setServicesOpen(false)}
+                    >
+                      {t(pillar.i18nKey)}
+                    </Link>
+
+                    {pillar.children.map((child) => (
+                      <Link
+                        className="nav-dropdown-child"
+                        key={child.href}
+                        href={child.href}
+                        onClick={() => setServicesOpen(false)}
+                      >
+                        {t(child.i18nKey)}
+                      </Link>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
           </nav>
 
           <div className="header-actions">

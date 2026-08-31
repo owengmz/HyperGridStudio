@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { site, whatsappUrl } from '@/data/site'
 import { richTags } from '@/lib/i18n'
@@ -77,14 +78,22 @@ export function Hero() {
           <div className="hero-card-wrapper">
             <div className="hero-card">
               <div className="hero-card-glow" aria-hidden="true" />
-              <img
+              {/*
+                Es el LCP de la pagina. `priority` emite el preload con
+                fetchpriority="high" apuntando a la imagen real; en legacy ese
+                preload apuntaba a michael-baccin-...webp, un archivo que no
+                existe en el repo, y ademas no era la imagen que se mostraba.
+                Las medidas son las intrinsecas del archivo (1920x1280): el
+                tamano en pantalla lo fija .hero-img via CSS.
+              */}
+              <Image
                 src="/img/248shots_so.webp"
                 alt={t('image_alt')}
                 className="hero-img"
-                width={480}
-                height={672}
-                loading="eager"
-                fetchPriority="high"
+                width={1920}
+                height={1280}
+                sizes="(max-width: 1024px) 90vw, 480px"
+                priority
               />
               <div className="hero-card-overlay" aria-hidden="true" />
             </div>

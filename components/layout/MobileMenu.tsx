@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
-import { mainNav } from '@/data/navigation'
+import { mainNav, pillars } from '@/data/navigation'
+import { Link } from '@/i18n/navigation'
 import { cx } from '@/lib/css'
 
 interface MobileMenuProps {
@@ -32,6 +33,23 @@ export function MobileMenu({ open, homeHref, onNavigate }: MobileMenuProps) {
             {t(item.i18nKey)}
           </a>
         ))}
+
+        {/*
+          Los pilares van como lista plana: en movil no hay lugar para el
+          desplegable del escritorio, pero las rutas tienen que ser alcanzables.
+        */}
+        <div className="mobile-nav-group">
+          {pillars.map((pillar) => (
+            <Link
+              key={pillar.href}
+              className="mobile-nav-sublink"
+              href={pillar.href}
+              onClick={onNavigate}
+            >
+              {t(pillar.i18nKey)}
+            </Link>
+          ))}
+        </div>
       </nav>
     </div>
   )
