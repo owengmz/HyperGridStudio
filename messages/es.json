@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "home_title": "Desarrollo Web Profesional | Hyper Grid Studio",
+    "home_description": "Diseño y desarrollo de sitios web profesionales a medida. Landing pages, tiendas online y más. Contactame para hacer crecer tu negocio digital."
+  },
+  "misc": {
+    "skip_link": "Saltar al contenido principal",
+    "whatsapp_float": "Contactar por WhatsApp"
+  },
+  "nav": {
+    "about": "Nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "cta": "Contrátame"
+  },
+  "hero": {
+    "badge_available": "Disponible para nuevos proyectos",
+    "badge_reviews": "50+ Google Reviews",
+    "badge_reviews_aria": "Ver 50+ reseñas en Google",
+    "title_line1": "Páginas web que",
+    "title_accent": "convierten visitantes<br></br>en clientes reales",
+    "desc": "Diseño y desarrollamos tu sitio en menos de 10 días, con foco en resultados medibles: más consultas, más ventas, más confianza para tu negocio.",
+    "cta_primary": "Ver Portafolio",
+    "cta_whatsapp": "Cotizar por WhatsApp",
+    "stat_projects": "Proyectos",
+    "stat_delivery_suffix": " días",
+    "stat_delivery_label": "Entrega",
+    "stat_rating": "Calificación",
+    "image_alt": "Espacio de trabajo moderno con setup profesional"
+  },
+  "about": {
+    "tag": "Lo que Hacemos",
+    "title": "Soluciones <accent>Digitales</accent>",
+    "desc": "Cada proyecto es construido a medida con las últimas tecnologías, enfocado en resultados reales para tu negocio.",
+    "stat_years": "Años de Experiencia",
+    "stat_projects": "Proyectos Entregados",
+    "stat_clients": "Clientes Satisfechos",
+    "stat_support": "Soporte Disponible"
+  },
+  "trusted": {
+    "label": "CON LA CONFIANZA DE LÍDERES DE LA INDUSTRIA"
+  },
+  "services": {
+    "tag": "Lo que hago",
+    "title": "Servicios <accent>Premium</accent>",
+    "desc": "Cada proyecto es construido con las últimas tecnologías y mejores prácticas para garantizar resultados excepcionales.",
+    "cards": {
+      "landing": {
+        "title": "Landing Page que Vende",
+        "body": "Tu negocio online en menos de 10 días. Diseño profesional que transmite confianza y convierte visitas en consultas reales desde el primer día."
+      },
+      "ecommerce": {
+        "title": "Tienda Online que Crece",
+        "body": "Vendé las 24 hs sin intermediarios. Tus clientes compran fácil, vos cobrás rápido y manejás todo desde un panel sin necesidad de conocimientos técnicos."
+      },
+      "seo": {
+        "title": "Mejor Posición en Google",
+        "body": "Un sitio lento pierde clientes antes de que lean tu propuesta. Optimizamos velocidad y SEO para que aparezcas primero cuando tu cliente te busca."
+      },
+      "automation": {
+        "title": "Automatizaciones para tu Negocio",
+        "body": "Sistemas de reserva de turnos y gestión de pedidos online para que tu negocio trabaje solo mientras vos te enfocás en lo que importa."
+      }
+    }
+  },
+  "portfolio": {
+    "tag": "Portafolio",
+    "title": "Proyectos <accent>Destacados</accent>",
+    "desc": "Una selección de proyectos reales que reflejan calidad, atención al detalle y resultados concretos para cada cliente.",
+    "chip_live": "Live ↗",
+    "countries": {
+      "us": "EE.UU.",
+      "ar": "Argentina"
+    },
+    "types": {
+      "landing": "Landing Page",
+      "website": "Sitio Web"
+    },
+    "projects": {
+      "zycor": {
+        "category": "Construcción",
+        "desc": "Landing page bilingüe (EN/ES) para constructora especializada en Framing, Renovaciones y Roofing en New Jersey, USA.",
+        "cta": "Ver Proyecto",
+        "cta_aria": "Ver proyecto Zycor Construction",
+        "alt": "Zycor Construction LLC — Landing page para constructora en New Jersey"
+      },
+      "wood": {
+        "category": "Carpintería",
+        "badge": "Próximamente",
+        "desc": "Sitio web para carpintería artesanal especializada en muebles a medida — cocinas, closets, baños y escritorios. Diseño con galería filtrable por categorías.",
+        "cta": "Próximamente",
+        "alt": "Wood Designs — Sitio web para carpintería artesanal de muebles a medida"
+      }
+    }
+  },
+  "testimonials": {
+    "tag": "Testimonios",
+    "title": "Lo que dicen nuestros <accent>Clientes</accent>",
+    "desc": "La satisfacción de nuestros clientes es nuestra mejor carta de presentación.",
+    "stars_aria": "5 estrellas",
+    "items": {
+      "yerin": {
+        "quote": "\"Superaron todas mis expectativas. El sitio quedó exactamente como lo imaginaba, y la comunicación durante todo el proceso fue excelente. Desde el primer día empezamos a recibir consultas.\"",
+        "role": "CEO · New Jersey, USA"
+      },
+      "facundo": {
+        "quote": "\"Profesionalismo de principio a fin. Entendieron la esencia de mi negocio y la plasmaron perfectamente en el diseño. El panel de administración me permite actualizar todo sin necesitar ayuda externa.\"",
+        "role": "Fundador · Argentina"
+      },
+      "andres": {
+        "quote": "\"Rápidos, eficientes y con un ojo increíble para el detalle. Mi landing page convierte visitantes en clientes todos los días. La entregaron en 7 días exactos, tal como prometieron.\"",
+        "role": "E-commerce · Argentina",
+        "company": "Emprendedor Digital"
+      }
+    }
+  },
+  "pricing": {
+    "tag": "Inversión",
+    "title": "Precios <accent>Transparentes</accent>",
+    "desc": "Desde una página simple hasta proyectos 100% personalizados. Sin sorpresas, sin letras chicas.",
+    "badge_popular": "Más Popular",
+    "plans": {
+      "store": {
+        "name": "Tienda Online",
+        "period": "Usd · Precio según complejidad",
+        "desc": "Perfecto para negocios de ropa, accesorios o cualquier producto físico que quiera vender online.",
+        "features": [
+          "Hasta 20 productos",
+          "Pasarela de pagos integrada",
+          "Panel de administración",
+          "Gestión de inventario",
+          "1 mes de soporte incluido"
+        ],
+        "cta": "Quiero mi Tienda"
+      },
+      "landing": {
+        "name": "Landing Page",
+        "period": "Usd · oferta única",
+        "desc": "Ideal para emprendedores, profesionales y cualquier persona que necesite presencia online rápida.",
+        "features": [
+          "Diseño de página única",
+          "Adaptable a móviles (responsive)",
+          "Botón de WhatsApp y redes sociales",
+          "Formulario de contacto",
+          "Entrega en menos de 7 días"
+        ],
+        "cta": "Quiero mi Landing"
+      },
+      "custom": {
+        "name": "Proyecto Personalizado",
+        "amount": "A consultar",
+        "period": "según complejidad",
+        "desc": "Para ideas únicas: llaveros QR con perfil de mascota, directorios, reservas, portafolios especiales y más.",
+        "features": [
+          "Funcionalidad 100% a medida",
+          "Base de datos si se necesita",
+          "Panel de administración",
+          "Optimización de velocidad",
+          "3 meses de soporte"
+        ],
+        "cta": "Contarme mi idea"
+      }
+    }
+  },
+  "contact": {
+    "tag": "Contacto",
+    "title": "¿Listo para empezar<br></br><accent>tu proyecto?</accent>",
+    "desc": "Contanos tu idea. En menos de 24 horas te respondemos con una propuesta personalizada.",
+    "cta_whatsapp": "Hablar por WhatsApp",
+    "cta_whatsapp_aria": "Contactar por WhatsApp",
+    "cta_calendly": "Agendar reunión →"
+  },
+  "footer": {
+    "about": "Sobre Nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "privacy": "Política de Privacidad",
+    "copy": "© 2026 Hyper Grid Studio. Todos los derechos reservados."
+  },
+  "pages": {
+    "web": {
+      "title": "Desarrollo Web",
+      "description": "Sitios y landing pages a medida, rápidos y pensados para convertir visitas en clientes."
+    },
+    "web_ecommerce": {
+      "title": "Tienda Online",
+      "description": "Tiendas online con pasarela de pagos, panel de administración y gestión de inventario."
+    },
+    "software": {
+      "title": "Soluciones de Software",
+      "description": "Software a medida para digitalizar la operación diaria de tu negocio."
+    },
+    "software_pos": {
+      "title": "Punto de Venta",
+      "description": "Sistemas de punto de venta para controlar ventas, caja y stock en un solo lugar."
+    },
+    "software_management": {
+      "title": "Sistemas de Gestión",
+      "description": "Paneles de gestión a medida para ordenar clientes, pedidos y procesos internos."
+    },
+    "automations": {
+      "title": "Automatizaciones",
+      "description": "Procesos automáticos para que tu negocio trabaje solo mientras vos te enfocás en lo que importa."
+    },
+    "automations_booking": {
+      "title": "Reservas y Turnos",
+      "description": "Agenda online que toma reservas y confirma turnos sin intervención manual."
+    },
+    "automations_whatsapp": {
+      "title": "Automatizaciones por WhatsApp",
+      "description": "Asistentes de WhatsApp que responden consultas y agendan turnos las 24 horas."
+    }
+  },
+  "placeholder": {
+    "badge": "Página en preparación",
+    "body": "Estamos terminando el contenido de esta sección. Mientras tanto, contanos tu proyecto y te respondemos en menos de 24 horas.",
+    "cta": "Hablar por WhatsApp",
+    "back": "Volver al inicio"
+  },
+  "privacy": {
+    "page_title": "Política de Privacidad | Hyper Grid Studio",
+    "back": "Volver al inicio",
+    "title": "Política de Privacidad",
+    "updated": "Última actualización: 19 de junio de 2026",
+    "intro": "En Hyper Grid Studio respetamos tu privacidad. Esta política explica qué datos recopilamos, cómo los usamos y cuáles son tus derechos.",
+    "s1_title": "1. Información que recopilamos",
+    "s1_body": "Cuando completás el formulario de contacto recopilamos tu nombre completo, correo electrónico y mensaje. No recopilamos ningún otro dato personal a través del sitio web.",
+    "s2_title": "2. Cómo usamos tu información",
+    "s2_body": "Los datos se utilizan exclusivamente para responder tu consulta. No los usamos para enviar publicidad ni comunicaciones no solicitadas.",
+    "s3_title": "3. Compartir información con terceros",
+    "s3_body": "No vendemos ni compartimos tu información. Los mensajes del formulario se procesan a través de Formspree. Podés consultar su política en formspree.io.",
+    "s4_title": "4. Cookies",
+    "s4_body": "Este sitio no utiliza cookies ni tecnologías de rastreo.",
+    "wa_title": "5. Servicio de agendamiento por WhatsApp (Aliz)",
+    "wa_intro": "Ofrecemos Aliz, un asistente que permite agendar turnos a través de WhatsApp. Cuando interactuás con nuestro bot de WhatsApp se aplican las condiciones descritas a continuación.",
+    "wa_data_title": "Qué datos recopilamos",
+    "wa_data_body": "Cuando escribís al bot de WhatsApp recopilamos: tu número de teléfono, tu nombre de contacto de WhatsApp, el contenido de los mensajes que enviás al bot y los datos del turno que agendás (fecha y hora).",
+    "wa_use_title": "Para qué usamos esos datos",
+    "wa_use_body": "Usamos estos datos exclusivamente para gestionar el agendamiento de turnos del negocio cliente correspondiente. No se utilizan para ningún otro fin.",
+    "wa_proc_title": "Cómo se procesan los datos",
+    "wa_proc_body": "Tus datos se procesan mediante la API de WhatsApp Business de Meta (para enviar y recibir los mensajes), la API de Google Calendar (para registrar el turno en la agenda del negocio) y la API de Anthropic (Claude) (para interpretar tu solicitud de turno expresada en lenguaje natural).",
+    "wa_share_title": "No compartimos tus datos",
+    "wa_share_body": "No vendemos ni compartimos tus datos con terceros fuera de los proveedores de servicio mencionados, que son los estrictamente necesarios para el funcionamiento del bot.",
+    "wa_retention_title": "Cuánto tiempo conservamos los datos",
+    "wa_retention_body": "Conservamos los datos de las conversaciones y los turnos durante un máximo de 12 meses, o hasta que solicites su eliminación, lo que ocurra primero.",
+    "wa_deletion_title": "Cómo solicitar la eliminación de tus datos",
+    "wa_deletion_body": "Podés solicitar la eliminación de tus datos en cualquier momento escribiendo a <mail></mail>. Procesaremos tu solicitud a la brevedad.",
+    "s6_title": "6. Seguridad",
+    "s6_body": "El sitio cuenta con certificado SSL (HTTPS); toda la información viaja encriptada y de forma segura.",
+    "s7_title": "7. Tus derechos",
+    "s7_body": "Podés solicitar el acceso o la eliminación de tus datos escribiéndonos a <mail></mail>.",
+    "s8_title": "8. Contacto",
+    "s8_body": "Ante cualquier duda sobre esta política, escribinos a <mail></mail>."
+  }
+}

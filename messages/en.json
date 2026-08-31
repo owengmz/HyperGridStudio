@@ -1,0 +1,257 @@
+{
+  "meta": {
+    "home_title": "Professional Web Development | Hyper Grid Studio",
+    "home_description": "Custom professional website design and development. Landing pages, online stores and more. Get in touch to grow your digital business."
+  },
+  "misc": {
+    "skip_link": "Skip to main content",
+    "whatsapp_float": "Contact via WhatsApp"
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "cta": "Hire Me"
+  },
+  "hero": {
+    "badge_available": "Available for new projects",
+    "badge_reviews": "50+ Google Reviews",
+    "badge_reviews_aria": "See 50+ reviews on Google",
+    "title_line1": "Websites that",
+    "title_accent": "turn visitors into<br></br>real clients",
+    "desc": "We design and build your site in under 10 days, focused on measurable results: more inquiries, more sales, more trust for your business.",
+    "cta_primary": "View Portfolio",
+    "cta_whatsapp": "Get a Quote on WhatsApp",
+    "stat_projects": "Projects",
+    "stat_delivery_suffix": " days",
+    "stat_delivery_label": "Delivery",
+    "stat_rating": "Rating",
+    "image_alt": "Modern workspace with a professional setup"
+  },
+  "about": {
+    "tag": "What We Do",
+    "title": "Digital <accent>Solutions</accent>",
+    "desc": "Every project is built custom with the latest technologies, focused on real results for your business.",
+    "stat_years": "Years of Experience",
+    "stat_projects": "Projects Delivered",
+    "stat_clients": "Satisfied Clients",
+    "stat_support": "Support Available"
+  },
+  "trusted": {
+    "label": "TRUSTED BY INDUSTRY LEADERS"
+  },
+  "services": {
+    "tag": "What I do",
+    "title": "Premium <accent>Services</accent>",
+    "desc": "Every project is built with the latest technologies and best practices to guarantee exceptional results.",
+    "cards": {
+      "landing": {
+        "title": "Landing Pages that Convert",
+        "body": "Your business online in under 10 days. Professional design that builds trust and turns visits into real inquiries from day one."
+      },
+      "ecommerce": {
+        "title": "Online Store that Grows",
+        "body": "Sell 24/7 with no middlemen. Your clients buy easily, you get paid fast and manage everything from a panel without any technical knowledge."
+      },
+      "seo": {
+        "title": "Better Google Ranking",
+        "body": "A slow site loses clients before they read your offer. We optimize speed and SEO so you appear first when your client searches for you."
+      },
+      "automation": {
+        "title": "Automations for Your Business",
+        "body": "Appointment booking and online order management systems so your business runs on autopilot while you focus on what matters."
+      }
+    }
+  },
+  "portfolio": {
+    "tag": "Portfolio",
+    "title": "Featured <accent>Projects</accent>",
+    "desc": "A selection of real projects that reflect quality, attention to detail and concrete results for each client.",
+    "chip_live": "Live ↗",
+    "countries": {
+      "us": "USA",
+      "ar": "Argentina"
+    },
+    "types": {
+      "landing": "Landing Page",
+      "website": "Website"
+    },
+    "projects": {
+      "zycor": {
+        "category": "Construction",
+        "desc": "Bilingual (EN/ES) landing page for a construction company specialized in Framing, Renovations and Roofing in New Jersey, USA.",
+        "cta": "View Project",
+        "cta_aria": "View the Zycor Construction project",
+        "alt": "Zycor Construction LLC — Landing page for a construction company in New Jersey"
+      },
+      "wood": {
+        "category": "Carpentry",
+        "badge": "Coming Soon",
+        "desc": "Website for an artisan carpentry shop specialized in custom furniture — kitchens, closets, bathrooms and desks. Design with a filterable gallery by category.",
+        "cta": "Coming Soon",
+        "alt": "Wood Designs — Website for an artisan carpentry shop making custom furniture"
+      }
+    }
+  },
+  "testimonials": {
+    "tag": "Testimonials",
+    "title": "What our <accent>Clients</accent> say",
+    "desc": "Our clients' satisfaction is our best presentation letter.",
+    "stars_aria": "5 stars",
+    "items": {
+      "yerin": {
+        "quote": "\"They exceeded all my expectations. The site turned out exactly as I imagined, and communication throughout the process was excellent. From day one we started receiving inquiries.\"",
+        "role": "CEO · New Jersey, USA"
+      },
+      "facundo": {
+        "quote": "\"Professionalism from start to finish. They understood the essence of my business and captured it perfectly in the design. The admin panel lets me update everything without outside help.\"",
+        "role": "Founder · Argentina"
+      },
+      "andres": {
+        "quote": "\"Fast, efficient and with an incredible eye for detail. My landing page converts visitors into clients every day. They delivered it in exactly 7 days, just as promised.\"",
+        "role": "E-commerce · Argentina",
+        "company": "Digital Entrepreneur"
+      }
+    }
+  },
+  "pricing": {
+    "tag": "Investment",
+    "title": "Transparent <accent>Pricing</accent>",
+    "desc": "From a simple page to 100% custom projects. No surprises, no fine print.",
+    "badge_popular": "Most Popular",
+    "plans": {
+      "store": {
+        "name": "Online Store",
+        "period": "USD · Price based on complexity",
+        "desc": "Perfect for clothing, accessories or any physical product business that wants to sell online.",
+        "features": [
+          "Up to 20 products",
+          "Integrated payment gateway",
+          "Admin panel",
+          "Inventory management",
+          "1 month of support included"
+        ],
+        "cta": "I want my Store"
+      },
+      "landing": {
+        "name": "Landing Page",
+        "period": "USD · unique offer",
+        "desc": "Ideal for entrepreneurs, professionals and anyone who needs a fast online presence.",
+        "features": [
+          "Single page design",
+          "Mobile-friendly (responsive)",
+          "WhatsApp button and social media",
+          "Contact form",
+          "Delivery in less than 7 days"
+        ],
+        "cta": "I want my Landing"
+      },
+      "custom": {
+        "name": "Custom Project",
+        "amount": "Quote on request",
+        "period": "based on complexity",
+        "desc": "For unique ideas: QR keychains with pet profiles, directories, bookings, special portfolios and more.",
+        "features": [
+          "100% custom functionality",
+          "Database if needed",
+          "Admin panel",
+          "Speed optimization",
+          "3 months of support"
+        ],
+        "cta": "Tell me about my idea"
+      }
+    }
+  },
+  "contact": {
+    "tag": "Contact",
+    "title": "Ready to start<br></br><accent>your project?</accent>",
+    "desc": "Tell us your idea. We reply within 24 hours with a custom proposal.",
+    "cta_whatsapp": "Talk on WhatsApp",
+    "cta_whatsapp_aria": "Contact via WhatsApp",
+    "cta_calendly": "Book a meeting →"
+  },
+  "footer": {
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "privacy": "Privacy Policy",
+    "copy": "© 2026 Hyper Grid Studio. All rights reserved."
+  },
+  "pages": {
+    "web": {
+      "title": "Web Development",
+      "description": "Custom websites and landing pages, fast and built to turn visits into clients."
+    },
+    "web_ecommerce": {
+      "title": "Online Store",
+      "description": "Online stores with payment gateway, admin panel and inventory management."
+    },
+    "software": {
+      "title": "Software Solutions",
+      "description": "Custom software to digitize your day-to-day business operations."
+    },
+    "software_pos": {
+      "title": "Point of Sale",
+      "description": "Point of sale systems to control sales, cash and stock in one place."
+    },
+    "software_management": {
+      "title": "Management Systems",
+      "description": "Custom dashboards to organize clients, orders and internal processes."
+    },
+    "automations": {
+      "title": "Automations",
+      "description": "Automatic processes so your business runs on its own while you focus on what matters."
+    },
+    "automations_booking": {
+      "title": "Booking & Appointments",
+      "description": "Online scheduling that takes bookings and confirms appointments hands-free."
+    },
+    "automations_whatsapp": {
+      "title": "WhatsApp Automations",
+      "description": "WhatsApp assistants that answer questions and book appointments 24/7."
+    }
+  },
+  "placeholder": {
+    "badge": "Page in progress",
+    "body": "We are finishing the content for this section. In the meantime, tell us about your project and we will reply within 24 hours.",
+    "cta": "Talk on WhatsApp",
+    "back": "Back to home"
+  },
+  "privacy": {
+    "page_title": "Privacy Policy | Hyper Grid Studio",
+    "back": "Back to home",
+    "title": "Privacy Policy",
+    "updated": "Last updated: June 19, 2026",
+    "intro": "At Hyper Grid Studio we respect your privacy. This policy explains what data we collect, how we use it and what your rights are.",
+    "s1_title": "1. Information we collect",
+    "s1_body": "When you fill out the contact form we collect your full name, email address and message. We do not collect any other personal data through the website.",
+    "s2_title": "2. How we use your information",
+    "s2_body": "The data is used solely to respond to your inquiry. We do not use it to send advertising or unsolicited communications.",
+    "s3_title": "3. Sharing information with third parties",
+    "s3_body": "We do not sell or share your information. Form messages are processed through Formspree. You can review their policy at formspree.io.",
+    "s4_title": "4. Cookies",
+    "s4_body": "This site does not use cookies or tracking technologies.",
+    "wa_title": "5. WhatsApp booking service (Aliz)",
+    "wa_intro": "We offer Aliz, an assistant that lets you book appointments through WhatsApp. When you interact with our WhatsApp bot, the conditions described below apply.",
+    "wa_data_title": "What data we collect",
+    "wa_data_body": "When you message the WhatsApp bot we collect: your phone number, your WhatsApp contact name, the content of the messages you send to the bot and the booking details you schedule (date and time).",
+    "wa_use_title": "What we use that data for",
+    "wa_use_body": "We use this data solely to manage appointment booking for the corresponding client business. It is not used for any other purpose.",
+    "wa_proc_title": "How the data is processed",
+    "wa_proc_body": "Your data is processed through the Meta WhatsApp Business API (to send and receive messages), the Google Calendar API (to register the appointment in the business calendar) and the Anthropic (Claude) API (to interpret your booking request expressed in natural language).",
+    "wa_share_title": "We do not share your data",
+    "wa_share_body": "We do not sell or share your data with third parties beyond the service providers mentioned, which are strictly necessary for the bot to operate.",
+    "wa_retention_title": "How long we keep the data",
+    "wa_retention_body": "We keep conversation and appointment data for a maximum of 12 months, or until you request its deletion, whichever comes first.",
+    "wa_deletion_title": "How to request deletion of your data",
+    "wa_deletion_body": "You can request the deletion of your data at any time by writing to <mail></mail>. We will process your request promptly.",
+    "s6_title": "6. Security",
+    "s6_body": "The site has an SSL certificate (HTTPS); all information travels encrypted and securely.",
+    "s7_title": "7. Your rights",
+    "s7_body": "You can request access to or deletion of your data by writing to <mail></mail>.",
+    "s8_title": "8. Contact",
+    "s8_body": "For any questions about this policy, write to <mail></mail>."
+  }
+}
