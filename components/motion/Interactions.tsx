@@ -10,7 +10,40 @@ import { useReducedMotion } from '@/lib/useReducedMotion'
  *
  * Igual que PageAnimations, se monta una vez y trabaja por selector, de modo
  * que ServiceCard y PricingCard siguen siendo Server Components.
+ *
+ * Todas las escrituras de estilo pasan por `rafWriter`: en legacy cada handler
+ * de mousemove escribia en el DOM directamente, y los eventos de mouse llegan
+ * varias veces por frame. Eso disparaba recalculos de estilo y repintados
+ * repetidos que el navegador iba a descartar igual, y era parte del tironeo al
+ * mover el mouse.
  */
+
+/**
+ * Agrupa las escrituras de estilo de un elemento en una sola por frame,
+ * conservando siempre las ultimas coordenadas recibidas.
+ */
+function rafWriter(write: (x: number, y: number) => void) {
+  let x = 0
+  let y = 0
+  let frame = 0
+
+  return {
+    update(nextX: number, nextY: number) {
+      x = nextX
+      y = nextY
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        frame = 0
+        write(x, y)
+      })
+    },
+    cancel() {
+      if (frame) cancelAnimationFrame(frame)
+      frame = 0
+    },
+  }
+}
+
 export function Interactions() {
   const reduced = useReducedMotion()
 
@@ -30,14 +63,22 @@ export function Interactions() {
     /* ── Botones magneticos ── */
     if (!reduced) {
       document.querySelectorAll<HTMLElement>('.magnetic').forEach((btn) => {
+        const writer = rafWriter((x, y) => {
+          btn.style.transform = `translate(${x}px, ${y}px)`
+        })
+        cleanups.push(writer.cancel)
+
         on(btn, 'mousemove', (event) => {
           const rect = btn.getBoundingClientRect()
-          const dx = event.clientX - rect.left - rect.width / 2
-          const dy = event.clientY - rect.top - rect.height / 2
           const factor = 0.15
-          btn.style.transform = `translate(${dx * factor}px, ${dy * factor}px)`
+          writer.update(
+            (event.clientX - rect.left - rect.width / 2) * factor,
+            (event.clientY - rect.top - rect.height / 2) * factor,
+          )
         })
+
         on(btn, 'mouseleave', () => {
+          writer.cancel()
           btn.style.transform = ''
         })
       })
@@ -48,10 +89,7 @@ export function Interactions() {
       document.querySelectorAll<HTMLElement>('.pricing-card').forEach((card) => {
         const isFeatured = card.classList.contains('pricing-featured')
 
-        on(card, 'mousemove', (event) => {
-          const rect = card.getBoundingClientRect()
-          const x = (event.clientX - rect.left) / rect.width - 0.5
-          const y = (event.clientY - rect.top) / rect.height - 0.5
+        const writer = rafWriter((x, y) => {
           const parts = [
             'perspective(800px)',
             `rotateY(${x * 8}deg)`,
@@ -62,8 +100,18 @@ export function Interactions() {
           if (isFeatured) parts.push('scale(1.04)')
           card.style.transform = parts.join(' ')
         })
+        cleanups.push(writer.cancel)
+
+        on(card, 'mousemove', (event) => {
+          const rect = card.getBoundingClientRect()
+          writer.update(
+            (event.clientX - rect.left) / rect.width - 0.5,
+            (event.clientY - rect.top) / rect.height - 0.5,
+          )
+        })
 
         on(card, 'mouseleave', () => {
+          writer.cancel()
           card.style.transform = isFeatured ? 'scale(1.04)' : ''
         })
       })
@@ -72,18 +120,22 @@ export function Interactions() {
     /* ── Destello que sigue al cursor dentro de las tarjetas de servicio ── */
     if (hasFinePointer) {
       document.querySelectorAll<HTMLElement>('.service-card').forEach((card) => {
-        on(card, 'mousemove', (event) => {
-          const rect = card.getBoundingClientRect()
-          const x = event.clientX - rect.left
-          const y = event.clientY - rect.top
+        const writer = rafWriter((x, y) => {
           card.style.background = [
             `radial-gradient(280px circle at ${x}px ${y}px,`,
             'rgba(16,185,129,0.07), transparent 60%),',
             'var(--bg-card)',
           ].join(' ')
         })
+        cleanups.push(writer.cancel)
+
+        on(card, 'mousemove', (event) => {
+          const rect = card.getBoundingClientRect()
+          writer.update(event.clientX - rect.left, event.clientY - rect.top)
+        })
 
         on(card, 'mouseleave', () => {
+          writer.cancel()
           card.style.background = ''
         })
       })

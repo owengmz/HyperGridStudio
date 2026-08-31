@@ -133,8 +133,10 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  /* Optimizacion de renderizado para imagenes */
-  content-visibility: auto;
+  /* Sin `content-visibility: auto`: venia de legacy como "optimizacion", pero
+     sin `contain-intrinsic-size` hace que cada imagen fuera de pantalla colapse
+     su caja y la recupere al acercarse, lo que mueve el layout durante el
+     scroll. El lazy loading de next/image ya cubre la intencion original. */
 }
 
 button {
@@ -188,8 +190,10 @@ ul {
   transform: translate(-50%, -50%);
   transition: width 0.2s, height 0.2s, background 0.2s;
   mix-blend-mode: difference;
-  /* Oculto por defecto; se muestra solo en escritorio via JS */
-  will-change: left, top;
+  /* JS lo mueve con translate3d, no con left/top: anunciar transform es lo
+     unico que el compositor puede aprovechar. `will-change: left, top` no
+     servia de nada, porque esas propiedades disparan layout igual. */
+  will-change: transform;
 }
 
 .cursor-trail {
@@ -202,7 +206,7 @@ ul {
   z-index: 9998;
   transform: translate(-50%, -50%);
   transition: width 0.3s, height 0.3s, border-color 0.3s;
-  will-change: left, top;
+  will-change: transform;
 }
 
 /* Cursor mas pequeno al pasar sobre links y botones */
@@ -1791,11 +1795,13 @@ body:has(a:hover) .cursor-trail {
    Los elementos comienzan invisibles y se animan al entrar en viewport
 =========================== */
 /* Estado inicial gestionado por GSAP ScrollTrigger — no usar CSS transitions
-   aquí porque compiten con gsap.from() y dejan los elementos en opacity:0. */
-.reveal-up,
-.reveal-right {
-  will-change: opacity, transform;
-}
+   aquí porque compiten con gsap.from() y dejan los elementos en opacity:0.
+
+   Sin `will-change`: estas clases las llevan ~21 elementos de la home, y un
+   will-change permanente promueve cada uno a su propia capa de composicion
+   para toda la vida de la pagina, no solo mientras se anima. Ese exceso de
+   capas es lo que hacia pesado el scroll. GSAP ya aplica y quita will-change
+   por su cuenta durante cada tween, que es cuando de verdad hace falta. */
 
 /* ===========================
    ANIMACIONES DE UTILIDAD
@@ -2459,7 +2465,8 @@ body:has(a:hover) .cursor-trail {
 .portfolio-card .portfolio-img,
 .portfolio-card .portfolio-img-wrap img {
   transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+  /* Sin will-change permanente: es una transicion de hover, no algo que este
+     animandose siempre. El navegador promueve la capa solo mientras dura. */
 }
 
 .portfolio-card:hover .portfolio-img,

@@ -9,6 +9,20 @@ import { useEffect, useRef } from 'react'
  * Solo se activa con puntero fino. La clase `has-custom-cursor` en el body es
  * la que oculta el cursor nativo, y se agrega desde JS a proposito: si el
  * script no corre, el usuario conserva su cursor.
+ *
+ * Rendimiento (ver tambien .cursor en globals.css):
+ *
+ * - El handler de mousemove NO toca el DOM: solo guarda coordenadas. Los
+ *   eventos de mouse llegan mas seguido que los frames (un mouse de 1000 Hz
+ *   dispara ~8 eventos por frame a 120 Hz), asi que escribir estilos ahi
+ *   multiplicaba el trabajo por nada. Un unico rAF escribe una vez por frame.
+ *
+ * - Se posiciona con `transform: translate3d()` y no con `left`/`top`. left/top
+ *   disparan layout en cada escritura; transform se resuelve en el compositor.
+ *   Esta era la causa principal del tironeo al mover el mouse.
+ *
+ * - El loop se detiene cuando el cursor queda quieto y arranca de nuevo con el
+ *   siguiente movimiento, en vez de girar en vacio para siempre.
  */
 export function CustomCursor() {
   const dotRef = useRef<HTMLDivElement>(null)
@@ -26,34 +40,63 @@ export function CustomCursor() {
     let mouseY = 0
     let trailX = 0
     let trailY = 0
+    let lastDotX = Number.NaN
+    let lastDotY = Number.NaN
     let frame = 0
-    let running = true
+    let visible = true
+
+    /* El translate(-50%, -50%) centra el elemento sobre el puntero; se aplica
+       despues del desplazamiento para que no lo escale. */
+    const place = (el: HTMLElement, x: number, y: number) => {
+      el.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`
+    }
+
+    const render = () => {
+      const dotMoved = mouseX !== lastDotX || mouseY !== lastDotY
+      if (dotMoved) {
+        place(dot, mouseX, mouseY)
+        lastDotX = mouseX
+        lastDotY = mouseY
+      }
+
+      /* El rastro interpola hacia la posicion real para quedar por detras. */
+      const dx = mouseX - trailX
+      const dy = mouseY - trailY
+      const trailMoving = Math.abs(dx) > 0.1 || Math.abs(dy) > 0.1
+
+      if (trailMoving) {
+        trailX += dx * 0.12
+        trailY += dy * 0.12
+        place(trail, trailX, trailY)
+      }
+
+      /* Todo quieto: se corta el loop hasta el proximo movimiento. */
+      if (!dotMoved && !trailMoving) {
+        frame = 0
+        return
+      }
+
+      frame = requestAnimationFrame(render)
+    }
+
+    const start = () => {
+      if (!frame && visible) frame = requestAnimationFrame(render)
+    }
 
     const onMouseMove = (event: MouseEvent) => {
       mouseX = event.clientX
       mouseY = event.clientY
-      dot.style.left = `${mouseX}px`
-      dot.style.top = `${mouseY}px`
-    }
-
-    /* El rastro interpola hacia la posicion real para quedar por detras. */
-    const animateTrail = () => {
-      if (!running) return
-      trailX += (mouseX - trailX) * 0.12
-      trailY += (mouseY - trailY) * 0.12
-      trail.style.left = `${trailX}px`
-      trail.style.top = `${trailY}px`
-      frame = requestAnimationFrame(animateTrail)
+      start()
     }
 
     /* Se pausa el loop con la pestana en segundo plano. */
     const onVisibilityChange = () => {
-      if (document.hidden) {
-        running = false
+      visible = !document.hidden
+      if (!visible) {
         cancelAnimationFrame(frame)
-      } else if (!running) {
-        running = true
-        animateTrail()
+        frame = 0
+      } else {
+        start()
       }
     }
 
@@ -69,11 +112,10 @@ export function CustomCursor() {
     document.addEventListener('visibilitychange', onVisibilityChange)
     document.addEventListener('mouseleave', onLeave)
     document.addEventListener('mouseenter', onEnter)
-    animateTrail()
 
     return () => {
-      running = false
       cancelAnimationFrame(frame)
+      frame = 0
       document.removeEventListener('mousemove', onMouseMove)
       document.removeEventListener('visibilitychange', onVisibilityChange)
       document.removeEventListener('mouseleave', onLeave)

@@ -71,15 +71,20 @@ export function PageAnimations() {
         )
       }
 
-      /* ── Parallax de los brillos del hero ── */
-      const scrub = { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 1.5 }
+      /*
+        ── Parallax de los brillos del hero: eliminado ──
 
-      if (document.querySelector('.hero-glow-1')) {
-        gsap.to('.hero-glow-1', { y: 120, ease: 'none', scrollTrigger: scrub })
-      }
-      if (document.querySelector('.hero-glow-2')) {
-        gsap.to('.hero-glow-2', { y: -80, ease: 'none', scrollTrigger: scrub })
-      }
+        Legacy ataba .hero-glow-1 y .hero-glow-2 al scroll con dos tweens de
+        `y` y scrub 1.5. Nunca se vieron: las dos clases traen
+        `animation: floatGlow` en el CSS, y una animacion CSS en curso gana en
+        la cascada por encima del estilo inline que escribe GSAP. El resultado
+        eran dos tweens con scrub recalculando y escribiendo transform en cada
+        frame de scroll, sobre elementos de 900px y 600px con blur(100px),
+        para producir cero efecto visible.
+
+        Si se quiere el parallax de verdad, hay que sacar antes la animacion
+        floatGlow del CSS; es una decision visual de la Etapa 3.
+      */
 
       /* ── Link de navegacion activo segun la seccion visible ── */
       const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link')
