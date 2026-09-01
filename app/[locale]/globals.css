@@ -2849,3 +2849,81 @@ body:has(a:hover) .cursor-trail {
     margin-top: 36px;
   }
 }
+
+/* Listas dentro de una seccion de servicio */
+.service-section h3 {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 22px 0 10px;
+}
+
+.service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.service-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Vineta propia: el reset global saca los marcadores nativos */
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+/* Botones del hero y del cierre */
+.service-page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+/* Bloque de cierre */
+.service-cta {
+  margin-top: 72px;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.service-cta h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.service-cta p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.service-cta .service-page-actions {
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .service-cta {
+    padding: 26px 20px;
+  }
+}

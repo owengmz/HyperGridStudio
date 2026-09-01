@@ -190,61 +190,141 @@
     },
     "software": {
       "title": "Soluciones de Software",
-      "description": "Software a medida para digitalizar la operación diaria de tu negocio."
-    },
-    "software_pos": {
-      "title": "Punto de Venta",
-      "description": "Sistemas de punto de venta para controlar ventas, caja y stock en un solo lugar.",
-      "meta": {
-        "title": "Sistema de Punto de Venta a Medida | Hyper Grid Studio",
-        "description": "Sistema de punto de venta a medida, diseñado y usado en producción real. Gestión de ventas e inventario adaptada a tu negocio, sin plantillas genéricas."
+      "description": "Software a medida para digitalizar la operación diaria de tu negocio.",
+      "schema": {
+        "serviceType": "Desarrollo de Software a Medida",
+        "description": "Desarrollo de sistemas de gestión, puntos de venta y herramientas internas a medida para negocios."
       },
-      "h1": "Sistema de Punto de Venta a Medida",
-      "intro": "No es una demo ni un mockup: es el sistema de punto de venta que diseñé y que está corriendo en un negocio real, gestionando ventas e inventario todos los días. Lo muestro acá como referencia de lo que puedo construir para el tuyo — no como una promesa abstracta de \"hacemos sistemas de gestión\".",
+      "meta": {
+        "title": "Desarrollo de Software a Medida | Hyper Grid Studio",
+        "description": "Sistemas de gestión, puntos de venta y herramientas internas a medida para tu negocio. Conocé miPost, nuestro propio sistema de punto de venta en producción."
+      },
+      "h1": "Desarrollo de software a medida, no plantillas con tu logo pegado",
+      "intro": "Sistemas de gestión, puntos de venta y herramientas internas construidos para cómo trabaja tu negocio. Mirá miPost, nuestro propio sistema de punto de venta, funcionando en comercios reales hoy.",
+      "hero_cta": "Contanos qué necesitás",
+      "whatsapp_message": "Hola, quiero cotizar un sistema de software a medida para mi negocio",
       "sections": [
         {
-          "heading": "Qué resuelve",
-          "body": "Un sistema de punto de venta a medida se adapta al flujo real de tu negocio, en vez de forzarte a trabajar como quiere el software. Cubre lo esencial: registro de ventas, control de stock en tiempo real, reportes de facturación y manejo de múltiples usuarios o puntos de cobro, todo pensado para el tamaño y el ritmo de una pyme, no de una corporación."
-        },
-        {
-          "heading": "Por qué no una plantilla",
-          "body": "Las soluciones enlatadas (tipo Square o plataformas genéricas de punto de venta) cobran una suscripción mensual por funciones que quizás nunca uses, y no se adaptan cuando tu negocio crece o cambia de rubro. Un sistema a medida se construye una sola vez, alrededor de cómo trabajás vos — sin pagar de más por lo que no necesitás, ni limitarte a lo que el software sí permite."
-        },
-        {
-          "heading": "Se integra con el resto de tu operación",
-          "body": "Un punto de venta no vive aislado: se puede conectar con <link1>notificaciones automáticas de stock bajo, reportes por WhatsApp, o recordatorios a clientes</link1> usando las mismas automatizaciones que armo para otros negocios, o con tu <link2>sistema de gestión más amplio</link2> si además necesitás CRM o facturación conectada.",
+          "heading": "Qué construimos",
+          "items_heading": "Estas son las líneas que armamos a medida:",
+          "items": [
+            "Sistemas de gestión (CRM, ERP, facturación) hechos para tu flujo real de trabajo",
+            "Puntos de venta que funcionan offline, con stock y roles de usuario",
+            "Herramientas internas para lo que ningún software genérico resuelve"
+          ],
+          "outro": "Mirá el detalle de cada línea: <link1>sistemas de gestión</link1> o <link2>punto de venta</link2>.",
           "links": [
-            "/automatizaciones",
-            "/soluciones-de-software/sistemas-de-gestion"
+            "/soluciones-de-software/sistemas-de-gestion",
+            "/soluciones-de-software/punto-de-venta"
           ]
         },
         {
-          "heading": "Cómo trabajamos",
-          "body": "Empezamos con una charla sobre cómo funciona hoy tu negocio — qué vendés, cómo controlás el stock, quién cobra — y a partir de ahí diseño el sistema. <link1>Podés ver más casos reales en el portafolio</link1> antes de decidir.",
+          "heading": "Por qué a medida",
+          "body": "Muchas agencias ofrecen 'software a medida' como frase genérica en su web, sin mostrarte nada real funcionando. Nosotros construimos y usamos nuestras propias herramientas — como <link1>miPost</link1>, nuestro sistema de punto de venta, que hoy corre en comercios reales — así que sabemos lo que es sostener un sistema en producción, no solo venderlo.",
           "links": [
-            "/#portfolio"
+            "/soluciones-de-software/punto-de-venta"
           ]
         }
       ],
       "faq_heading": "Preguntas frecuentes",
       "faq": [
         {
-          "q": "¿Cuánto cuesta un sistema de punto de venta a medida?",
-          "a": "Depende del alcance (cantidad de puntos de cobro, si necesita reportes avanzados o integración con facturación electrónica). Se cotiza después de la charla inicial — sin sorpresas ni letra chica."
+          "q": "¿Qué tipo de software puedo pedir?",
+          "a": "Sistemas de gestión, puntos de venta, herramientas internas o integraciones puntuales — si tu negocio lo necesita y no existe un SaaS que se adapte, lo evaluamos."
         },
         {
-          "q": "¿Se integra con mi sistema de facturación actual?",
-          "a": "Sí, es parte del diseño a medida: se conecta con lo que ya usás en vez de reemplazar todo de una."
+          "q": "¿Cuánto cuesta un sistema a medida?",
+          "a": "Depende del alcance. Como referencia, nuestro sistema de punto de venta miPost tiene una licencia única de USD 100 — para otro tipo de sistema, cotizamos según lo que necesites."
         },
         {
-          "q": "¿Cuánto tarda en implementarse?",
-          "a": "Varía según el alcance, pero al ser un sistema enfocado (no una plataforma genérica con funciones de más) el desarrollo es más rápido que el de un ERP completo."
+          "q": "¿Ya tienen algo armado o parten de cero siempre?",
+          "a": "Partimos de tu necesidad real. A veces hay piezas reutilizables de proyectos anteriores (como módulos de miPost), pero el sistema final se arma para vos, no al revés."
         }
       ],
+      "cta": {
+        "heading": "¿Tenés un proceso que ningún software genérico resuelve?",
+        "body": "Contanos cómo trabajás hoy y evaluamos si tiene sentido construir algo a medida.",
+        "button": "Escribime por WhatsApp"
+      }
+    },
+    "software_pos": {
+      "title": "Punto de Venta",
+      "description": "Sistemas de punto de venta para controlar ventas, caja y stock en un solo lugar.",
       "schema": {
         "serviceType": "Sistema de Punto de Venta a Medida",
         "description": "Desarrollo de sistemas de punto de venta a medida para pymes y comercios."
-      }
+      },
+      "meta": {
+        "title": "Sistema de Punto de Venta a Medida | Hyper Grid Studio",
+        "description": "Desarrollamos sistemas de punto de venta a medida: control de stock, roles de usuario y funcionamiento 100% offline. Conocé miPost, nuestro caso de estudio real."
+      },
+      "h1": "Sistema de Punto de Venta a medida, sin depender de internet",
+      "intro": "Nada de mensualidades ni de que se caiga la venta porque se cortó el wifi. Diseñamos sistemas de punto de venta que corren offline, con control de stock real y roles de usuario, hechos para cómo trabaja tu negocio — no al revés.",
+      "hero_cta": "Pedí tu sistema a medida",
+      "sections": [
+        {
+          "heading": "El problema",
+          "body": "Los puntos de venta genéricos te hacen pagar una licencia mensual por funciones que no usás, dependen de que haya internet para cobrar, y cuando necesitás algo específico de tu rubro — un descuento raro, un combo, un reporte puntual — no hay forma de pedirlo. Terminás adaptando tu negocio al software, en vez de que sea al revés."
+        },
+        {
+          "heading": "La solución",
+          "body": "Construimos el sistema de punto de venta a la medida exacta de tu comercio: los módulos que necesitás, ni uno más. Corre en la computadora del local, funciona sin conexión a internet, y vos sos dueño del sistema — pagás una vez y es tuyo, sin mensualidad.",
+          "items_heading": "Qué incluye (según alcance)",
+          "items": [
+            "Ventas y caja",
+            "Control de stock e inventario en tiempo real",
+            "Reportes y estadísticas de venta (para detectar ventas cargadas mal antes de que sean un problema)",
+            "Gestión de usuarios con distintos niveles de permisos (dueño, encargado, cajero)",
+            "Funcionamiento 100% offline, con licencia protegida por dispositivo",
+            "Módulos adicionales a medida según tu rubro"
+          ]
+        },
+        {
+          "heading": "Caso de estudio: miPost",
+          "body": "Construimos miPost, un sistema de punto de venta para kioscos con control de inventario completo, en una semana de desarrollo intensivo. Hoy sigue vigente, ya lo usan varios comercios reales — entre ellos Guillermo González y Mónica Pérez — con licencia única por dispositivo.",
+          "items_heading": "Lo que lo hace distinto a un POS genérico",
+          "items": [
+            "Funciona sin internet. La licencia se valida de forma offline (Ed25519, atada al equipo), así que el negocio no se frena si se corta la conexión.",
+            "8 módulos y 3 niveles de permisos, para que el dueño vea lo que necesita ver y el cajero solo lo que le corresponde.",
+            "Le ahorra al dueño el dolor de cabeza de perseguir ventas cargadas mal — el sistema muestra el detalle de cada venta con claridad.",
+            "Pago único de USD 100 por licencia, sin mensualidad."
+          ]
+        },
+        {
+          "heading": "Por qué a medida",
+          "body": "Un sistema como Square o Shopify POS te resuelve lo genérico, pero te cobra mensualidad para siempre y no se adapta a cómo trabajás vos. Un sistema a medida se paga una vez, es tuyo, y crece con módulos nuevos solo cuando los necesitás — no como upsell de un plan.",
+          "outro": "¿Tu negocio necesita algo más que un punto de venta? Si buscás automatizar reservas o el seguimiento por WhatsApp, mirá nuestras <link1>automatizaciones</link1>. Y si necesitás un sistema de gestión completo — más allá de la caja — conocé nuestras <link2>soluciones de gestión</link2>.",
+          "links": [
+            "/automatizaciones",
+            "/soluciones-de-software/sistemas-de-gestion"
+          ]
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿El sistema funciona sin conexión a internet?",
+          "a": "Sí. Está pensado para no depender de la conexión — vendés y controlás el stock aunque se corte el internet del local."
+        },
+        {
+          "q": "¿Puedo tener empleados con permisos distintos al dueño?",
+          "a": "Sí, el sistema permite definir roles (por ejemplo dueño, encargado, cajero) con distintos niveles de acceso."
+        },
+        {
+          "q": "¿Cuánto cuesta un sistema de punto de venta a medida?",
+          "a": "Depende del alcance y los módulos que necesites. Como referencia, miPost (kiosco + inventario) tiene una licencia única de USD 100. Para un sistema a medida de otro rubro, cotizamos según lo que necesites."
+        },
+        {
+          "q": "¿Cuánto tarda el desarrollo?",
+          "a": "Depende del alcance — el caso de miPost se resolvió en una semana intensiva de desarrollo. Lo conversamos en la primera reunión y te doy un plazo concreto."
+        }
+      ],
+      "cta": {
+        "heading": "¿Tu negocio necesita un punto de venta que funcione a tu manera?",
+        "body": "Contame cómo trabajás hoy y te digo qué módulos necesitás — sin vueltas.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, vi la página de Punto de Venta y quiero cotizar un sistema para mi negocio"
     },
     "software_management": {
       "title": "Sistemas de Gestión",

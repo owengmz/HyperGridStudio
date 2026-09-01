@@ -4,7 +4,6 @@ import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/lib/metadata'
-import { buildServiceJsonLd } from '@/lib/jsonLd'
 import { ServicePageContent } from '@/components/sections/ServicePageContent'
 
 /* Ruta interna. El slug publico de cada idioma sale de i18n/routing.ts. */
@@ -44,21 +43,14 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   setRequestLocale(locale)
 
-  const t = await getTranslations({ locale, namespace: NAMESPACE })
+  /*
+    TODO: sumar 1-2 capturas reales de miPost cuando esten disponibles, en la
+    seccion "Caso de estudio: miPost" (sections[2] de pages.software_pos).
+    Hoy ServicePageContent solo renderiza texto y listas: para imagenes hay que
+    sumarle un campo opcional de media a la forma de `sections`.
+  */
 
-  const jsonLd = buildServiceJsonLd({
-    serviceType: t('schema.serviceType'),
-    description: t('schema.description'),
-  })
-
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
-      <ServicePageContent namespace={NAMESPACE} />
-    </>
-  )
+  /* El JSON-LD (Service + FAQPage) lo emite ServicePageContent a partir del
+     namespace, para que cada pagina nueva no tenga que cablearlo. */
+  return <ServicePageContent namespace={NAMESPACE} />
 }

@@ -190,61 +190,141 @@
     },
     "software": {
       "title": "Software Solutions",
-      "description": "Custom software to digitize your day-to-day business operations."
-    },
-    "software_pos": {
-      "title": "Point of Sale",
-      "description": "Point of sale systems to control sales, cash and stock in one place.",
-      "meta": {
-        "title": "Custom Point of Sale System | Hyper Grid Studio",
-        "description": "Custom point of sale system, built and running in production. Sales and inventory management tailored to your business, not a generic template."
+      "description": "Custom software to digitize your day-to-day business operations.",
+      "schema": {
+        "serviceType": "Custom Software Development",
+        "description": "Development of custom management systems, point of sale platforms, and internal business tools."
       },
-      "h1": "Custom Point of Sale System",
-      "intro": "This isn't a demo or a mockup — it's the point of sale system I designed that's running in a real business today, handling sales and inventory every day. I'm showing it here as proof of what I can build for yours — not as an abstract promise to \"build management systems.\"",
+      "meta": {
+        "title": "Custom Software Development Company | Hyper Grid Studio",
+        "description": "Management systems, point of sale platforms, and internal tools built around your business. See miPost, our own point of sale system running in production."
+      },
+      "h1": "Custom software development, not templates with your logo slapped on",
+      "intro": "Management systems, point of sale platforms, and internal tools built around how your business actually runs. See miPost, our own point of sale system, running in real stores today.",
+      "hero_cta": "Tell us what you need",
+      "whatsapp_message": "Hi, I'd like a quote for a custom software system for my business",
       "sections": [
         {
-          "heading": "What It Solves",
-          "body": "A custom point of sale system adapts to how your business actually works, instead of forcing you into someone else's workflow. It covers the essentials: sales tracking, real-time inventory control, billing reports, and multi-user or multi-register support — sized for a small business, not a corporation."
-        },
-        {
-          "heading": "Why Not a Template",
-          "body": "Off-the-shelf platforms (like Square or generic POS SaaS) charge a monthly fee for features you may never use, and don't adapt as your business grows or changes. A custom system is built once, around how you actually work — no overpaying for what you don't need, no being boxed in by what the software allows."
-        },
-        {
-          "heading": "Integrates With the Rest of Your Operation",
-          "body": "A point of sale system doesn't work in isolation: it can connect to <link1>automated low-stock alerts, WhatsApp reports, or customer reminders</link1> using the same automations I build for other businesses, or to a broader <link2>management system</link2> if you also need connected CRM or billing.",
+          "heading": "What we build",
+          "items_heading": "Here's what we build to spec:",
+          "items": [
+            "Management systems (CRM, ERP, invoicing) built for your actual workflow",
+            "Point of sale systems that work offline, with real inventory and role-based access",
+            "Internal tools for whatever no off-the-shelf software solves"
+          ],
+          "outro": "See the detail on each: <link1>management systems</link1> or <link2>point of sale</link2>.",
           "links": [
-            "/automatizaciones",
-            "/soluciones-de-software/sistemas-de-gestion"
+            "/soluciones-de-software/sistemas-de-gestion",
+            "/soluciones-de-software/punto-de-venta"
           ]
         },
         {
-          "heading": "How We Work",
-          "body": "We start with a conversation about how your business runs today — what you sell, how you track stock, who handles checkout — and I design the system from there. <link1>See real case studies in the portfolio</link1> before deciding.",
+          "heading": "Why custom",
+          "body": "A lot of agencies sell 'custom software' as a generic pitch on their homepage, without showing you anything real running. We build and use our own tools — like <link1>miPost</link1>, our point of sale system, which runs in real stores today — so we know what it takes to keep a system running in production, not just sell it.",
           "links": [
-            "/#portfolio"
+            "/soluciones-de-software/punto-de-venta"
           ]
         }
       ],
       "faq_heading": "Frequently asked questions",
       "faq": [
         {
-          "q": "How much does a custom point of sale system cost?",
-          "a": "Depends on scope (number of registers, whether you need advanced reporting or e-invoicing integration). Quoted after the initial conversation — no surprises, no fine print."
+          "q": "What kind of software can I request?",
+          "a": "Management systems, point of sale platforms, internal tools, or specific integrations — if your business needs it and no off-the-shelf SaaS fits, we'll scope it."
         },
         {
-          "q": "Does it integrate with my current invoicing system?",
-          "a": "Yes, that's part of the custom design: it connects with what you already use instead of replacing everything at once."
+          "q": "How much does a custom system cost?",
+          "a": "It depends on scope. As a reference, our point of sale system miPost has a one-time license fee of $100 USD — for other systems, we quote based on what you need."
         },
         {
-          "q": "How long does it take to build?",
-          "a": "Varies by scope, but since it's a focused system (not a generic platform with extra features) development is faster than a full ERP."
+          "q": "Do you have something pre-built, or do you start from scratch every time?",
+          "a": "We start from your actual need. Sometimes there are reusable pieces from past projects (like miPost's modules), but the final system is built around you, not the other way around."
         }
       ],
+      "cta": {
+        "heading": "Got a process no off-the-shelf software solves?",
+        "body": "Tell us how your business runs today and we'll tell you if a custom build makes sense.",
+        "button": "Message us on WhatsApp"
+      }
+    },
+    "software_pos": {
+      "title": "Point of Sale",
+      "description": "Point of sale systems to control sales, cash and stock in one place.",
       "schema": {
         "serviceType": "Custom Point of Sale System",
         "description": "Custom point of sale system development for small businesses and retailers."
-      }
+      },
+      "meta": {
+        "title": "Custom Point of Sale System Development | Hyper Grid Studio",
+        "description": "We build custom point of sale systems that work offline: real-time inventory, role-based access, and no monthly fees. See miPost, our real case study."
+      },
+      "h1": "Custom point of sale systems that don't need the internet to work",
+      "intro": "No monthly subscription, no lost sales when the wifi drops. We build point of sale systems that run offline, with real inventory control and role-based access — built around how your business actually runs, not the other way around.",
+      "hero_cta": "Get a custom POS quote",
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Off-the-shelf POS platforms charge you a monthly fee for features you'll never use, stop working the moment your internet drops, and can't be bent to fit anything specific to your business — a one-off discount, a bundle, a report you actually need. You end up adapting your business to the software instead of the other way around."
+        },
+        {
+          "heading": "The solution",
+          "body": "We build your point of sale system to the exact scope your business needs — the modules you use, nothing you don't. It runs on the store's own machine, works fully offline, and you own it outright: pay once, no subscription.",
+          "items_heading": "What's included (scope-dependent)",
+          "items": [
+            "Sales and checkout",
+            "Real-time stock and inventory tracking",
+            "Sales reports and stats (built to catch a bad entry before it becomes a real problem)",
+            "Role-based user permissions (owner, manager, cashier)",
+            "100% offline operation, with device-locked licensing",
+            "Custom modules built around your specific business"
+          ]
+        },
+        {
+          "heading": "Case study: miPost",
+          "body": "We built miPost, a point of sale system for small retail stores (kiosco-style shops) with full inventory control, in one intensive week of development. It's still in active use today, running in real stores — including licensed installs for Guillermo González and Mónica Pérez — each on a single device license.",
+          "items_heading": "What sets it apart from a generic POS",
+          "items": [
+            "Works with zero internet dependency. Licensing is validated fully offline (Ed25519, tied to the machine), so the store never stops selling because the connection dropped.",
+            "8 modules and 3 permission tiers, so owners see everything and cashiers only see what they need to.",
+            "Saves the owner from chasing down bad sales entries — every sale is logged with a clear, reviewable detail.",
+            "One-time license fee of $100 USD, no subscription."
+          ]
+        },
+        {
+          "heading": "Why custom",
+          "body": "Square or Shopify POS solve the generic case, but you pay forever and the system doesn't bend to how you actually work. A custom system is a one-time cost, it's yours, and it grows with new modules only when you actually need them — not as an upsell on a subscription tier.",
+          "outro": "Need more than a point of sale? If you're looking to automate bookings or WhatsApp follow-ups, check out our <link1>automation services</link1>. And if you need a full management system beyond the register, see our <link2>management systems</link2>.",
+          "links": [
+            "/automatizaciones",
+            "/soluciones-de-software/sistemas-de-gestion"
+          ]
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "Does the system work without an internet connection?",
+          "a": "Yes. It's built to run independently of your connection — you can keep selling and tracking inventory even if the store's internet goes down."
+        },
+        {
+          "q": "Can I give employees different permission levels than the owner?",
+          "a": "Yes, the system supports role-based access (e.g. owner, manager, cashier) with different levels of visibility and control."
+        },
+        {
+          "q": "How much does a custom point of sale system cost?",
+          "a": "It depends on scope and the modules you need. As a reference point, miPost (retail + inventory) has a one-time license fee of $100 USD. For a custom system in a different business type, we quote based on what you actually need."
+        },
+        {
+          "q": "How long does development take?",
+          "a": "It depends on scope — miPost itself was built in one intensive week. We'll scope it in the first call and give you a real timeline."
+        }
+      ],
+      "cta": {
+        "heading": "Need a point of sale system that works your way?",
+        "body": "Tell us how your business runs today and we'll tell you exactly what modules you need — no fluff.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I saw the Point of Sale page and I'd like a quote for a system for my business"
     },
     "software_management": {
       "title": "Management Systems",

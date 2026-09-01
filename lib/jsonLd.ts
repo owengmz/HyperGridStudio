@@ -100,3 +100,32 @@ export function buildServiceJsonLd(options: {
     description,
   }
 }
+
+/** Una pregunta de la seccion de preguntas frecuentes. */
+export interface FaqEntry {
+  q: string
+  a: string
+}
+
+/**
+ * Nodo FAQPage a partir del `faq[]` que ya vive en el namespace de cada pagina
+ * de servicio. No duplica contenido: es el mismo texto que se renderiza.
+ *
+ * Es lo que Google usa para los resultados enriquecidos de preguntas. Solo
+ * tiene sentido emitirlo si las preguntas estan visibles en la pagina, que es
+ * el caso: ServicePageContent las renderiza como h3 + p.
+ */
+export function buildFaqJsonLd(faq: readonly FaqEntry[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((entry) => ({
+      '@type': 'Question',
+      name: entry.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: entry.a,
+      },
+    })),
+  }
+}
