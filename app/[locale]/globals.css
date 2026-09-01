@@ -2754,3 +2754,98 @@ body:has(a:hover) .cursor-trail {
 .footer-pillars a:hover {
   color: var(--primary-light);
 }
+
+/* ===========================
+   PAGINAS DE SERVICIO (Etapa 2)
+   Cuerpo de contenido de los pilares y sus subpaginas. Reutiliza los tokens
+   del sitio; el diseno definitivo es la Etapa 3.
+=========================== */
+.service-page {
+  /* Compensa el header fijo, igual que .legal */
+  padding: calc(var(--header-h) + 56px) 0 96px;
+}
+
+.service-page-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.service-page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.service-page-intro {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+.service-section {
+  margin-top: 48px;
+}
+
+.service-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin-bottom: 12px;
+}
+
+.service-section p,
+.service-faq-item p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* Enlaces internos dentro del cuerpo */
+.service-page-inner a {
+  color: var(--primary-light);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.service-page-inner a:hover {
+  color: var(--text);
+}
+
+.service-faq {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.service-faq > h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 28px;
+}
+
+.service-faq-item + .service-faq-item {
+  margin-top: 24px;
+}
+
+.service-faq-item h3 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+  .service-page {
+    padding: calc(var(--header-h) + 32px) 0 64px;
+  }
+
+  .service-section {
+    margin-top: 36px;
+  }
+}

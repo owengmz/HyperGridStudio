@@ -194,7 +194,57 @@
     },
     "software_pos": {
       "title": "Point of Sale",
-      "description": "Point of sale systems to control sales, cash and stock in one place."
+      "description": "Point of sale systems to control sales, cash and stock in one place.",
+      "meta": {
+        "title": "Custom Point of Sale System | Hyper Grid Studio",
+        "description": "Custom point of sale system, built and running in production. Sales and inventory management tailored to your business, not a generic template."
+      },
+      "h1": "Custom Point of Sale System",
+      "intro": "This isn't a demo or a mockup — it's the point of sale system I designed that's running in a real business today, handling sales and inventory every day. I'm showing it here as proof of what I can build for yours — not as an abstract promise to \"build management systems.\"",
+      "sections": [
+        {
+          "heading": "What It Solves",
+          "body": "A custom point of sale system adapts to how your business actually works, instead of forcing you into someone else's workflow. It covers the essentials: sales tracking, real-time inventory control, billing reports, and multi-user or multi-register support — sized for a small business, not a corporation."
+        },
+        {
+          "heading": "Why Not a Template",
+          "body": "Off-the-shelf platforms (like Square or generic POS SaaS) charge a monthly fee for features you may never use, and don't adapt as your business grows or changes. A custom system is built once, around how you actually work — no overpaying for what you don't need, no being boxed in by what the software allows."
+        },
+        {
+          "heading": "Integrates With the Rest of Your Operation",
+          "body": "A point of sale system doesn't work in isolation: it can connect to <link1>automated low-stock alerts, WhatsApp reports, or customer reminders</link1> using the same automations I build for other businesses, or to a broader <link2>management system</link2> if you also need connected CRM or billing.",
+          "links": [
+            "/automatizaciones",
+            "/soluciones-de-software/sistemas-de-gestion"
+          ]
+        },
+        {
+          "heading": "How We Work",
+          "body": "We start with a conversation about how your business runs today — what you sell, how you track stock, who handles checkout — and I design the system from there. <link1>See real case studies in the portfolio</link1> before deciding.",
+          "links": [
+            "/#portfolio"
+          ]
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "How much does a custom point of sale system cost?",
+          "a": "Depends on scope (number of registers, whether you need advanced reporting or e-invoicing integration). Quoted after the initial conversation — no surprises, no fine print."
+        },
+        {
+          "q": "Does it integrate with my current invoicing system?",
+          "a": "Yes, that's part of the custom design: it connects with what you already use instead of replacing everything at once."
+        },
+        {
+          "q": "How long does it take to build?",
+          "a": "Varies by scope, but since it's a focused system (not a generic platform with extra features) development is faster than a full ERP."
+        }
+      ],
+      "schema": {
+        "serviceType": "Custom Point of Sale System",
+        "description": "Custom point of sale system development for small businesses and retailers."
+      }
     },
     "software_management": {
       "title": "Management Systems",

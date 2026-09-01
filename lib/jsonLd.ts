@@ -76,3 +76,27 @@ export function buildJsonLd(options: {
     ],
   }
 }
+
+/**
+ * Nodo Service de una pagina de servicio.
+ *
+ * Se enlaza al Organization global por @id en vez de repetir los datos de la
+ * empresa: Google entiende que el servicio lo presta la misma entidad que
+ * declara el @graph del layout.
+ */
+export function buildServiceJsonLd(options: {
+  serviceType: string
+  description: string
+  areaServed?: readonly string[]
+}) {
+  const { serviceType, description, areaServed = ['Argentina', 'United States'] } = options
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: [...areaServed],
+    description,
+  }
+}

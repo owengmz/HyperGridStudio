@@ -31,20 +31,38 @@ export function buildAlternates(href: AppPathname, locale: Locale) {
 /**
  * Metadata de una pagina interior.
  *
- * El title sale sin sufijo: el template `%s | Hyper Grid Studio` definido en
- * el layout del locale se lo agrega.
+ * Un `title` string sale sin sufijo: el template `%s | Hyper Grid Studio` del
+ * layout del locale se lo agrega. Para un title que ya trae la marca escrita,
+ * se pasa `{ absolute: '...' }` y el template no se aplica.
  */
 export function buildPageMetadata(options: {
   href: AppPathname
   locale: Locale
-  title: string
+  title: string | { absolute: string }
   description: string
 }) {
   const { href, locale, title, description } = options
+  const plainTitle = typeof title === 'string' ? title : title.absolute
 
   return {
     title,
     description,
     alternates: buildAlternates(href, locale),
+
+    /*
+      openGraph y twitter no se derivan solos del title/description de la
+      pagina: sin esto heredan los del layout y cualquier pagina interior se
+      comparte en redes con el titulo y la bajada de la home. El resto de los
+      campos (type, siteName, locale, imagen) si se heredan bien.
+    */
+    openGraph: {
+      title: plainTitle,
+      description,
+      url: absoluteUrl(href, locale),
+    },
+    twitter: {
+      title: plainTitle,
+      description,
+    },
   }
 }

@@ -4,7 +4,8 @@ import { hasLocale } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/lib/metadata'
-import { PlaceholderSection } from '@/components/sections/PlaceholderSection'
+import { buildServiceJsonLd } from '@/lib/jsonLd'
+import { ServicePageContent } from '@/components/sections/ServicePageContent'
 
 /* Ruta interna. El slug publico de cada idioma sale de i18n/routing.ts. */
 const HREF = '/soluciones-de-software/punto-de-venta' as const
@@ -27,8 +28,13 @@ export async function generateMetadata({
   return buildPageMetadata({
     href: HREF,
     locale,
-    title: t('title'),
-    description: t('description'),
+    /*
+      title y description propios de la pagina, no los genericos del layout.
+      `absolute` evita que se le aplique el template "%s | Hyper Grid Studio":
+      meta.title ya trae la marca.
+    */
+    title: { absolute: t('meta.title') },
+    description: t('meta.description'),
   })
 }
 
@@ -37,7 +43,22 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
   if (!hasLocale(routing.locales, locale)) notFound()
 
   setRequestLocale(locale)
+
   const t = await getTranslations({ locale, namespace: NAMESPACE })
 
-  return <PlaceholderSection href={HREF} title={t('title')} description={t('description')} />
+  const jsonLd = buildServiceJsonLd({
+    serviceType: t('schema.serviceType'),
+    description: t('schema.description'),
+  })
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      <ServicePageContent namespace={NAMESPACE} />
+    </>
+  )
 }

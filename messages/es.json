@@ -194,7 +194,57 @@
     },
     "software_pos": {
       "title": "Punto de Venta",
-      "description": "Sistemas de punto de venta para controlar ventas, caja y stock en un solo lugar."
+      "description": "Sistemas de punto de venta para controlar ventas, caja y stock en un solo lugar.",
+      "meta": {
+        "title": "Sistema de Punto de Venta a Medida | Hyper Grid Studio",
+        "description": "Sistema de punto de venta a medida, diseñado y usado en producción real. Gestión de ventas e inventario adaptada a tu negocio, sin plantillas genéricas."
+      },
+      "h1": "Sistema de Punto de Venta a Medida",
+      "intro": "No es una demo ni un mockup: es el sistema de punto de venta que diseñé y que está corriendo en un negocio real, gestionando ventas e inventario todos los días. Lo muestro acá como referencia de lo que puedo construir para el tuyo — no como una promesa abstracta de \"hacemos sistemas de gestión\".",
+      "sections": [
+        {
+          "heading": "Qué resuelve",
+          "body": "Un sistema de punto de venta a medida se adapta al flujo real de tu negocio, en vez de forzarte a trabajar como quiere el software. Cubre lo esencial: registro de ventas, control de stock en tiempo real, reportes de facturación y manejo de múltiples usuarios o puntos de cobro, todo pensado para el tamaño y el ritmo de una pyme, no de una corporación."
+        },
+        {
+          "heading": "Por qué no una plantilla",
+          "body": "Las soluciones enlatadas (tipo Square o plataformas genéricas de punto de venta) cobran una suscripción mensual por funciones que quizás nunca uses, y no se adaptan cuando tu negocio crece o cambia de rubro. Un sistema a medida se construye una sola vez, alrededor de cómo trabajás vos — sin pagar de más por lo que no necesitás, ni limitarte a lo que el software sí permite."
+        },
+        {
+          "heading": "Se integra con el resto de tu operación",
+          "body": "Un punto de venta no vive aislado: se puede conectar con <link1>notificaciones automáticas de stock bajo, reportes por WhatsApp, o recordatorios a clientes</link1> usando las mismas automatizaciones que armo para otros negocios, o con tu <link2>sistema de gestión más amplio</link2> si además necesitás CRM o facturación conectada.",
+          "links": [
+            "/automatizaciones",
+            "/soluciones-de-software/sistemas-de-gestion"
+          ]
+        },
+        {
+          "heading": "Cómo trabajamos",
+          "body": "Empezamos con una charla sobre cómo funciona hoy tu negocio — qué vendés, cómo controlás el stock, quién cobra — y a partir de ahí diseño el sistema. <link1>Podés ver más casos reales en el portafolio</link1> antes de decidir.",
+          "links": [
+            "/#portfolio"
+          ]
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Cuánto cuesta un sistema de punto de venta a medida?",
+          "a": "Depende del alcance (cantidad de puntos de cobro, si necesita reportes avanzados o integración con facturación electrónica). Se cotiza después de la charla inicial — sin sorpresas ni letra chica."
+        },
+        {
+          "q": "¿Se integra con mi sistema de facturación actual?",
+          "a": "Sí, es parte del diseño a medida: se conecta con lo que ya usás en vez de reemplazar todo de una."
+        },
+        {
+          "q": "¿Cuánto tarda en implementarse?",
+          "a": "Varía según el alcance, pero al ser un sistema enfocado (no una plataforma genérica con funciones de más) el desarrollo es más rápido que el de un ERP completo."
+        }
+      ],
+      "schema": {
+        "serviceType": "Sistema de Punto de Venta a Medida",
+        "description": "Desarrollo de sistemas de punto de venta a medida para pymes y comercios."
+      }
     },
     "software_management": {
       "title": "Sistemas de Gestión",
