@@ -43,13 +43,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   setRequestLocale(locale)
 
-  /*
-    TODO: sumar 1-2 capturas reales de miPost cuando esten disponibles, en la
-    seccion "Caso de estudio: miPost" (sections[2] de pages.software_pos).
-    Hoy ServicePageContent solo renderiza texto y listas: para imagenes hay que
-    sumarle un campo opcional de media a la forma de `sections`.
-  */
-
   /* El JSON-LD (Service + FAQPage) lo emite ServicePageContent a partir del
      namespace, para que cada pagina nueva no tenga que cablearlo. */
   return <ServicePageContent namespace={NAMESPACE} />

@@ -14,7 +14,6 @@ estilos, animaciones y traducciones mientras se portan las secciones.
 | `script.js` | Toda la lógica de UI: GSAP, cursor, menú móvil, i18n |
 | `i18n.js` | Diccionario ES/EN (~154 claves por idioma) |
 | `styles.css` | Estilos globales + design tokens en `:root` |
-| `styles.css.bak` | Backup obsoleto (candidato a borrar) |
 | `img/`, `fonts/`, `noise.webp` | Assets |
 | `public/` | `robots.txt` y `sitemap.xml` del sitio Vite |
 | `vite.config.js` | Config de build MPA de Vite 8 |

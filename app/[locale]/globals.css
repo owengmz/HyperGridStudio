@@ -2886,6 +2886,25 @@ body:has(a:hover) .cursor-trail {
   background: var(--primary);
 }
 
+/*
+  Capturas dentro de una seccion. `auto-fit` resuelve los dos casos sin una
+  clase por cantidad: con una imagen ocupa la columna entera, con dos van a la
+  par, y por debajo de ~620px se apilan solas.
+*/
+.service-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
 /* Botones del hero y del cierre */
 .service-page-actions {
   display: flex;

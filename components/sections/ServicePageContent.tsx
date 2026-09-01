@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
 import { site, whatsappUrl } from '@/data/site'
 import { Link, getPathname } from '@/i18n/navigation'
@@ -21,16 +22,17 @@ import { WhatsAppIcon } from '@/components/ui/icons'
  *   intro:            string
  *   hero_cta:         string                  -> opcional, boton a WhatsApp
  *   whatsapp_message: string                  -> opcional, mensaje precargado
- *   sections:         [{ heading, body?, outro?, links?, items_heading?, items? }]
+ *   sections:         [{ heading, body?, outro?, links?, items_heading?,
+ *                        items?, images? }]
  *   faq_heading:      string
  *   faq:              [{ q, a }]              -> se renderiza y emite FAQPage
  *   cta:              { heading, body, button } -> opcional, bloque de cierre
  *   schema:           { serviceType, description } -> emite el nodo Service
  *
  * `hero_cta`, `whatsapp_message`, `cta`, `schema`, `faq` y el `outro`, los
- * `items` y los `links` de cada seccion son opcionales: si el namespace no los
- * trae, no se renderiza ni se emite nada. Sin `whatsapp_message` los botones
- * caen al mensaje default de data/site.ts.
+ * `items`, los `links` y las `images` de cada seccion son opcionales: si el
+ * namespace no los trae, no se renderiza ni se emite nada. Sin
+ * `whatsapp_message` los botones caen al mensaje default de data/site.ts.
  *
  * En `body` y en `outro` se pueden usar los tags de rich text globales
  * (<accent>, <mail>) mas <link1>…</link1>, <link2>…</link2>, etc. Cada <linkN>
@@ -39,6 +41,33 @@ import { WhatsAppIcon } from '@/components/ui/icons'
  * '/#portfolio'.
  */
 
+/**
+ * Medidas intrinsecas que se esperan de una captura.
+ *
+ * La columna de texto mide 760px, asi que 1600x900 cubre el ancho completo a
+ * 2x y de sobra las dos columnas del grid. Fijarlas aca en vez de pedirlas por
+ * imagen mantiene el grid parejo y evita que messages/ cargue con datos de
+ * layout: ahi solo va copy.
+ */
+const IMAGE_WIDTH = 1600
+const IMAGE_HEIGHT = 900
+
+/**
+ * Captura que acompana a una seccion.
+ *
+ * El `alt` vive en messages/ junto al resto del copy: es texto que lee un
+ * lector de pantalla y cambia con el idioma, no un dato de layout.
+ *
+ * Un `src` vacio es la forma de dejar el alt escrito antes de tener el
+ * archivo: la imagen no se renderiza hasta que la ruta este completa, asi no
+ * se publica un 404 mientras tanto.
+ */
+interface ServiceImage {
+  /** Ruta bajo /public, por ejemplo '/img/mipost-ventas.webp'. */
+  src: string
+  alt: string
+}
+
 interface ServiceSection {
   heading: string
   /** Opcional: una seccion puede ser solo un titulo con su lista. */
@@ -46,6 +75,7 @@ interface ServiceSection {
   links?: string[]
   items_heading?: string
   items?: string[]
+  images?: ServiceImage[]
   outro?: string
 }
 
@@ -80,6 +110,43 @@ function JsonLd({ data }: { data: unknown }) {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
     />
+  )
+}
+
+/**
+ * Capturas de una seccion, en un grid que se acomoda solo: una imagen ocupa
+ * el ancho de la columna y dos van a la par, apilandose en pantallas chicas.
+ *
+ * `aboveTheFold` solo es cierto en la primera seccion, la unica que puede
+ * entrar en pantalla sin scrollear. Ahi la imagen va con `priority` (preload
+ * con fetchpriority alto, igual que el LCP del hero); en el resto, `lazy`.
+ */
+function SectionImages({
+  images,
+  aboveTheFold,
+}: {
+  images: ServiceImage[]
+  aboveTheFold: boolean
+}) {
+  /* Con dos imagenes cada una ocupa media columna; con una, la columna entera. */
+  const sizes =
+    images.length > 1 ? '(max-width: 800px) 92vw, 372px' : '(max-width: 800px) 92vw, 760px'
+
+  return (
+    <div className="service-images">
+      {images.map((image) => (
+        <Image
+          key={image.src}
+          className="service-image"
+          src={image.src}
+          alt={image.alt}
+          width={IMAGE_WIDTH}
+          height={IMAGE_HEIGHT}
+          sizes={sizes}
+          {...(aboveTheFold ? { priority: true } : { loading: 'lazy' as const })}
+        />
+      ))}
+    </div>
   )
 }
 
@@ -142,6 +209,10 @@ export function ServicePageContent({ namespace, areaServed }: ServicePageContent
             </header>
 
             {sections.map((section, index) => {
+              /* Se descartan las que todavia no tienen archivo: el alt puede
+                 estar escrito antes que la captura exista. */
+              const images = (section.images ?? []).filter((image) => image.src)
+
               /* Un handler por cada <linkN> declarado en `links`. Vale tanto
                  para `body` como para `outro`. */
               const tags = {
@@ -168,6 +239,12 @@ export function ServicePageContent({ namespace, areaServed }: ServicePageContent
                         <li key={item}>{item}</li>
                       ))}
                     </ul>
+                  )}
+
+                  {/* Van antes del outro: el parrafo de cierre suele llevar el
+                      enlace a la pagina siguiente y conviene que quede ultimo. */}
+                  {images.length > 0 && (
+                    <SectionImages images={images} aboveTheFold={index === 0} />
                   )}
 
                   {/* Parrafo de cierre, despues de la lista si la seccion tiene una. */}

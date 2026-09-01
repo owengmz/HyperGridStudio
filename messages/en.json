@@ -182,11 +182,124 @@
   "pages": {
     "web": {
       "title": "Web Development",
-      "description": "Custom websites and landing pages, fast and built to turn visits into clients."
+      "description": "Custom websites and landing pages, fast and built to turn visits into clients.",
+      "schema": {
+        "serviceType": "Web Development",
+        "description": "Custom landing pages, business websites, and online stores."
+      },
+      "meta": {
+        "title": "Web Development Agency | Hyper Grid Studio",
+        "description": "Landing pages, business websites, and online stores, live in about 10 days, no project manager layers in between. See the case for Zycor Construction, a real client."
+      },
+      "h1": "Your website live in 10 days, no project manager layers in between",
+      "intro": "Landing pages, business websites, and online stores, built by the person who actually codes them — direct, no account managers. See the case for Zycor Construction, a real client, live — not a mockup.",
+      "hero_cta": "Tell us about your project",
+      "sections": [
+        {
+          "heading": "What we build",
+          "items_heading": "Here's what we build:",
+          "items": [
+            "Landing pages that convert, with careful animation and load-time performance",
+            "Business websites for small companies that still don't have a clear web presence",
+            "Custom online stores — no platform commission for life"
+          ],
+          "outro": "See the detail on <link1>online stores</link1>, or keep reading on how we approach landing pages and business sites.",
+          "links": [
+            "/desarrollo-web/tienda-online"
+          ]
+        },
+        {
+          "heading": "Case study: Zycor Construction",
+          "body": "We built Zycor Construction's bilingual landing page (New Jersey, US) with GSAP animations, integrated booking, and direct WhatsApp contact, deployed on Vercel. It was our first international client, and it's still running in production today.",
+          "items_heading": "What it included:",
+          "items": [
+            "Bilingual (ES/EN) landing page with GSAP animations",
+            "Integrated booking (Calendly)",
+            "Direct WhatsApp contact",
+            "Deployed on Vercel, delivered in days, not months"
+          ]
+        },
+        {
+          "heading": "Why work this way",
+          "body": "A lot of web agencies make you wait weeks for every change because there's a project manager standing between you and whoever's actually coding. Here you talk directly to me, and your site is ready in about 10 days — not months."
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "How long does a website take?",
+          "a": "About 10 days depending on scope — we'll give you a real timeline once we understand what you need."
+        },
+        {
+          "q": "Can I see real examples?",
+          "a": "Yes — check out the case for Zycor Construction, a real client, live in production today."
+        },
+        {
+          "q": "Do you work with clients outside Argentina?",
+          "a": "Yes, we already work with international clients (like Zycor, in the United States)."
+        }
+      ],
+      "cta": {
+        "heading": "Need to get your website started without waiting months?",
+        "body": "Tell us what you need and we'll give you a real timeline, no fluff.",
+        "button": "Message us on WhatsApp"
+      }
     },
     "web_ecommerce": {
       "title": "Online Store",
-      "description": "Online stores with payment gateway, admin panel and inventory management."
+      "description": "Online stores with payment gateway, admin panel and inventory management.",
+      "schema": {
+        "serviceType": "Custom Ecommerce Website Development",
+        "description": "Development of custom online stores: catalog, cart, and checkout."
+      },
+      "meta": {
+        "title": "Custom Ecommerce Website Development | Hyper Grid Studio",
+        "description": "Custom online stores built around how you actually sell — catalog, cart, and payments without the limits of a generic template."
+      },
+      "h1": "A custom online store, not a template with your logo on it",
+      "intro": "Catalog, cart, and checkout built around how you actually sell — not a generic ecommerce template's flow.",
+      "hero_cta": "Tell us what you're selling",
+      "sections": [
+        {
+          "heading": "What's included",
+          "items_heading": "What's included (depending on your catalog):",
+          "items": [
+            "Product catalog with the categories and filters your business needs",
+            "Cart and checkout, with the payment methods your market actually uses",
+            "A simple panel for you, no endless learning curve",
+            "WhatsApp integration for post-sale follow-up"
+          ],
+          "outro": "It's the same approach behind the rest of <link1>our websites</link1>: no generic templates, talking directly to whoever's building it.",
+          "links": [
+            "/desarrollo-web"
+          ]
+        },
+        {
+          "heading": "Why custom",
+          "body": "Generic ecommerce platforms solve the basics fast, but charge a commission or subscription forever, and when you need something specific to your business, there's no way to ask for it. A custom store is yours, no lifetime subscription, and it grows with what your business actually needs."
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "What payment gateway can I use?",
+          "a": "It depends on your market — Mercado Pago in Argentina, Stripe or PayPal for US customers, or another based on what you need."
+        },
+        {
+          "q": "How much does a custom online store cost?",
+          "a": "It depends on your catalog and scope — we quote it after understanding what and how you sell."
+        },
+        {
+          "q": "How long does it take compared to a landing page?",
+          "a": "Longer than a simple landing page, depending on catalog size — we'll scope it in the first call and give you a real timeline."
+        }
+      ],
+      "cta": {
+        "heading": "Want to sell online without paying a platform commission forever?",
+        "body": "Tell us what you're selling and we'll build a store around it.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I'd like a quote for an online store for my business"
     },
     "software": {
       "title": "Software Solutions",
@@ -288,6 +401,16 @@
             "8 modules and 3 permission tiers, so owners see everything and cashiers only see what they need to.",
             "Saves the owner from chasing down bad sales entries — every sale is logged with a clear, reviewable detail.",
             "One-time license fee of $100 USD, no subscription."
+          ],
+          "images": [
+            {
+              "src": "",
+              "alt": "miPost sales dashboard"
+            },
+            {
+              "src": "",
+              "alt": "miPost checkout screen"
+            }
           ]
         },
         {
@@ -385,15 +508,145 @@
     },
     "automations": {
       "title": "Automations",
-      "description": "Automatic processes so your business runs on its own while you focus on what matters."
+      "description": "Automatic processes so your business runs on its own while you focus on what matters.",
+      "schema": {
+        "serviceType": "Business Process Automation",
+        "description": "Automation of bookings, WhatsApp follow-ups, and repetitive processes with n8n."
+      },
+      "meta": {
+        "title": "Business Process Automation | Hyper Grid Studio",
+        "description": "We automate bookings, WhatsApp follow-ups, and repetitive processes with n8n — built for small businesses, not just enterprise clients."
+      },
+      "h1": "Automate the repetitive parts of your business, without being a big company",
+      "intro": "Bookings, WhatsApp customer follow-ups, and n8n-based workflows, built for small businesses and independent operators — not just enterprise-focused consultancies.",
+      "hero_cta": "Tell us what you want to automate",
+      "sections": [
+        {
+          "heading": "What we can automate",
+          "items_heading": "A few examples:",
+          "items": [
+            "Online bookings and appointments",
+            "WhatsApp customer follow-up",
+            "n8n workflows for whatever you still do by hand"
+          ],
+          "outro": "See the detail on <link1>bookings</link1> or <link2>WhatsApp</link2>.",
+          "links": [
+            "/automatizaciones/reservas",
+            "/automatizaciones/whatsapp"
+          ]
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "What is n8n and why do you use it?",
+          "a": "It's a workflow automation tool — it lets us connect your tools (WhatsApp, calendar, spreadsheets) without locking you into closed software."
+        },
+        {
+          "q": "Is this only for large companies?",
+          "a": "No — we build automations for small businesses and independent operators, not just enterprise consultancies."
+        }
+      ],
+      "cta": {
+        "heading": "Got a manual process eating up your time every week?",
+        "body": "Tell us what it is and we'll see if it's worth automating.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I'd like to automate a process in my business"
     },
     "automations_booking": {
       "title": "Booking & Appointments",
-      "description": "Online scheduling that takes bookings and confirms appointments hands-free."
+      "description": "Online scheduling that takes bookings and confirms appointments hands-free.",
+      "schema": {
+        "serviceType": "Online Booking System Development",
+        "description": "Development of online booking systems connected to WhatsApp and calendar."
+      },
+      "meta": {
+        "title": "Online Booking System Development | Hyper Grid Studio",
+        "description": "Automate appointments and bookings online, connected to your WhatsApp and calendar — no more spreadsheets or crossed messages."
+      },
+      "h1": "Online bookings, no spreadsheets or crossed messages",
+      "intro": "A booking system connected to your WhatsApp and calendar, so you stop confirming appointments by hand.",
+      "hero_cta": "Tell us how you book today",
+      "sections": [
+        {
+          "heading": "What's included",
+          "items_heading": "What's included:",
+          "items": [
+            "Online availability calendar",
+            "Automatic WhatsApp confirmation",
+            "Reminders to reduce no-shows"
+          ],
+          "outro": "It's part of our <link1>automation</link1> work.",
+          "links": [
+            "/automatizaciones"
+          ]
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "Does it integrate with my current WhatsApp?",
+          "a": "It depends on your setup — we evaluate it and figure out the best way to connect it."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "It depends on scope — we quote it based on what you need."
+        }
+      ],
+      "cta": {
+        "heading": "Still confirming appointments by hand?",
+        "body": "Tell us how you book today and we'll see if it's worth automating.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I'd like to automate bookings for my business"
     },
     "automations_whatsapp": {
       "title": "WhatsApp Automations",
-      "description": "WhatsApp assistants that answer questions and book appointments 24/7."
+      "description": "WhatsApp assistants that answer questions and book appointments 24/7.",
+      "schema": {
+        "serviceType": "WhatsApp Business Automation",
+        "description": "WhatsApp Business chatbots and automation for customer service and follow-up."
+      },
+      "meta": {
+        "title": "WhatsApp Business Automation | Hyper Grid Studio",
+        "description": "WhatsApp Business chatbots and automated flows, so you can respond and follow up without being glued to your phone all day."
+      },
+      "h1": "WhatsApp that responds and follows up, without you glued to your phone",
+      "intro": "Chatbots and automated flows for customer service and follow-up on WhatsApp Business.",
+      "hero_cta": "Tell us how you handle WhatsApp today",
+      "sections": [
+        {
+          "heading": "What's included",
+          "items_heading": "What's included:",
+          "items": [
+            "Automatic replies for the most common questions",
+            "Customer follow-up without losing the thread",
+            "Connection to your booking or management system, if you already have one"
+          ],
+          "outro": "It's also part of our <link1>automation</link1> work.",
+          "links": [
+            "/automatizaciones"
+          ]
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "Does it replace human support?",
+          "a": "No — it handles the repetitive parts so you can focus on what actually needs a person."
+        },
+        {
+          "q": "How much does it cost?",
+          "a": "It depends on scope — we quote it based on what you need."
+        }
+      ],
+      "cta": {
+        "heading": "Spending a big part of your day answering the same WhatsApp messages?",
+        "body": "Tell us how you handle it today and we'll see if it's worth automating.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I'd like to automate my WhatsApp customer service"
     }
   },
   "placeholder": {

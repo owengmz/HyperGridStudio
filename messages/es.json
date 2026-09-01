@@ -182,11 +182,124 @@
   "pages": {
     "web": {
       "title": "Desarrollo Web",
-      "description": "Sitios y landing pages a medida, rápidos y pensados para convertir visitas en clientes."
+      "description": "Sitios y landing pages a medida, rápidos y pensados para convertir visitas en clientes.",
+      "schema": {
+        "serviceType": "Desarrollo Web a Medida",
+        "description": "Desarrollo de landing pages, sitios institucionales y tiendas online a medida."
+      },
+      "meta": {
+        "title": "Desarrollo Web a Medida en San Luis, Argentina | Hyper Grid Studio",
+        "description": "Landing pages, sitios institucionales y tiendas online, listos en unos 10 días, sin capas de project manager en el medio. Mirá el caso de Zycor Construction, un cliente real."
+      },
+      "h1": "Tu sitio web listo en 10 días, sin capas de project manager en el medio",
+      "intro": "Landing pages, sitios institucionales y tiendas online, con quien realmente los construye hablándote directo. Mirá el caso de Zycor Construction, un cliente real, en vivo — no un mockup.",
+      "hero_cta": "Contame tu proyecto",
+      "sections": [
+        {
+          "heading": "Qué construimos",
+          "items_heading": "Estas son las líneas que armamos:",
+          "items": [
+            "Landing pages que convierten, con animaciones y velocidad de carga cuidadas",
+            "Sitios institucionales para pymes que todavía no tienen presencia web clara",
+            "Tiendas online a medida — sin comisión de plataforma de por vida"
+          ],
+          "outro": "Mirá el detalle de <link1>tienda online</link1>, o seguí leyendo sobre cómo trabajamos landing pages y sitios institucionales.",
+          "links": [
+            "/desarrollo-web/tienda-online"
+          ]
+        },
+        {
+          "heading": "Caso de estudio: Zycor Construction",
+          "body": "Construimos la landing bilingüe de Zycor Construction (New Jersey, EEUU) con animaciones GSAP, reserva de turnos integrada y contacto directo por WhatsApp, deployada en Vercel. Fue nuestro primer cliente internacional, y hoy sigue en producción.",
+          "items_heading": "Lo que incluyó:",
+          "items": [
+            "Landing bilingüe (ES/EN) con animaciones GSAP",
+            "Reserva de turnos integrada (Calendly)",
+            "Contacto directo por WhatsApp",
+            "Deploy en Vercel, entregada en días, no meses"
+          ]
+        },
+        {
+          "heading": "Por qué trabajar así",
+          "body": "Muchas agencias web te hacen esperar semanas por cada cambio porque hay un project manager entre vos y quien programa. Acá hablás directo conmigo, y tu sitio queda listo en unos 10 días — no meses."
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Cuánto tarda un sitio web?",
+          "a": "Alrededor de 10 días según el alcance — te doy un plazo concreto después de entender qué necesitás."
+        },
+        {
+          "q": "¿Puedo ver ejemplos reales?",
+          "a": "Sí — mirá el caso de Zycor Construction, un cliente real, en producción hoy."
+        },
+        {
+          "q": "¿Trabajan con clientes fuera de Argentina?",
+          "a": "Sí, ya tenemos clientes internacionales (como Zycor, en Estados Unidos)."
+        }
+      ],
+      "cta": {
+        "heading": "¿Tenés que arrancar con tu sitio web y no querés esperar meses?",
+        "body": "Contame qué necesitás y te digo un plazo concreto, sin vueltas.",
+        "button": "Escribime por WhatsApp"
+      }
     },
     "web_ecommerce": {
       "title": "Tienda Online",
-      "description": "Tiendas online con pasarela de pagos, panel de administración y gestión de inventario."
+      "description": "Tiendas online con pasarela de pagos, panel de administración y gestión de inventario.",
+      "schema": {
+        "serviceType": "Desarrollo de Tienda Online a Medida",
+        "description": "Desarrollo de tiendas online a medida: catálogo, carrito y checkout."
+      },
+      "meta": {
+        "title": "Desarrollo de Tienda Online a Medida | Hyper Grid Studio",
+        "description": "Tiendas online a medida, sin las limitaciones de una plantilla genérica: catálogo, carrito y pagos armados para cómo vendés vos."
+      },
+      "h1": "Tienda online a medida, no una plantilla con tu logo",
+      "intro": "Catálogo, carrito y checkout armados para cómo vendés — no para el flujo genérico de una plantilla de ecommerce.",
+      "hero_cta": "Contame qué querés vender",
+      "sections": [
+        {
+          "heading": "Qué incluye",
+          "items_heading": "Qué incluye (según tu catálogo):",
+          "items": [
+            "Catálogo de productos con las categorías y filtros que tu negocio necesita",
+            "Carrito y checkout, con los métodos de pago que uses en tu mercado",
+            "Panel simple para vos, sin curva de aprendizaje eterna",
+            "Integración con WhatsApp para el seguimiento post-venta"
+          ],
+          "outro": "Es el mismo enfoque que usamos en el resto de <link1>nuestros sitios web</link1>: sin plantillas genéricas, hablando directo con quien construye.",
+          "links": [
+            "/desarrollo-web"
+          ]
+        },
+        {
+          "heading": "Por qué a medida",
+          "body": "Las plataformas de ecommerce genéricas te resuelven lo básico rápido, pero cobran comisión o mensualidad para siempre, y cuando necesitás algo específico de tu rubro, no hay forma de pedirlo. Un ecommerce a medida es tuyo, sin mensualidad de por vida, y crece con lo que tu negocio realmente necesita."
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Qué pasarela de pagos puedo usar?",
+          "a": "Depende de tu mercado — Mercado Pago en Argentina, Stripe o PayPal para clientes en EEUU, u otra según lo que necesites."
+        },
+        {
+          "q": "¿Cuánto cuesta una tienda online a medida?",
+          "a": "Depende del catálogo y el alcance — lo cotizamos después de entender qué y cómo vendés."
+        },
+        {
+          "q": "¿Cuánto tarda comparado con una landing page?",
+          "a": "Más que una landing simple, según el tamaño del catálogo — lo conversamos en la primera reunión y te doy un plazo concreto."
+        }
+      ],
+      "cta": {
+        "heading": "¿Querés vender online sin pagarle comisión a una plataforma para siempre?",
+        "body": "Contame qué vendés y armamos una tienda a tu medida.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, quiero cotizar una tienda online para mi negocio"
     },
     "software": {
       "title": "Soluciones de Software",
@@ -288,6 +401,16 @@
             "8 módulos y 3 niveles de permisos, para que el dueño vea lo que necesita ver y el cajero solo lo que le corresponde.",
             "Le ahorra al dueño el dolor de cabeza de perseguir ventas cargadas mal — el sistema muestra el detalle de cada venta con claridad.",
             "Pago único de USD 100 por licencia, sin mensualidad."
+          ],
+          "images": [
+            {
+              "src": "",
+              "alt": "Panel de ventas de miPost"
+            },
+            {
+              "src": "",
+              "alt": "Pantalla de cobro de miPost"
+            }
           ]
         },
         {
@@ -385,15 +508,145 @@
     },
     "automations": {
       "title": "Automatizaciones",
-      "description": "Procesos automáticos para que tu negocio trabaje solo mientras vos te enfocás en lo que importa."
+      "description": "Procesos automáticos para que tu negocio trabaje solo mientras vos te enfocás en lo que importa.",
+      "schema": {
+        "serviceType": "Automatización de Procesos de Negocio",
+        "description": "Automatización de reservas, seguimiento por WhatsApp y procesos repetitivos con n8n."
+      },
+      "meta": {
+        "title": "Automatización de Procesos de Negocio | Hyper Grid Studio",
+        "description": "Automatizamos reservas, seguimiento por WhatsApp y procesos repetitivos con n8n — para pymes y emprendedores, no solo para empresas grandes."
+      },
+      "h1": "Automatizá lo repetitivo de tu negocio, sin ser una empresa grande",
+      "intro": "Reservas, seguimiento de clientes por WhatsApp y flujos con n8n, pensados para pymes y emprendedores — no solo para consultoras premium orientadas a empresas grandes.",
+      "hero_cta": "Contame qué querés automatizar",
+      "sections": [
+        {
+          "heading": "Qué podemos automatizar",
+          "items_heading": "Algunos ejemplos:",
+          "items": [
+            "Reservas y turnos online",
+            "Seguimiento y atención por WhatsApp",
+            "Flujos con n8n para lo que hoy hacés a mano"
+          ],
+          "outro": "Mirá el detalle de <link1>reservas</link1> o <link2>WhatsApp</link2>.",
+          "links": [
+            "/automatizaciones/reservas",
+            "/automatizaciones/whatsapp"
+          ]
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Qué es n8n y por qué lo usan?",
+          "a": "Es una herramienta de automatización de flujos de trabajo — nos permite conectar tus herramientas (WhatsApp, calendario, planillas) sin depender de un software cerrado."
+        },
+        {
+          "q": "¿Esto es solo para empresas grandes?",
+          "a": "No — pensamos las automatizaciones para pymes y emprendedores, no solo para consultoras premium."
+        }
+      ],
+      "cta": {
+        "heading": "¿Tenés un proceso manual que te consume tiempo todas las semanas?",
+        "body": "Contanos cuál es y vemos si tiene sentido automatizarlo.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, quiero automatizar un proceso de mi negocio"
     },
     "automations_booking": {
       "title": "Reservas y Turnos",
-      "description": "Agenda online que toma reservas y confirma turnos sin intervención manual."
+      "description": "Agenda online que toma reservas y confirma turnos sin intervención manual.",
+      "schema": {
+        "serviceType": "Sistema de Reservas Online",
+        "description": "Desarrollo de sistemas de reservas online conectados a WhatsApp y calendario."
+      },
+      "meta": {
+        "title": "Sistema de Reservas Online | Hyper Grid Studio",
+        "description": "Automatizá turnos y reservas online, conectados a tu WhatsApp y calendario, sin planillas ni mensajes cruzados."
+      },
+      "h1": "Reservas online, sin planillas ni mensajes cruzados",
+      "intro": "Un sistema de turnos conectado a tu WhatsApp y tu calendario, para que dejes de confirmar reservas a mano.",
+      "hero_cta": "Contame cómo agendás hoy",
+      "sections": [
+        {
+          "heading": "Qué incluye",
+          "items_heading": "Qué incluye:",
+          "items": [
+            "Calendario de disponibilidad online",
+            "Confirmación automática por WhatsApp",
+            "Recordatorios para reducir ausencias"
+          ],
+          "outro": "Es parte de nuestro trabajo de <link1>automatizaciones</link1>.",
+          "links": [
+            "/automatizaciones"
+          ]
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Se integra con mi WhatsApp actual?",
+          "a": "Depende del caso — lo evaluamos y te decimos la mejor forma de conectarlo."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del alcance — lo cotizamos según lo que necesites."
+        }
+      ],
+      "cta": {
+        "heading": "¿Seguís confirmando turnos a mano?",
+        "body": "Contanos cómo agendás hoy y vemos si tiene sentido automatizarlo.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, quiero automatizar las reservas de mi negocio"
     },
     "automations_whatsapp": {
       "title": "Automatizaciones por WhatsApp",
-      "description": "Asistentes de WhatsApp que responden consultas y agendan turnos las 24 horas."
+      "description": "Asistentes de WhatsApp que responden consultas y agendan turnos las 24 horas.",
+      "schema": {
+        "serviceType": "Automatización de WhatsApp para Negocios",
+        "description": "Chatbots y automatización de WhatsApp Business para atención y seguimiento de clientes."
+      },
+      "meta": {
+        "title": "Automatización de WhatsApp para Negocios | Hyper Grid Studio",
+        "description": "Chatbots y flujos automáticos de WhatsApp Business, para responder y hacer seguimiento sin estar pegado al teléfono todo el día."
+      },
+      "h1": "WhatsApp que responde y hace seguimiento, sin que estés pegado al teléfono",
+      "intro": "Chatbots y flujos automáticos para atención y seguimiento de clientes por WhatsApp Business.",
+      "hero_cta": "Contame cómo atendés hoy por WhatsApp",
+      "sections": [
+        {
+          "heading": "Qué incluye",
+          "items_heading": "Qué incluye:",
+          "items": [
+            "Respuestas automáticas para las preguntas más frecuentes",
+            "Seguimiento de clientes sin perder el hilo",
+            "Conexión con tu sistema de reservas o de gestión, si ya tenés uno"
+          ],
+          "outro": "También es parte de nuestro trabajo de <link1>automatizaciones</link1>.",
+          "links": [
+            "/automatizaciones"
+          ]
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Reemplaza la atención humana?",
+          "a": "No — resuelve lo repetitivo para que vos te enfoques en lo que realmente necesita una persona atendiendo."
+        },
+        {
+          "q": "¿Cuánto cuesta?",
+          "a": "Depende del alcance — lo cotizamos según lo que necesites."
+        }
+      ],
+      "cta": {
+        "heading": "¿Pasás gran parte del día respondiendo lo mismo por WhatsApp?",
+        "body": "Contanos cómo atendés hoy y vemos si tiene sentido automatizarlo.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, quiero automatizar mi atención por WhatsApp"
     }
   },
   "placeholder": {
