@@ -328,7 +328,60 @@
     },
     "software_management": {
       "title": "Management Systems",
-      "description": "Custom dashboards to organize clients, orders and internal processes."
+      "description": "Custom dashboards to organize clients, orders and internal processes.",
+      "schema": {
+        "serviceType": "Custom Business Management System",
+        "description": "Development of custom management systems: CRM, ERP, invoicing, and stock control for businesses."
+      },
+      "meta": {
+        "title": "Custom Business Management System (CRM / ERP) | Hyper Grid Studio",
+        "description": "We build custom management systems — CRM, ERP, invoicing — around your actual process, not a generic SaaS flow. Same approach behind miPost, our own POS system."
+      },
+      "h1": "A management system built around your process, not the other way around",
+      "intro": "CRM, ERP, invoicing, or whatever your business runs on day to day, built to your exact scope. No paying for modules you don't use, no bending your workflow to fit someone else's software.",
+      "hero_cta": "Tell us how you run your business today",
+      "sections": [
+        {
+          "heading": "The solution",
+          "items_heading": "What we can include (depending on your process):",
+          "items": [
+            "Customer management and sales tracking (CRM)",
+            "Stock, purchasing, and supplier control",
+            "Invoicing and financial reporting",
+            "Role-based permissions, so each person sees only what they need to",
+            "Integrations with the tools you already use"
+          ],
+          "outro": "It's the same approach behind <link1>miPost</link1>, our point of sale system: build the tool around how you actually work, instead of bending your process to fit a template.",
+          "links": [
+            "/soluciones-de-software/punto-de-venta"
+          ]
+        },
+        {
+          "heading": "Why custom",
+          "body": "A generic CRM or ERP covers the basics, but charges forever and never quite fits your process — you end up running parallel spreadsheets for whatever it doesn't cover. A custom system is built once around your actual workflow, and grows with new modules only when you need them."
+        }
+      ],
+      "faq_heading": "Frequently asked questions",
+      "faq": [
+        {
+          "q": "What kind of management system can I request?",
+          "a": "CRM, ERP, invoicing, stock control, or a combination — we build it around what your business already uses to run day to day."
+        },
+        {
+          "q": "How much does a custom management system cost?",
+          "a": "It depends on scope and the modules you need — we quote it after understanding your process. As a reference for our work, check out miPost, our point of sale system."
+        },
+        {
+          "q": "Can it integrate with tools I already use?",
+          "a": "In most cases, yes — we evaluate it based on which tools you use and how open their API is."
+        }
+      ],
+      "cta": {
+        "heading": "Running your business on spreadsheets or a system that doesn't quite fit?",
+        "body": "Tell us how you handle it today and we'll tell you if a custom build makes sense.",
+        "button": "Message us on WhatsApp"
+      },
+      "whatsapp_message": "Hi, I'd like a quote for a custom management system for my business"
     },
     "automations": {
       "title": "Automations",

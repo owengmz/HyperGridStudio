@@ -328,7 +328,60 @@
     },
     "software_management": {
       "title": "Sistemas de Gestión",
-      "description": "Paneles de gestión a medida para ordenar clientes, pedidos y procesos internos."
+      "description": "Paneles de gestión a medida para ordenar clientes, pedidos y procesos internos.",
+      "schema": {
+        "serviceType": "Sistema de Gestión a Medida",
+        "description": "Desarrollo de sistemas de gestión a medida: CRM, ERP, facturación y control de stock para negocios."
+      },
+      "meta": {
+        "title": "Sistema de Gestión a Medida (CRM / ERP) | Hyper Grid Studio",
+        "description": "Desarrollamos sistemas de gestión a medida — CRM, ERP, facturación — hechos para tu proceso real, no para el genérico de un SaaS. Mismo enfoque que usamos en miPost."
+      },
+      "h1": "Sistema de gestión a medida, hecho para tu proceso — no al revés",
+      "intro": "CRM, ERP, facturación o lo que tu negocio use para gestionarse día a día, construido a tu medida. Sin pagar por módulos que no usás, sin adaptar tu forma de trabajar al software de otro.",
+      "hero_cta": "Contanos cómo gestionás tu negocio hoy",
+      "sections": [
+        {
+          "heading": "La solución",
+          "items_heading": "Qué podemos incluir (según tu proceso):",
+          "items": [
+            "Gestión de clientes y seguimiento de ventas (CRM)",
+            "Control de stock, compras y proveedores",
+            "Facturación y reportes financieros",
+            "Permisos por rol, para que cada persona vea solo lo que le corresponde",
+            "Integraciones con las herramientas que ya usás"
+          ],
+          "outro": "Es el mismo enfoque que usamos en <link1>miPost</link1>, nuestro sistema de punto de venta: construir la herramienta a medida de cómo trabajás, no adaptarte vos a una plantilla.",
+          "links": [
+            "/soluciones-de-software/punto-de-venta"
+          ]
+        },
+        {
+          "heading": "Por qué a medida",
+          "body": "Un CRM o ERP genérico te resuelve lo básico, pero cobra mensualidad para siempre y no se adapta del todo a tu proceso — terminás usando planillas paralelas para lo que el sistema no contempla. Un sistema a medida se construye una vez para tu flujo real, y crece con módulos nuevos solo cuando los necesitás."
+        }
+      ],
+      "faq_heading": "Preguntas frecuentes",
+      "faq": [
+        {
+          "q": "¿Qué tipo de sistema de gestión puedo pedir?",
+          "a": "CRM, ERP, facturación, control de stock, o una combinación de estos — lo armamos según lo que tu negocio use hoy para gestionarse."
+        },
+        {
+          "q": "¿Cuánto cuesta un sistema de gestión a medida?",
+          "a": "Depende del alcance y los módulos que necesites — lo cotizamos después de entender tu proceso. Como referencia de nuestro trabajo, mirá miPost, nuestro sistema de punto de venta."
+        },
+        {
+          "q": "¿Puedo integrarlo con herramientas que ya uso?",
+          "a": "En la mayoría de los casos sí — lo evaluamos según qué herramientas sean y qué tan abierta sea su API."
+        }
+      ],
+      "cta": {
+        "heading": "¿Gestionás tu negocio con planillas o un sistema que no te cierra del todo?",
+        "body": "Contanos cómo lo hacés hoy y vemos si tiene sentido construirte algo a medida.",
+        "button": "Escribime por WhatsApp"
+      },
+      "whatsapp_message": "Hola, quiero cotizar un sistema de gestión a medida para mi negocio"
     },
     "automations": {
       "title": "Automatizaciones",
