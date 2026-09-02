@@ -3,6 +3,7 @@ import type { ReactNode } from 'react'
 import { notFound } from 'next/navigation'
 import { hasLocale, NextIntlClientProvider } from 'next-intl'
 import { getTranslations, setRequestLocale } from 'next-intl/server'
+import { IBM_Plex_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 
 import './globals.css'
@@ -35,6 +36,26 @@ const MATERIAL_ICONS = [
 const MATERIAL_SYMBOLS_HREF =
   'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0' +
   `&text=${MATERIAL_ICONS}`
+
+/**
+ * Capa de instrumento: etiquetas, kickers, indices del riel, valores de ficha
+ * tecnica y numeros de pin.
+ *
+ * Va por next/font/google en vez de un @font-face propio como Syne y DM Sans:
+ * next descarga y autoaloja los archivos en build, asi que no se agrega una
+ * peticion a un tercero ni un woff2 al repo. El token queda declarado sobre el
+ * <html>; globals.css no lo redefine para no pelear con el en la cascada.
+ *
+ * Sin `preload`: todavia no la usa nada above-the-fold. Cuando la capa de
+ * instrumento se aplique (Parte 2), conviene revisarlo.
+ */
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+  preload: false,
+})
 
 /** og:locale segun el idioma activo. */
 const OG_LOCALE: Record<Locale, string> = {
@@ -118,7 +139,7 @@ export default async function LocaleLayout({
   })
 
   return (
-    <html lang={locale} className="dark">
+    <html lang={locale} className={`dark ${ibmPlexMono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

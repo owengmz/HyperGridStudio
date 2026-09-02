@@ -402,6 +402,24 @@
             "Saves the owner from chasing down bad sales entries — every sale is logged with a clear, reviewable detail.",
             "One-time license fee of $100 USD, no subscription."
           ],
+          "spec": [
+            {
+              "label": "Modules",
+              "value": "8"
+            },
+            {
+              "label": "Roles",
+              "value": "3"
+            },
+            {
+              "label": "License",
+              "value": "$100 USD (one-time)"
+            },
+            {
+              "label": "Build time",
+              "value": "1 week"
+            }
+          ],
           "images": [
             {
               "src": "",

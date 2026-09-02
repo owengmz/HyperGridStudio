@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server'
 import { routing } from '@/i18n/routing'
 import { buildPageMetadata } from '@/lib/metadata'
 import { ServicePageContent } from '@/components/sections/ServicePageContent'
+import { PinnedFigure } from '@/components/ui/PinnedFigure'
 
 /* Ruta interna. El slug publico de cada idioma sale de i18n/routing.ts. */
 const HREF = '/soluciones-de-software/punto-de-venta' as const
@@ -43,7 +44,15 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   setRequestLocale(locale)
 
-  /* El JSON-LD (Service + FAQPage) lo emite ServicePageContent a partir del
-     namespace, para que cada pagina nueva no tenga que cablearlo. */
-  return <ServicePageContent namespace={NAMESPACE} />
+  /*
+    El JSON-LD (Service + FAQPage) lo emite ServicePageContent a partir del
+    namespace, para que cada pagina nueva no tenga que cablearlo.
+
+    `caseFigure` se pasa solo desde aca: es la unica pagina con caso de estudio
+    anotado. ServicePageContent lo comparten las ocho paginas de servicio, asi
+    que importar PinnedFigure alli metia su chunk de cliente en las ocho aunque
+    siete no lo rendericen nunca. Inyectandolo, el modulo entra en el grafo de
+    esta ruta y solo de esta.
+  */
+  return <ServicePageContent namespace={NAMESPACE} caseFigure={PinnedFigure} />
 }

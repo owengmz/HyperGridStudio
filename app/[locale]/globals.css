@@ -68,6 +68,12 @@
   /* Tipografia */
   --font-display: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
+  /*
+    --font-mono (IBM Plex Mono) no se declara aca a proposito: lo define
+    next/font/google sobre el <html> desde app/[locale]/layout.tsx. Declararlo
+    tambien en :root seria la misma especificidad y quedaria a merced del orden
+    de las hojas. Es la capa de instrumento: etiquetas, indices, ficha tecnica.
+  */
 
   /* Radios de borde */
   --radius: 12px;
@@ -83,9 +89,23 @@
   --header-h: 80px;
   --header-tint: 13, 11, 20;
 
+  /*
+    Grilla de las paginas de servicio.
+
+    --rail es el margen izquierdo donde vive la capa de instrumento (indices,
+    etiquetas). --measure es la medida de la columna de texto: 760px son unos
+    75-85 caracteres a 0.95rem, que es donde la linea se sigue leyendo comoda.
+    Juntos con --rail-gap dan 932px de bloque, que entra en los 1152px utiles
+    del contenedor y deja la mancha de texto corrida a la derecha del centro.
+  */
+  --rail: 132px;
+  --rail-gap: 40px;
+  --measure: 760px;
+
   /* Tokens semánticos adicionales (MASTER.md §3) */
-  --whatsapp: #25d366;
-  --whatsapp-dark: #20ba5a;
+  /* --whatsapp / --whatsapp-dark se dieron de baja: el CTA de WhatsApp usa el
+     violeta de --primary en las 9 paginas y en el boton flotante. El verde de
+     marca no llegaba a AA con texto blanco encima (1.98:1). */
   --star: #f59e0b;
   --radius-pill: 100px;
 }
@@ -479,6 +499,11 @@ body:has(a:hover) .cursor-trail {
   outline-offset: 3px;
 }
 
+/* Venia de .btn-whatsapp, que ya no existe: el icono no se comprime. */
+.btn svg {
+  flex-shrink: 0;
+}
+
 /* Efecto de barrido al hacer hover */
 .btn::before {
   content: '';
@@ -496,18 +521,29 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* Boton primario: fondo violeta con sombra de brillo */
+/*
+  Violeta plano. El degradado anterior terminaba en #1a0a2e, que contra la
+  pagina da 1.05:1 y contra --bg-card 1.00:1: la esquina inferior derecha del
+  boton quedaba sin pintar y la pieza perdia su contorno. El borde lo dan ahora
+  el anillo y la sombra, no el color de fondo.
+  Medido: 3.43:1 boton vs fondo, 5.70:1 texto vs boton.
+*/
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary) 0%, #1a0a2e 100%);
+  background: var(--primary);
   color: #fff;
   padding: 10px 22px;
   font-size: 0.9rem;
-  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.3);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.45),
+    0 10px 30px rgba(124, 58, 237, 0.42);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 32px rgba(124, 58, 237, 0.5);
-  background: linear-gradient(135deg, var(--primary) 20%, #0d0520 100%);
+  background: #8b5cf6;
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.7),
+    0 14px 38px rgba(124, 58, 237, 0.55);
 }
 
 .btn-primary:active {
@@ -2111,40 +2147,6 @@ body:has(a:hover) .cursor-trail {
 }
 
 /* ===========================
-   HERO — BOTÓN WHATSAPP
-=========================== */
-.btn-whatsapp {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 24px;
-  background: var(--whatsapp);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-}
-
-.btn-whatsapp:hover {
-  background: var(--whatsapp-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
-}
-
-.btn-whatsapp:active {
-  transform: translateY(0);
-}
-
-.btn-whatsapp svg {
-  flex-shrink: 0;
-}
-
-/* ===========================
    PORTFOLIO — CHIPS DE PAÍS Y CATEGORÍA
    (.portfolio-img-wrap ya tiene position:relative en la regla base)
 =========================== */
@@ -2325,12 +2327,15 @@ body:has(a:hover) .cursor-trail {
   align-items: center;
   justify-content: center;
 
-  /* Color de marca */
-  background: var(--whatsapp);
+  /* Mismo violeta que .btn-primary: el CTA de WhatsApp es uno solo en todo
+     el sitio. Antes iba en verde de marca (#25d366), que con el icono blanco
+     encima daba 1.98:1 y no llegaba a AA. */
+  background: var(--primary);
 
-  /* Sombra con glow verde sutil */
+  /* Anillo + glow violeta, igual que .btn-primary. */
   box-shadow:
-    0 4px 16px rgba(37, 211, 102, 0.4),
+    0 0 0 1px rgba(167, 139, 250, 0.45),
+    0 10px 30px rgba(124, 58, 237, 0.42),
     0 2px 6px rgba(0, 0, 0, 0.25);
 
   /* Transicion suave en hover */
@@ -2348,17 +2353,18 @@ body:has(a:hover) .cursor-trail {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--whatsapp);
+  background: var(--primary);
   z-index: -1;
   animation: whatsapp-pulse 1.8s ease-out infinite;
 }
 
-/* Hover: escala y fondo mas oscuro */
+/* Hover: escala y el mismo violeta claro que .btn-primary:hover */
 .whatsapp-float:hover {
   transform: scale(1.08);
-  background: var(--whatsapp-dark);
+  background: #8b5cf6;
   box-shadow:
-    0 6px 24px rgba(37, 211, 102, 0.5),
+    0 0 0 1px rgba(167, 139, 250, 0.7),
+    0 14px 38px rgba(124, 58, 237, 0.55),
     0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -2387,11 +2393,6 @@ body:has(a:hover) .cursor-trail {
 @media (max-width: 480px) {
   .hero-badges {
     gap: 8px;
-  }
-
-  .btn-whatsapp {
-    font-size: 0.9rem;
-    padding: 12px 18px;
   }
 
   .portfolio-meta-chips {
@@ -2765,9 +2766,99 @@ body:has(a:hover) .cursor-trail {
   padding: calc(var(--header-h) + 56px) 0 96px;
 }
 
+/*
+  El contenedor ya no centra una columna: cada bloque arma su propia grilla y
+  se centra solo. Asi el bloque de cierre puede ocupar riel + columna sin
+  salirse de una caja mas angosta que el.
+*/
 .service-page-inner {
-  max-width: 760px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+  Grilla de un bloque: riel + columna de texto.
+
+  El bloque se centra por `max-width` + margen automatico y no por
+  `justify-content`, aunque las dos cosas centrarian las columnas igual: con
+  `justify-content` la caja del bloque seguiria midiendo el ancho del
+  contenedor, y el borde superior del FAQ —que es un separador del bloque— se
+  dibujaria 220px mas ancho que el contenido que separa.
+
+  Como el riel esta a la izquierda, la mancha de texto queda corrida a la
+  derecha del centro del contenedor. Esa es la asimetria, y sale de la
+  estructura, no de un margen magico.
+
+  `minmax(0, var(--measure))` y no `var(--measure)` a secas: sin el minimo en 0
+  un hijo ancho (una tabla, un <pre>, una imagen) puede empujar la columna mas
+  alla de su medida, porque el tamanio automatico de una pista de grilla es
+  min-content.
+*/
+.service-block {
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, var(--measure));
+  column-gap: var(--rail-gap);
+  width: 100%;
+  max-width: calc(var(--rail) + var(--rail-gap) + var(--measure));
+  margin-inline: auto;
+}
+
+/* ── Riel ── */
+.rail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  /* Alinea la marca con la primera linea del titulo del bloque, no con el
+     borde de la caja: la marca y el texto tienen que leerse a la misma altura. */
+  padding-top: 0.35em;
+}
+
+/*
+  Indice de la seccion. Capa de instrumento: mono, tabular y en el violeta
+  claro, para que se lea como una marca del sistema y no como texto.
+*/
+.rail-index {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--primary-light);
+  line-height: 1;
+}
+
+/*
+  Etiqueta del riel: la alternativa al indice cuando no hay secuencia que
+  contar, y el tratamiento del titulo del FAQ. Va en versalitas de mono para
+  que pese menos que un h2 de cuerpo sin dejar de leerse como titulo.
+*/
+.rail-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.5;
+  /* El riel es angosto: una etiqueta larga corta donde puede antes que
+     desbordar sobre la columna de texto. */
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+/* Hairline vertical: es lo que hace que el riel se lea como un riel y no como
+   una marca suelta. Se estira con el alto del bloque. */
+.rail-rule {
+  width: 1px;
+  flex: 1;
+  min-height: 24px;
+  background: linear-gradient(to bottom, var(--border), transparent);
+}
+
+/* La columna de texto. `min-width: 0` por lo mismo que el minmax de arriba. */
+.block-body {
+  min-width: 0;
 }
 
 .service-page-title {
@@ -2803,33 +2894,43 @@ body:has(a:hover) .cursor-trail {
   line-height: 1.8;
 }
 
-/* Enlaces internos dentro del cuerpo */
-.service-page-inner a {
+/* Enlaces internos dentro del cuerpo. Los .btn quedan afuera: son botones,
+   no enlaces de texto, y el subrayado les tachaba la etiqueta. */
+.service-page-inner a:not(.btn) {
   color: var(--primary-light);
   text-decoration: underline;
   text-underline-offset: 3px;
   transition: color var(--transition-fast);
 }
 
-.service-page-inner a:hover {
+.service-page-inner a:not(.btn):hover {
   color: var(--text);
 }
 
+/*
+  FAQ. Deja de ser un apendice al pie —titulo grande y preguntas apiladas a lo
+  largo— y pasa a ser un bloque mas de la grilla: el titulo va al riel y las
+  preguntas ocupan la columna a dos columnas. En las tres paginas de
+  Automatizaciones el FAQ es cerca del 40% del contenido, y apilado hacia que
+  la pagina terminara en una tira larga de texto suelto.
+*/
 .service-faq {
   margin-top: 72px;
   padding-top: 40px;
   border-top: 1px solid var(--border);
 }
 
-.service-faq > h2 {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 28px;
-}
-
-.service-faq-item + .service-faq-item {
-  margin-top: 24px;
+/*
+  Dos columnas. `align-items: start` para que cada respuesta ocupe su alto real
+  y no el de la fila: sin eso, una pregunta corta al lado de una larga hereda
+  el alto de la larga y deja un hueco raro debajo.
+*/
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  column-gap: 32px;
+  row-gap: 28px;
 }
 
 .service-faq-item h3 {
@@ -2838,16 +2939,6 @@ body:has(a:hover) .cursor-trail {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 6px;
-}
-
-@media (max-width: 600px) {
-  .service-page {
-    padding: calc(var(--header-h) + 32px) 0 64px;
-  }
-
-  .service-section {
-    margin-top: 36px;
-  }
 }
 
 /* Listas dentro de una seccion de servicio */
@@ -2905,6 +2996,274 @@ body:has(a:hover) .cursor-trail {
   border-radius: var(--radius);
 }
 
+/* ===========================
+   FICHA TECNICA
+   Los datos duros de un caso, en la capa de instrumento.
+=========================== */
+/*
+  Rejilla de dos columnas con lineas de 1px hechas con `gap` sobre un fondo:
+  el contenedor pinta el color de linea y cada celda tapa su parte con el fondo
+  de la pagina, asi que las separaciones son continuas y no hay que resolver
+  bordes dobles ni acordarse de sacarle el borde a la ultima fila.
+*/
+.spec-sheet {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 26px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.spec-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+}
+
+.spec-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/*
+  El valor es el dato: mono, tabular y al tamanio de un titulo chico. Tabular
+  para que '8' y '3' ocupen lo mismo y la columna de valores quede a plomo.
+*/
+.spec-value {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+  line-height: 1.3;
+  /* <dd> trae margen propio del user agent. */
+  margin: 0;
+}
+
+/* ===========================
+   PANEL DE CASO DE ESTUDIO
+=========================== */
+/*
+  Una seccion con ficha tecnica se lee como una pieza aparte del texto que la
+  rodea: se le da fondo y borde propios y se la despega del ritmo de las demas.
+*/
+.service-section.is-case {
+  /* Lo comparten el panel y el riel: si cambia el padding del recuadro, el
+     indice lo sigue sin que haya que acordarse de tocar dos numeros. */
+  --case-pad: 28px;
+}
+
+.service-section.is-case > .block-body {
+  padding: var(--case-pad) 30px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+/* El indice se baja lo que baja el titulo dentro del recuadro: sin esto el
+   '03' queda pegado al borde del panel y no a plomo con 'Caso de estudio'.
+   El 1px es el borde del panel, que tambien empuja al titulo hacia abajo. */
+.service-section.is-case > .rail {
+  padding-top: calc(var(--case-pad) + 1px + 0.35em);
+}
+
+/*
+  Escenario de capturas. Mismo `auto-fit` que .service-images: una captura
+  ocupa el ancho, dos van a la par y se apilan solas cuando no entran.
+*/
+.case-stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.case-stage-slot {
+  min-width: 0;
+}
+
+/*
+  Hueco de una captura que todavia no existe.
+
+  Mantiene 16/9 —la relacion de IMAGE_WIDTH/IMAGE_HEIGHT— para que el panel ya
+  tenga su composicion final y no se recompagine cuando se suban los archivos.
+  El punteado dice 'esto es un espacio reservado' sin necesidad de leyenda.
+*/
+.stage-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  padding: 16px;
+  border: 1px dashed rgba(167, 139, 250, 0.32);
+  border-radius: var(--radius);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(124, 58, 237, 0.05) 0 8px,
+      transparent 8px 16px
+    ),
+    rgba(13, 11, 20, 0.5);
+}
+
+.stage-placeholder-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* ===========================
+   CAPTURA ANOTADA (PinnedFigure)
+   Mecanismo del sistema de pines. Las coordenadas de cada punto salen de
+   data/caseStudies.ts, que hoy esta vacio a la espera de las capturas reales:
+   sin pines no se renderiza ni .pin-layer ni .pin-key.
+=========================== */
+.pinned-figure {
+  margin: 22px 0 0;
+}
+
+/* Dentro del escenario del caso el aire ya lo pone .case-stage; el margen
+   propio de la figura desalinearia el slot con imagen contra el placeholder. */
+.case-stage .pinned-figure {
+  margin: 0;
+}
+
+/* Ancla de las coordenadas en % de los puntos. */
+.pinned-figure-frame {
+  position: relative;
+  line-height: 0;
+}
+
+/* No intercepta el mouse: los puntos son un eco visual de la leyenda, que es
+   la que recibe hover y foco. */
+.pin-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.pin {
+  position: absolute;
+  /* left/top son el centro del punto, no su esquina. */
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  /* Capa de instrumento. */
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+
+  color: var(--text);
+  background: rgba(13, 11, 20, 0.82);
+  box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.45);
+
+  transition:
+    background var(--transition),
+    box-shadow var(--transition),
+    transform var(--transition);
+}
+
+/* Encendido: lo prende la fila de la leyenda con el mismo data-pin. */
+.pin.is-on {
+  transform: translate(-50%, -50%) scale(1.15);
+  color: #fff;
+  background: var(--primary);
+  box-shadow:
+    0 0 0 1px rgba(167, 139, 250, 0.7),
+    0 6px 20px rgba(124, 58, 237, 0.5);
+}
+
+/* Leyenda: una fila por punto. */
+.pin-key {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 12px;
+}
+
+.pin-key-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.pin-key-item.is-on {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--text);
+}
+
+.pin-key-item:focus-visible {
+  outline: 2px solid var(--primary-light);
+  outline-offset: 2px;
+}
+
+/* Numero de la fila: capa de instrumento, alineado con el del punto. */
+.pin-key-index {
+  flex-shrink: 0;
+  min-width: 1.4em;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--primary-light);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin.is-on {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/*
+  Parrafo de cierre de una seccion: va despues de la lista o de las capturas
+  y necesita su propio aire. El resto de los <p> no lleva margen porque
+  siempre viene detras de un heading, que ya lo aporta.
+*/
+.block-body > :is(.service-list, .service-images, .case-stage, .spec-sheet, .pinned-figure) + p {
+  margin-top: 18px;
+}
+
+/* Dos parrafos seguidos —el cuerpo y el outro de una seccion sin lista— se
+   tocaban: sin lista en el medio no habia nada que los separara. */
+.block-body > p + p {
+  margin-top: 14px;
+}
+
 /* Botones del hero y del cierre */
 .service-page-actions {
   display: flex;
@@ -2913,9 +3272,15 @@ body:has(a:hover) .cursor-trail {
   margin-top: 28px;
 }
 
-/* Bloque de cierre */
+/*
+  Bloque de cierre. Rompe la grilla a proposito: ocupa el riel mas la columna
+  (932px, el ancho del bloque entero) en vez de alinearse con el texto. Es la
+  senal de que la secuencia termino — el riel no sigue mas abajo.
+*/
 .service-cta {
-  margin-top: 72px;
+  width: 100%;
+  max-width: calc(var(--rail) + var(--rail-gap) + var(--measure));
+  margin: 72px auto 0;
   padding: 36px;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -2929,6 +3294,9 @@ body:has(a:hover) .cursor-trail {
   font-weight: 800;
   line-height: 1.25;
   margin-bottom: 12px;
+  /* Evita la huerfana sin el balanceo agresivo de 'balance', que en una
+     columna angosta parte el titulo en varias lineas cortas. */
+  text-wrap: pretty;
 }
 
 .service-cta p {
@@ -2944,5 +3312,98 @@ body:has(a:hover) .cursor-trail {
 @media (max-width: 600px) {
   .service-cta {
     padding: 26px 20px;
+  }
+}
+
+
+/* ===========================
+   RESPONSIVE DE LA GRILLA DE SERVICIO
+=========================== */
+/*
+  El FAQ vuelve a una columna mucho antes de que colapse el riel.
+
+  El corte esta en 940px porque ahi la columna de texto mide 720px y cada mitad
+  del FAQ queda en 344px, que a 0.95rem son unos 47 caracteres por linea. Por
+  debajo de eso las dos columnas caen a ~40 caracteres y la respuesta se lee
+  peor partida en dos que entera en una.
+*/
+@media (max-width: 940px) {
+  .faq-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+}
+
+/*
+  Colapso del riel.
+
+  Por debajo de ~768px el riel de 132px fijos le come a la columna de texto mas
+  de lo que aporta, asi que la marca pasa arriba del bloque, en horizontal. El
+  hairline se acuesta y hace de separador: el riel sigue existiendo como
+  sistema, cambia de orientacion.
+*/
+@media (max-width: 768px) {
+  .service-block {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 14px;
+  }
+
+  .rail {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding-top: 0;
+  }
+
+  /* Acostado no hay nada con que alinearse: el riel va arriba del panel, no a
+     su izquierda. Se repite el selector porque `.is-case > .rail` pesa mas que
+     `.rail` y sin esto se quedaria con el padding del recuadro. */
+  .service-section.is-case > .rail {
+    padding-top: 0;
+  }
+
+  /* Acostado ocupa el ancho sobrante en vez del alto del bloque. */
+  .rail-rule {
+    width: auto;
+    height: 1px;
+    min-height: 0;
+    align-self: center;
+    background: linear-gradient(to right, var(--border), transparent);
+  }
+
+  /* En horizontal ya no hay que partirla para que entre. */
+  .rail-label {
+    overflow-wrap: normal;
+  }
+
+  /* Un riel vacio —el del encabezado— solo dejaria una linea suelta. */
+  .service-page-header .rail {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .service-page {
+    padding: calc(var(--header-h) + 32px) 0 64px;
+  }
+
+  .service-section {
+    margin-top: 36px;
+  }
+
+  /* El panel del caso pierde el recuadro: a este ancho el padding lateral le
+     saca mas medida al texto de lo que suma como pieza. */
+  .service-section.is-case {
+    --case-pad: 0px;
+  }
+
+  .service-section.is-case > .block-body {
+    padding: 0;
+    background: none;
+    border: none;
+  }
+
+  .spec-sheet {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

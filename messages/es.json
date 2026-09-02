@@ -402,6 +402,24 @@
             "Le ahorra al dueño el dolor de cabeza de perseguir ventas cargadas mal — el sistema muestra el detalle de cada venta con claridad.",
             "Pago único de USD 100 por licencia, sin mensualidad."
           ],
+          "spec": [
+            {
+              "label": "Módulos",
+              "value": "8"
+            },
+            {
+              "label": "Roles",
+              "value": "3"
+            },
+            {
+              "label": "Licencia",
+              "value": "USD 100 (pago único)"
+            },
+            {
+              "label": "Desarrollo",
+              "value": "1 semana"
+            }
+          ],
           "images": [
             {
               "src": "",

@@ -49,8 +49,13 @@ export function Hero() {
               {t('cta_primary')}
             </a>
 
+            {/*
+              Mismo tratamiento que el CTA de WhatsApp de las 8 paginas de
+              servicio: la accion es la misma, asi que el boton es el mismo.
+              Antes era verde con texto blanco (1.98:1, no llegaba a AA).
+            */}
             <a
-              className="btn btn-whatsapp btn-lg"
+              className="btn btn-primary btn-lg"
               href={whatsappUrl(site.whatsapp.messages.quote)}
               target="_blank"
               rel="noopener noreferrer"
